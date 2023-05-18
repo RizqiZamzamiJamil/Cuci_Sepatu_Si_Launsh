@@ -19,6 +19,7 @@
     .section-1 .col {
         margin-top: 200px;
         margin-left: 300px;
+        position: absolute;
 
     }
 
@@ -200,7 +201,7 @@
 
     /* Section 3 */
     .section-3 {
-        margin-top: 20px;
+        margin-top: 40px;
     }
 
     .section-3 .container {
@@ -215,7 +216,7 @@
     }
 
     .section-3 .col {
-        margin-top: 20px;
+        margin-top: 40px;
         margin-left: 70px;
     }
 
@@ -230,9 +231,6 @@
 
 <section class="section-1">
     <div class="container">
-        <!--         <div class="image-bg">
-            <img src="/img/hero-bg.png" alt="" id="hero">
-        </div> -->
         <div class="image-container">
             <img src="/img/hero-bg.png" alt="" id="hero">
             <img src="/img/hero-helm.png" alt="" id="hero-helm">
@@ -290,7 +288,6 @@
 <section class="section-3">
     <div class="container">
         <img src="/img/pelayanan-bg.png" alt="" id="pelayanan">
-
         <div class="row">
             <div class="col">
                 <h1><b>Pelayanan Terbaik </b></h1>

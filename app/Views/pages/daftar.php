@@ -120,6 +120,11 @@
         font-weight: normal;
     }
 
+    .button-container{
+        display: flex;
+        justify-content: center;
+    }
+
     .submit-btn {
         width: 200px;
         border-radius: 10px;
@@ -129,9 +134,7 @@
         border: none;
         text-align: center;
         cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
     }
 
     footer {
@@ -153,61 +156,7 @@
                     <h1><b>Selamat Bergabung</b></h1>
                     <h3>>>>>>>></h2>
                 </div>
-                <!-- <div class="container-form">
-                    <form action="proses_register.php" method="POST">
-                        <div class="form-group">
-                            <label for="first-name">Nama Depan:</label>
-                            <div class="form-input-group">
-                                <input type="text" id="first-name" name="first_name" required>
-                                <input type="text" id="last-name" name="last_name" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Alamat Email:</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Nomor Telepon:</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Kata Sandi:</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm-password">Konfirmasi Kata Sandi:</label>
-                            <input type="password" id="confirm-password" name="confirm_password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Alamat:</label>
-                            <textarea id="address" name="address" rows="4" required></textarea>
-                        </div>
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="checkbox" name="agree_policy" required>
-                                Setuju dengan kebijakan kami
-                            </label>
-                        </div>
-                        <button type="submit" class="submit-btn">Daftar</button>
-                    </form> -->
-
-
-                <!-- <form>
-                    <div class="mb-3">
-                        <label for="nama-depan" class="form-label">Nama Depan</label>
-                        <input type="username" class="form-control" id="username">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form> -->
-            </div>
+    
             <!-- Baris 1 -->
             <div class="row">
                 <div class="col">
@@ -252,6 +201,7 @@
                 </div>
             </div>
             <br>
+<br>
             <!-- Baris 5 -->
             <div class="row">
                 <div class="col">
@@ -261,7 +211,9 @@
                             Setuju Kebijakan Si Launsh
                         </label>
                     </div>
-                    <button type="submit" class="submit-btn">Daftar</button>
+                    <div class="button-container">
+                        <button type="submit" style="font-weight: bold;" class="submit-btn">Daftar</button>
+                    </div>
                 </div>
             </div>
 
