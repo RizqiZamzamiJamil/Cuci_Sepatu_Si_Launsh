@@ -129,6 +129,9 @@
         border: none;
         text-align: center;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     footer {
@@ -216,7 +219,7 @@
                     <input type="text" id="nama-belakang" class="form-input2" name="nama-belakang" required>
                 </div>
             </div>
-            <br>
+
             <!-- Baris 2 -->
             <div class="row">
                 <div class="col">
@@ -228,7 +231,7 @@
                     <input type="tel" id="phone" class="form-input2" name="phone" required>
                 </div>
             </div>
-            <br>
+
             <!-- Baris 3 -->
             <div class="row">
                 <div class="col">
@@ -240,7 +243,7 @@
                     <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
                 </div>
             </div>
-            <br>
+
             <!-- Baris 4 -->
             <div class="row">
                 <div class="col">

@@ -7,6 +7,10 @@
         max-height: 40px;
     }
 
+    .navbar-nav {
+    width: 1000px;
+    }
+
     .navbar a:hover,
     .navbar .active,
     .navbar .active:focus,
@@ -20,7 +24,7 @@
 
 
     .collapse {
-        margin-left: 575px;
+        margin-left: 500px;
     }
 
     .navbar .signin,
