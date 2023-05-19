@@ -209,6 +209,8 @@
                 </form> -->
             </div>
             <!-- Baris 1 -->
+            <form action="/pages/save" method="post">
+                <?= csrf_field(); ?>
             <div class="row">
                 <div class="col">
                     <label for="nama-depan" class="form-label">Nama Depan</label>
@@ -264,6 +266,7 @@
                     <button type="submit" class="submit-btn">Daftar</button>
                 </div>
             </div>
+            </form>
 
         </div>
     </div>
