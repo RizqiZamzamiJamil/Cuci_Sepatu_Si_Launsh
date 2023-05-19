@@ -174,23 +174,23 @@
             <!-- Baris 2 -->
             <div class="row">
                 <div class="col">
-                    <label for="alamat-surel" class="form-label">Alamat surel</label>
+                    <label for="email" class="form-label">Alamat surel</label>
                     <input type="email" id="email" class="form-input2" name="email" required>
                 </div>
                 <div class="col">
-                    <label for="no-telp" class="form-label">No. Telepon</label>
-                    <input type="tel" id="phone" class="form-input2" name="phone" required>
+                    <label for="phone" class="form-label">No. Telepon</label>
+                    <input type="phone" id="phone" class="form-input2" name="phone" required>
                 </div>
             </div>
 
             <!-- Baris 3 -->
             <div class="row">
                 <div class="col">
-                    <label for="kata-sandi" class="form-label">Kata Sandi</label>
+                    <label for="password" class="form-label">Kata Sandi</label>
                     <input type="password" id="password" class="form-input2" name="password" required>
                 </div>
                 <div class="col">
-                    <label for="konfirm-kata-sandi" class="form-label">Konfirmasi Kata Sandi</label>
+                    <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
                     <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
                 </div>
             </div>

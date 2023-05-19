@@ -316,13 +316,60 @@
         margin-top: 120px;
 
     }
-    .section-5 .container{
+
+    .section-5 .container {
         width: 100%;
         height: 711px;
 
         background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 380px 0px 0px 0px;
+    }
+
+    .section-4 .cabang-item {
+        max-width: 26rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-4 .cabang-item .cabang-link {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .section-4 .cabang-item .cabang-link .cabang-hover {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity ease-in-out 0.25s;
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .section-4 .cabang-item .cabang-link .cabang-hover p{
+        font-size: 18px;
+        margin-bottom: 0;
+    }
+
+    .section-4 .cabang-item .cabang-link .cabang-hover .cabang-hover-content {
+        font-size: 1.25rem;
+        color: white;
+    }
+
+    .section-4 .cabang-item .cabang-link:hover .cabang-hover {
+        opacity: 1;
+    }
+
+    .section-4 h3 {
+        transform: rotate(270deg);
+        font-size: 50px;
+        font-weight: bold;
+        margin-top: 120px;
+        margin-left: -105px;
     }
 </style>
 
@@ -428,24 +475,85 @@
         </div>
         <div class="row">
             <div class="col">
-                <img src="/img/cabang-surabaya.png" alt="">
+                <div class="cabang-item">
+                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                        <div class="cabang-hover">
+                            <div class="cabang-hover-content">
+                                <h3>SURABAYA</h3>
+                                <div class="position-absolute bottom-0 end-0">
+                                    <p>Selengkapnya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/cabang-surabaya.png" alt="">
+                    </a>
+                </div>
             </div>
 
             <div class="col">
-                <img src="/img/cabang-malang.png" alt="">
-            </div>
+                <div class="cabang-item">
+                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                        <div class="cabang-hover">
+                            <div class="cabang-hover-content">
+                                <h3>MALANG</h3>
+                                <div class="position-absolute bottom-0 end-0">
+                                    <p>Selengkapnya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/cabang-malang.png" alt="">
+                    </a>
+                </div>
+            </div>>
 
             <div class="col">
-                <img src="/img/cabang-pasuruan.png" alt="">
-            </div>
+                <div class="cabang-item">
+                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                        <div class="cabang-hover">
+                            <div class="cabang-hover-content">
+                                <h3>PASURUAN</h3>
+                                <div class="position-absolute bottom-0 end-0">
+                                    <p>Selengkapnya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/cabang-pasuruan.png" alt="">
+                    </a>
+                </div>
+            </div>>
 
             <div class="col">
-                <img src="/img/cabang-mojokerto.png" alt="">
-            </div>
+                <div class="cabang-item">
+                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                        <div class="cabang-hover">
+                            <div class="cabang-hover-content">
+                                <h3>MOJOKERTO</h3>
+                                <div class="position-absolute bottom-0 end-0">
+                                    <p>Selengkapnya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/cabang-mojokerto.png" alt="">
+                    </a>
+                </div>
+            </div>>
 
             <div class="col">
-                <img src="/img/cabang-sidoarjo.png" alt="">
+                <div class="cabang-item">
+                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                        <div class="cabang-hover">
+                            <div class="cabang-hover-content">
+                                <h3>SIDOARJO</h3>
+                                <div class="position-absolute bottom-0 end-0">
+                                    <p>Selengkapnya</p>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="/img/cabang-sidoarjo.png" alt="">
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 </section>

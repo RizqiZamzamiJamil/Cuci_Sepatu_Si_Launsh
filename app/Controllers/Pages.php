@@ -49,6 +49,48 @@ class Pages extends BaseController
     }
     public function save()
     {
+
+        $customers = $this->customerModel->countAll();
+        $tmp = 0;
+/*         foreach ($customers as $row) {
+            $tmp++;
+        } */
+        $time = date('ym');
+        $id_customer = "C" . $time . $tmp;
+
+        if (password_verify($this->request->getVar('password'), $this->request->getVar('confirm-password'))) {
+            $this->customerModel->save([
+                'id_customer' => $id_customer,
+                'nama' => $this->request->getVar('nama-depan') . $this->request->getVar('nama-belakang'),
+                'alamat' => $this->request->getVar('alamat'),
+                'email' => $this->request->getVar('email')
+            ]);
+        }
+        return redirect()->to('/pages');
+
+        /* $customer = $this->customerModel->findAll();
+        dd($this->request->getVar('id_customer'));
+        $tmp = 0;
+        foreach ($customer as $row) {
+            $tmp++;
+        }
+        //$num = mysqli_num_rows($customer);
+        $jumlah = $tmp;
+        $time = date('ym');
+        $id_customer = "C" . $time . $tmp;
+        if (($this->request->getVar('password')) == ($this->request->getVar('confirm-password'))) {
+            $this->$customer->save([
+                'id_customer' => $id_customer,
+                'nama' => $this->request->getVar('nama-depan') . $this->request->getVar('nama-belakang'),
+                'alamat' => $this->request->getVar('alamat'),
+                'email' => $this->request->getVar('email')
+            ]);
+        }
+        return redirect()->to('/pages'); */
+
+
+
+
         /*$db = \Config\Database::connect();
         
         $id = $db->query("SELECT * FROM customer");
@@ -62,26 +104,6 @@ class Pages extends BaseController
         $jumlah = $num + 1;
         $time = date('ym');
         $id_customer = "C" . $time . $num;*/
-
-        $customer = $this->customerModel->findAll();
-        dd($this->request->getVar('id_customer'));
-        $tmp = 0;
-        foreach ($customer as $row) {
-            $tmp++;
-        }
-        //$num = mysqli_num_rows($customer);
-        $jumlah = $tmp;
-        $time = date('ym');
-        $id_customer = "C" . $time . $tmp;
-        if (($this->request->getVar('password')) == ($this->request->getVar('confirm-password'))) {
-            $this->customer->save([
-                'id_customer' => $id_customer,
-                'nama' => $this->request->getVar('nama-depan') . $this->request->getVar('nama-belakang'),
-                'alamat' => $this->request->getVar('alamat'),
-                'email' => $this->request->getVar('email')
-            ]);
-        }
-        return redirect()->to('/pages');
         /*dd($this->request->getVar('nama-depan'));*/
     }
 }
