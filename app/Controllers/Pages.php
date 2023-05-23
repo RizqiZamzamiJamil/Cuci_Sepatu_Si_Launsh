@@ -47,6 +47,12 @@ class Pages extends BaseController
         ];
         return view('pages/masuk', $data);
     }
+    public function cuci(){
+        $data = [
+            'title' => 'Cuci | SI LAUNSH'
+        ];
+        return view('pages/cuci', $data);
+    }
     public function save()
     {
 

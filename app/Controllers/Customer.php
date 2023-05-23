@@ -21,14 +21,14 @@ class Customer extends BaseController
         $nama = $this->request->getPost('nama_depan', 'nama_belakang');
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-        $phone = $this->request->getPost('phone');
+        $no_hp = $this->request->getPost('phone');
         $alamat = $this->request->getPost('alamat');
 
         // Simpan data ke database menggunakan model
         $data = [
             'nama_depan','nama_belakang' => $nama,
             'email' => $email,
-            'phone' => $phone,
+            'phone' => $no_hp,
             'password' => $password,
             'alamat' => $alamat
         ];

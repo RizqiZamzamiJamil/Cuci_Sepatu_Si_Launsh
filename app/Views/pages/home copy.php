@@ -298,3 +298,7 @@
 </section>
 
 <?= $this->endSection(); ?>
+
+<div class="cuci-sekarang">
+        <a href="<?= base_url('cuci/sekarang') ?>" class="btn-cuci-sekarang">Cuci Sekarang</a>
+    </div>

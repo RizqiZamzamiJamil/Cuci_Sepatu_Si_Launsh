@@ -8,11 +8,10 @@
     .section-1 .container {
         width: 100%;
         height: 711px;
-        margin-top: -80px;
-
+        margin-top: -10px;
         background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
-        border-radius: 380px 0px 0px 0px;
+        border-radius: 400px 0px 0px 0px;
         color: white;
     }
 
@@ -60,9 +59,8 @@
     #backg2 {
         width: 1320px;
         margin-left: -12px;
-        margin-top: 55px;
         height: 650px;
-        border-radius: 380px 0px 0px 0px;
+        border-radius: 400px 0px 0px 0px;
 
     }
 
@@ -194,9 +192,9 @@
                     <div class="button-submit">
                         <button type="submit" style="font-weight: bold;" class="submit-btn">Masuk</button>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </div>
     </div>

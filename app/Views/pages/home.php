@@ -25,27 +25,14 @@
 
     }
 
-    .section-1 .container::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('/img/hero-bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        border-radius: 0px 0px 0px 380px;
-        /* Atur opasitas sesuai kebutuhan */
-    }
+
 
 
 
 
 
     .section-1 .col {
-        margin-top: 200px;
+        margin-top: 150px;
         margin-left: 300px;
     }
 
@@ -73,6 +60,26 @@
         width: 700px;
     }
 
+    .cuci-sekarang {
+        background-color: #fff;
+        margin-left: 520px;
+        width: 250px;
+        border-radius: 3px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .cuci-sekarang h4{
+        color: #000;
+        padding: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+
     .image-container {
         position: absolute;
         width: 1320px;
@@ -94,7 +101,6 @@
         height: 100%;
         margin-left: -12px;
         border-radius: 0px 0px 0px 380px;
-
 
     }
 
@@ -301,31 +307,6 @@
         background: none;
     }
 
-    .section-4 .row {}
-
-    .section-4 .row .col {
-        margin: 0px 10px 0px;
-    }
-
-    .section-4 img {
-        width: 100%;
-    }
-
-    /* Section 5 */
-    .section-5 {
-        margin-top: 120px;
-
-    }
-
-    .section-5 .container {
-        width: 100%;
-        height: 711px;
-
-        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
-        box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
-        border-radius: 380px 0px 0px 0px;
-    }
-
     .section-4 .cabang-item {
         max-width: 26rem;
         margin-left: auto;
@@ -350,7 +331,7 @@
         margin-bottom: 0;
     }
 
-    .section-4 .cabang-item .cabang-link .cabang-hover p{
+    .section-4 .cabang-item .cabang-link .cabang-hover p {
         font-size: 18px;
         margin-bottom: 0;
     }
@@ -371,19 +352,73 @@
         margin-top: 120px;
         margin-left: -105px;
     }
+
+    .section-4 .row .col {
+        margin: 0px 10px 0px;
+    }
+
+    .section-4 img {
+        width: 100%;
+    }
+
+    /* Section 5 */
+    .section-5 {
+        margin-top: 120px;
+
+    }
+
+    .section-5 .container {
+        width: 100%;
+        height: 711px;
+
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
+        box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
+        border-radius: 380px 0px 0px 0px;
+    }
+
+    .section-5 .container .col {
+        margin: 80px 80px 0px;
+        height: 600px;
+    }
+
+    .section-5 h1 {
+        color: white;
+    }
+
+    .section-5 h6 {
+        color: white;
+    }
+
+    .section-5 .ulasan {
+        background-color: #fff;
+        height: 100%;
+        border-radius: 0px 250px 0 250px;
+        box-shadow: 30px black;
+    }
+
+    .section-5 .ulasan h3 {
+        color: black;
+        font-size: 35px;
+    }
 </style>
 
 <section class="section-1">
     <div class="container">
         <div class="image-container">
-            <!--             <img src="/img/hero-bg.png" alt="" id="hero"> -->
+            <img src="/img/hero-bg.png" alt="" id="hero">
             <img src="/img/hero-helm.png" alt="" id="hero-helm">
             <img src="/img/hero-sepatu.png" alt="" id="hero-sepatu">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
-
         <div class="row">
             <div class="col">
+                <div class="cuci-sekarang">
+                    <a href="<?= base_url('/pages/cuci/') ?>">
+                        <h4>
+                            Cuci Sekarang
+                        </h4>
+                    </a>
+                </div>
                 <h3>>>>>>></h3>
                 <h2><b>Membantu Anda Untuk Merawat Sepatu Dan Helm Anda </b></h2>
                 <p>Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan memiliki cabang di beberapa Kota Besar di Jawa Timur.</p>
@@ -560,7 +595,18 @@
 
 <section class="section-5">
     <div class="container">
-
+        <div class="row">
+            <div class="col justify-content-center">
+                <img src="/img/ulasan-logo.png" alt="">
+                <h6><b>SI LAUNSH</b></h6>
+                <h1>Tunggu Apa Lagi?</h1>
+            </div>
+            <div class="col">
+                <div class="ulasan">
+                    <h3>Apa Kata Mereka?</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
