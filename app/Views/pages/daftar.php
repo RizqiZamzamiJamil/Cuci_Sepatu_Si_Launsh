@@ -158,16 +158,16 @@
                 </div>
     
             <!-- Baris 1 -->
-            <form action="/pages/save" method="post">
+            <form action="/pages/saveDaftar" method="post">
                 <?= csrf_field(); ?>
             <div class="row">
                 <div class="col">
-                    <label for="nama-depan" class="form-label">Nama Depan</label>
-                    <input type="text" id="nama-depan" class="form-input2" name="nama-depan" required>
+                    <label for="nama" class="form-label">Nama Lengkap</label>
+                    <input type="text" id="nama" class="form-input2" name="nama" required>
                 </div>
                 <div class="col">
-                    <label for="nama-belakang" class="form-label">Nama Belakang</label>
-                    <input type="text" id="nama-belakang" class="form-input2" name="nama-belakang" required>
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" class="form-input2" name="username" required>
                 </div>
             </div>
 
