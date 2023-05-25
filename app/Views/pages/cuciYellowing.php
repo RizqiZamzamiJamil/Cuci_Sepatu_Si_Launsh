@@ -158,7 +158,7 @@
                     <img src="/img/cuci-yellow.png" alt="" id="cs">
                 </div>
                 <div class="col-8">
-                    <h2><b>Cuci Sepatu</b></h2>
+                    <h2><b>Yellowing</b></h2>
                     <hr style="width: 250px;">
                     <form>
                         <br>
@@ -175,9 +175,8 @@
                         <br>
                         <div class="row">
                             <div class="col">
-                                <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Fast Clean</button>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Deep Clean</button>
+                                <label for="tanggal" class="form-label">Pilih Tanggal Pengiriman</label>
+                                <input type="text" id="alamat" class="form-input2" name="alamat" required>
                             </div>
                             <div class="col">
                                 <label for="Alamat" class="form-label">Alamat</label>
@@ -186,10 +185,7 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col">
-                                <label for="tanggal" class="form-label">Pilih Tanggal Pengiriman</label>
-                                <input type="text" id="alamat" class="form-input2" name="alamat" required>
-                            </div>
+
                         </div>
                 </div>
                 </form>
