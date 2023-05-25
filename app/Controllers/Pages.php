@@ -57,6 +57,24 @@ class Pages extends BaseController
         ];
         return view('pages/cuci', $data);
     }
+    public function cuciSepatu(){
+        $data = [
+            'title' => 'Cuci Sepatu'
+        ];
+        return view('pages/cuciSepatu', $data);
+    }
+    public function cuciHelm(){
+        $data = [
+            'title' => 'Cuci Helm'
+        ];
+        return view('pages/cuciHelm', $data);
+    }
+    public function cuciYellowing(){
+        $data = [
+            'title' => 'Yellowing'
+        ];
+        return view('pages/cuciYellowing', $data);
+    }
     // public function saveDaftar()
     // {
     //     /*$db = \Config\Database::connect();

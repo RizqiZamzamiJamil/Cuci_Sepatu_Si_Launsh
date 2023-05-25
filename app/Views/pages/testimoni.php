@@ -9,12 +9,12 @@
         background-blend-mode: multiply;
         background-size: cover;
         background-position: center;
-        height: 680px;
+        height: 630px;
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 400px 0px 0px 0px;
         color: white;
     }
-    
+
 </style>
 
 <section class="section-1">

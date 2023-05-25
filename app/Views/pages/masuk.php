@@ -6,10 +6,12 @@
     /* Section-1 */
 
     .section-1 .container {
-        width: 100%;
-        height: 711px;
-        margin-top: -10px;
-        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/tentang-bg1.png);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center;
+        height: 630px;
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 400px 0px 0px 0px;
         color: white;
@@ -44,6 +46,7 @@
         position: absolute;
         width: 1320px;
         height: 711px;
+        overflow: hidden;
     }
 
     .image-container img {
@@ -52,84 +55,24 @@
         left: 0;
     }
 
-    .image-bg {
-        position: relative;
-    }
-
-    #backg2 {
-        width: 1320px;
-        margin-left: -12px;
-        height: 650px;
-        border-radius: 400px 0px 0px 0px;
-
-    }
-
     #hero-helm {
         width: 190px;
-        height: 245px;
-        left: 1118px;
-        margin-top: 105px;
+        /*         height: 280px; */
+        margin-top: 40px;
+        margin-left: 1120px;
     }
 
     #hero-sepatu {
-        width: 350px;
-        margin-left: -50px;
-        margin-top: 540px;
+        width: 330px;
+        margin-top: 440px;
+        margin-left: -70px;
     }
 
     #hero-bulat {
         width: 150px;
-        margin-top: 565px;
+        margin-top: 480px;
         margin-left: 1158px;
     }
-
-    /*     .login {
-        display: flex;
-        justify-content: center;
-        width: 550px;
-    }
-
-    .form-login {
-        position: relative;
-        justify-content: center;
-        width: 100%;
-        color: white;
-        margin-left: -13px;
-
-    }
-
-    .form-input2 {
-        background: none;
-        width: 100%;
-        margin-bottom: 26px;
-        height: 42px;
-        border: 3px solid white;
-        border-radius: 10px;
-    }
-
-    .checkbox-group {
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .checkbox-group label {
-        font-weight: normal;
-    }
-
-    .submit-btn {
-        width: 300px;
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 20px;
-        background-color: white;
-        color: black;
-        border: none;
-        text-align: center;
-        cursor: pointer;
-
-    } */
 
     .login-form input {
         padding: 20px;
@@ -172,7 +115,6 @@
 <section class="section-1">
     <div class="container">
         <div class="image-container">
-            <img src="/img/tentang-bg1.png" alt="gambar2" id="backg2">
             <img src="/img/hero-helm.png" alt="" id="hero-helm">
             <img src="/img/hero-sepatu.png" alt="" id="hero-sepatu">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">

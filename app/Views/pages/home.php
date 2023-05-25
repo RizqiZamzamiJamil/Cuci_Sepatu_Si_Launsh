@@ -5,34 +5,21 @@
 <style>
     /* Section-1 */
 
+
     .section-1 .container {
-        position: relative;
-        width: 100%;
-        height: 711px;
-        margin-top: -80px;
-
-        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
-
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/hero-bg.png);
+        background-blend-mode: multiply;
         background-size: cover;
-        /* Menyesuaikan ukuran gambar dengan latar belakang */
-        background-repeat: no-repeat;
-        /* Tidak mengulang gambar latar belakang */
-        background-position: center center;
-        /* Posisi gambar latar belakang di tengah-tengah */
-        box-shadow: -9px 12px 38px rgba(0, 0, 0, 0.25);
-        border-radius: 0px 0px 0px 380px;
+        background-position: center;
+        height: 630px;
+        box-shadow: -18px 10px 38px rgba(0, 0, 0, 0.5);
+        border-radius: 0px 0px 0px 400px;
         color: white;
-
     }
-
-
-
-
-
-
-
+    
     .section-1 .col {
-        margin-top: 150px;
+        margin-top: 50px;
         margin-left: 300px;
     }
 
@@ -72,7 +59,7 @@
         text-decoration: none;
     }
 
-    .cuci-sekarang h4{
+    .cuci-sekarang h4 {
         color: #000;
         padding: 20px;
         font-size: 20px;
@@ -96,30 +83,22 @@
         left: 0;
     }
 
-    #hero {
-        width: 1320px;
-        height: 100%;
-        margin-left: -12px;
-        border-radius: 0px 0px 0px 380px;
-
-    }
-
     #hero-helm {
         width: 190px;
         /*         height: 280px; */
-        margin-top: 120px;
+        margin-top: 40px;
         margin-left: 1120px;
     }
 
     #hero-sepatu {
         width: 330px;
-        margin-top: 510px;
+        margin-top: 440px;
         margin-left: 50px;
     }
 
     #hero-bulat {
         width: 150px;
-        margin-top: 565px;
+        margin-top: 480px;
         margin-left: 1158px;
     }
 
@@ -241,13 +220,14 @@
     }
 
     .section-3 .container {
-        position: relative;
-        width: 100%;
-        height: 711px;
-
-        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%);
-        box-shadow: -9px 12px 38px rgba(0, 0, 0, 0.25);
-        border-radius: 0px 380px 0px 0px;
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/pelayanan-bg.png);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center;
+        height: 630px;
+        box-shadow: -18px 10px 38px rgba(0, 0, 0, 0.5);
+        border-radius: 0px 400px 0px 0px;
         color: white;
     }
 
@@ -257,7 +237,6 @@
     }
 
     .section-3 .row.text-center {
-        margin-top: 60px;
         text-align: center !important;
         justify-content: center;
     }
@@ -279,14 +258,6 @@
     .section-3 h3 {
         color: #000;
         font-weight: bold;
-    }
-
-    #pelayanan {
-        position: absolute;
-        height: 100%;
-        width: 1320px;
-        margin-left: -12px;
-        border-radius: 0px 380px 0px 0px;
     }
 
     /* Section 4 */
@@ -405,7 +376,6 @@
 <section class="section-1">
     <div class="container">
         <div class="image-container">
-            <img src="/img/hero-bg.png" alt="" id="hero">
             <img src="/img/hero-helm.png" alt="" id="hero-helm">
             <img src="/img/hero-sepatu.png" alt="" id="hero-sepatu">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
@@ -424,6 +394,7 @@
                 <p>Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan memiliki cabang di beberapa Kota Besar di Jawa Timur.</p>
             </div>
         </div>
+        
     </div>
 </section>
 
@@ -466,7 +437,6 @@
 
 <section class="section-3">
     <div class="container">
-        <img src="/img/pelayanan-bg.png" alt="" id="pelayanan">
         <div class="row">
             <div class="col">
                 <h1><b>Pelayanan Terbaik </b></h1>

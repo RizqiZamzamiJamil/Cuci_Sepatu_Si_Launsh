@@ -3,11 +3,23 @@
 <?= $this->section('content'); ?>
 
 <style>
+    .daftar .container{
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/tentang-bg1.png);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center;
+        height: 630px;
+        box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
+        border-radius: 400px 0px 0px 0px;
+        color: white;
+    }
+
     .image-container {
         position: relative;
-        margin-top: -10px;
         width: 1320px;
-        height: 650px;
+        height: 630px;
+        overflow: hidden;
     }
 
     .image-container img {
@@ -66,23 +78,22 @@
     }
 
     #helm {
-        position: absolute;
         width: 190px;
-        height: 245px;
-        left: 1118px;
-        margin-top: 30px;
+        /*         height: 280px; */
+        margin-top: 40px;
+        margin-left: 1120px;
     }
 
     #sepatu {
-        width: 350px;
-        margin-left: -50px;
-        margin-top: 470px;
+        width: 330px;
+        margin-top: 440px;
+        margin-left: -70px;
     }
 
     #bulatan {
-        margin-top: 522px;
-        width: 120px;
-        left: 1187px;
+        width: 150px;
+        margin-top: 480px;
+        margin-left: 1150px;
     }
 
     .form-label {
@@ -138,15 +149,12 @@
     }
 
     footer {
-        margin-top: -7px;
     }
 </style>
 
 <section class="daftar">
     <div class="container">
         <div class="image-container">
-            <img src="/img/tentang-bg0.png" alt="gambar1" id="backg">
-            <img src="/img/tentang-bg1.png" alt="gambar2" id="backg2">
             <img src="/img/hero-helm.png" alt="" id="helm">
             <img src="/img/hero-sepatu.png" alt="" id="sepatu">
             <img src="/img/hero-bulat.png" alt="" id="bulatan">

@@ -2,11 +2,23 @@
 
 <?= $this->section('content'); ?>
 <style>
+    .tentang-kami .container {
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/tentang-bg1.png);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center;
+        height: 630px;
+        box-shadow: -18px 10px 38px rgba(0, 0, 0, 0.5);
+        border-radius: 400px 0px 0px 0px;
+        color: white;
+    }
+
     .image-container {
         position: relative;
-        margin-top: -10px;
         width: 1320px;
-        height: 650px;
+        height: 630px;
+        overflow: hidden;
     }
 
     .image-container img {
@@ -48,7 +60,7 @@
         font-weight: 400;
     }
 
-    .image-wrapper{
+    .image-wrapper {
         overflow: hidden;
     }
 
@@ -81,21 +93,19 @@
     }
 
     #bulatan {
-        margin-top: 522px;
+        margin-top: 500px;
         width: 120px;
         left: 1187px;
     }
 
     footer {
-        margin-top: -7px;
+
     }
 </style>
 
 <section class="tentang-kami">
     <div class="container">
         <div class="image-container">
-            <img src="/img/tentang-bg0.png" alt="gambar1" id="backg">
-            <img src="/img/tentang-bg1.png" alt="gambar2" id="backg2">
             <div class="image-wrapper">
                 <img src="/img/hero-helm.png" alt="" id="helm">
                 <img src="/img/hero-sepatu.png" alt="" id="sepatu">
