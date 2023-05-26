@@ -98,7 +98,7 @@
                 <div class="col">
                     <h3 style="margin: 80px 0px 0px 550px;">>>>>>>></h3>
                     <h1 style="margin: 0px 0px 0px 130px;"><b>HUBUNGI KAMI</b></h1>
-                    <h5 style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial</h5>
+                    <h5 style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial kami</h5>
                     <form action="">
                         <div class="row" style="margin-bottom: 8px;">
                             <div class="col">
