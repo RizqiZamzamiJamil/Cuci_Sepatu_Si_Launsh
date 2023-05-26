@@ -107,6 +107,7 @@
         height: 42px;
         border: 3px solid white;
         border-radius: 10px;
+        color: white;
     }
 
 

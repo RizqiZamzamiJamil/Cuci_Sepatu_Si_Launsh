@@ -21,7 +21,7 @@
         height: 630px;
     }
 
-    .image-container img {
+    .image-wrapper img {
         position: absolute;
         top: 0;
         left: 0;
@@ -57,9 +57,11 @@
         width: 200px;
         height: 42px;
         border: 3px solid black;
-        border-radius: 10px;
+        border-bottom: 1px solid black !important;
+        border-style: none;
     }
-    form{
+
+    form {
         background-color: white;
         margin-top: 20px;
         margin-left: 130px;
@@ -67,12 +69,22 @@
         padding: 20px 20px 0px 40px;
         border-radius: 20px;
     }
-    button{
-        background-color: #0FC598;
+
+    button {
+        background: linear-gradient(101.25deg, #0FC598 -13.7%, #BFDB38 91.83%);
         padding: 10px 30px;
         width: 200px;
         border-radius: 40px;
         margin-bottom: 10px;
+        color: white;
+        border-style: none;
+
+        border: none;
+    }
+
+    #hubungi {
+        width: 400px;
+        margin-left: 100px;
     }
 </style>
 
@@ -117,15 +129,43 @@
                                 <input type="text" id="pertanyaan" class="form-input2 w-100" name="telepon" required>
                             </div>
                         </div>
-                        <div class="row" >
+                        <div class="row">
                             <div class="col">
                                 <button>Kirim</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col">
-
+                <div class="col" style="margin-top: 100px;">
+                    <div class="row">
+                        <div class="col">
+                            <img src="/img/hubungi.png" alt="" id="hubungi">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <img style="margin: 10px 0px 0px 60px;" src="/img/hubungi-lokasi.png" alt="">
+                        </div>
+                        <div class="col-10">
+                            <p style="padding: 5px 120px 0px 0px;">Jl. Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: -10px;">
+                        <div class="col-2">
+                            <img style="margin-left: 60px;" src="/img/hubungi-pesan.png" alt="">
+                        </div>
+                        <div class="col-10">
+                            <p style="padding: 5px 120px 0px 0px;">silaunshhelmsepatu@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: -10px;">
+                        <div class="col-2">
+                            <img style="margin-left: 60px;" src="/img/hubungi-telepon.png" alt="">
+                        </div>
+                        <div class="col-10">
+                            <p style="padding: 5px 120px 0px 0px;">089680987574</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

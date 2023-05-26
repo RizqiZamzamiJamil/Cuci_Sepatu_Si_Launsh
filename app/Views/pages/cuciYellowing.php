@@ -140,6 +140,7 @@
         height: 42px;
         border: 3px solid white;
         border-radius: 10px;
+        color: white;
     }
 </style>
 <section class="section-1">
@@ -176,7 +177,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="tanggal" class="form-label">Pilih Tanggal Pengiriman</label>
-                                <input type="text" id="alamat" class="form-input2" name="alamat" required>
+                                <input type="date" id="alamat" class="form-input2" name="alamat" required>
                             </div>
                             <div class="col">
                                 <label for="Alamat" class="form-label">Alamat</label>

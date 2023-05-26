@@ -385,7 +385,7 @@
         background-color: #fff;
         height: 500px;
         border-radius: 0px 200px 0 200px;
-        box-shadow: 30px black;
+        box-shadow: -18px 24px 38px rgba(0, 0, 0, 0.25);
     }
 
     .section-5 h3 {
