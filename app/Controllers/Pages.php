@@ -51,25 +51,36 @@ class Pages extends BaseController
         ];
         return view('pages/masuk', $data);
     }
-    public function cuci(){
+    public function hubungi()
+    {
+        $data = [
+            'title' => 'Hubungi | SI LAUNSH'
+        ];
+        return view('pages/hubungi', $data);
+    }
+    public function cuci()
+    {
         $data = [
             'title' => 'Cuci | SI LAUNSH'
         ];
         return view('pages/cuci', $data);
     }
-    public function cuciSepatu(){
+    public function cuciSepatu()
+    {
         $data = [
             'title' => 'Cuci Sepatu'
         ];
         return view('pages/cuciSepatu', $data);
     }
-    public function cuciHelm(){
+    public function cuciHelm()
+    {
         $data = [
             'title' => 'Cuci Helm'
         ];
         return view('pages/cuciHelm', $data);
     }
-    public function cuciYellowing(){
+    public function cuciYellowing()
+    {
         $data = [
             'title' => 'Yellowing'
         ];
@@ -78,7 +89,7 @@ class Pages extends BaseController
     // public function saveDaftar()
     // {
     //     /*$db = \Config\Database::connect();
-        
+
     //     $id = $db->query("SELECT * FROM customer");
     //     $num = mysql_num_rows($id);
     //     $jumlah = $num + 1;
@@ -113,7 +124,8 @@ class Pages extends BaseController
     //     /*dd($this->request->getVar('nama-depan'));*/
     // }
 
-    public function saveDaftar(){
+    public function saveDaftar()
+    {
         // dd($this->request->getVar());
         $time = date('y');
 
@@ -121,7 +133,7 @@ class Pages extends BaseController
         $customerModel = new CustomerModel();
         $customer = $customerModel->countAllResults() + 1;
         $id_customer = "C" . $time . $customer;
-        
+
         $importCustomer = false;
         $importCustomer = $this->customerModel->save([
             'id_customer' => $id_customer,
@@ -145,12 +157,11 @@ class Pages extends BaseController
             'password' => $this->request->getVar('password'),
             'level' => $level
         ]);
-        
-        if($importCustomer == true && $importUser == true){
+
+        if ($importCustomer == true && $importUser == true) {
             return redirect()->to('/pages/masuk');
-        }else{
+        } else {
             return redirect()->to('/pages/daftar');
         }
-        
     }
 }

@@ -61,9 +61,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
         background: #0FC598;
     }
 
-    a.nav-link.active {
-        font-weight: bold;
+    .navbar-nav .nav-link.active {
+        color:#0FC598;
     }
+
+    .navbar-nav .signup.active, .signin.active{
+        background-color: #0FC598;
+        color: white;
+    }
+
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
@@ -79,14 +85,12 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a class="nav-link <?php echo ($current_page == 'home.php') ? 'active' : ''; ?>" aria-current="page" href="/">Beranda</a>
-                <a class="nav-link <?php echo ($current_page == 'about.php') ? 'active' : ''; ?>" aria-current="page" href="/pages/about">Tentang Kami</a>
-<!--                 <a class="nav-link" aria-current="page" href="/">Beranda</a> -->
-<!--                 <a class="nav-link" href="/pages/about">Tentang Kami</a> -->
-                <a class="nav-link active" href="/pages/testimoni">Testimoni</a>
-                <a class="nav-link active" href="#">Hubungi Kami</a>
-                <a class="signup" href="/pages/daftar">Daftar</a>
-                <a class="signin" href="/pages/masuk">Masuk</a>
+                <a class="nav-link <?php echo ($_SERVER['REQUEST_URI'] == '/' ? 'active' : ''); ?>" href="/">Beranda</a>
+                <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/about') !== false ? 'active' : ''); ?>" href="/pages/about">Tentang Kami</a>
+                <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/testimoni') !== false ? 'active' : ''); ?>" href="/pages/testimoni">Testimoni</a>
+                <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/hubungi') !== false ? 'active' : ''); ?>" href="/pages/hubungi">Hubungi Kami</a>
+                <a class="signup <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/daftar') !== false ? 'active' : ''); ?>" href="/pages/daftar">Daftar</a>
+                <a class="signin <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : ''); ?>" href="/pages/masuk">Masuk</a>
             </div>
         </div>
     </div>

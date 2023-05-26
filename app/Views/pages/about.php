@@ -98,9 +98,6 @@
         left: 1187px;
     }
 
-    footer {
-
-    }
 </style>
 
 <section class="tentang-kami">

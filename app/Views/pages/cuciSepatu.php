@@ -159,7 +159,7 @@
                 </div>
                 <div class="col-8">
                     <h2><b>Cuci Sepatu</b></h2>
-                    <hr style="width: 250px;">
+                    <hr style="width: 250px;opacity: 1;">
                     <form>
                         <br>
                         <div class="row">

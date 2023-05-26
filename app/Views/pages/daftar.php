@@ -3,7 +3,7 @@
 <?= $this->section('content'); ?>
 
 <style>
-    .daftar .container{
+    .daftar .container {
         background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
             url(/img/tentang-bg1.png);
         background-blend-mode: multiply;
@@ -131,7 +131,7 @@
         font-weight: normal;
     }
 
-    .button-container{
+    .button-container {
         display: flex;
         justify-content: center;
     }
@@ -148,9 +148,25 @@
 
     }
 
-    footer {
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .message {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
     }
 </style>
+
 
 <section class="daftar">
     <div class="container">
@@ -164,72 +180,105 @@
                     <h1><b>Selamat Bergabung</b></h1>
                     <h3>>>>>>>></h2>
                 </div>
-    
-            <!-- Baris 1 -->
-            <form action="/pages/saveDaftar" method="post">
-                <?= csrf_field(); ?>
-            <div class="row">
-                <div class="col">
-                    <label for="nama" class="form-label">Nama Lengkap</label>
-                    <input type="text" id="nama" class="form-input2" name="nama" required>
-                </div>
-                <div class="col">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" class="form-input2" name="username" required>
-                </div>
-            </div>
 
-            <!-- Baris 2 -->
-            <div class="row">
-                <div class="col">
-                    <label for="email" class="form-label">Alamat surel</label>
-                    <input type="email" id="email" class="form-input2" name="email" required>
-                </div>
-                <div class="col">
-                    <label for="phone" class="form-label">No. Telepon</label>
-                    <input type="phone" id="phone" class="form-input2" name="phone" required>
-                </div>
-            </div>
-
-            <!-- Baris 3 -->
-            <div class="row">
-                <div class="col">
-                    <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" id="password" class="form-input2" name="password" required>
-                </div>
-                <div class="col">
-                    <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
-                    <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
-                </div>
-            </div>
-
-            <!-- Baris 4 -->
-            <div class="row">
-                <div class="col">
-                    <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" id="alamat" class="form-input2" name="alamat" required>
-                </div>
-            </div>
-            <br>
-<br>
-            <!-- Baris 5 -->
-            <div class="row">
-                <div class="col">
-                    <div class="checkbox-group">
-                        <label>
-                            <input type="checkbox" name="agree_policy" required>
-                            Setuju Kebijakan Si Launsh
-                        </label>
+                <!-- Baris 1 -->
+                <form action="/pages/saveDaftar" method="post">
+                    <?= csrf_field(); ?>
+                    <div class="row">
+                        <div class="col">
+                            <label for="nama" class="form-label">Nama Lengkap</label>
+                            <input type="text" id="nama" class="form-input2" name="nama" required>
+                        </div>
+                        <div class="col">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" class="form-input2" name="username" required>
+                        </div>
                     </div>
-                    <div class="button-container">
-                        <button type="submit" style="font-weight: bold;" class="submit-btn">Daftar</button>
-                    </div>
-                </div>
-            </div>
-            </form>
 
+                    <!-- Baris 2 -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="email" class="form-label">Alamat surel</label>
+                            <input type="email" id="email" class="form-input2" name="email" required>
+                        </div>
+                        <div class="col">
+                            <label for="phone" class="form-label">No. Telepon</label>
+                            <input type="phone" id="phone" class="form-input2" name="phone" required>
+                        </div>
+                    </div>
+
+                    <!-- Baris 3 -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="password" class="form-label">Kata Sandi</label>
+                            <input type="password" id="password" class="form-input2" name="password" required>
+                        </div>
+                        <div class="col">
+                            <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
+                            <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
+                        </div>
+                    </div>
+
+                    <!-- Baris 4 -->
+                    <div class="row">
+                        <div class="col">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <input type="text" id="alamat" class="form-input2" name="alamat" required>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Baris 5 -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="agree_policy" required>
+                                    Setuju Kebijakan Si Launsh
+                                </label>
+                            </div>
+                            <div class="button-container">
+                                <button type="submit" style="font-weight: bold;" class="submit-btn">Daftar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
-    </div>
 </section>
+
+<div id="success-message" class="overlay">
+    <div class="message">
+        <h2>Pendaftaran Berhasil</h2>
+        <p>Anda telah berhasil mendaftar.</p>
+    </div>
+</div>
+<script>
+    // Mendapatkan referensi elemen success-message
+    var successMessage = document.getElementById('success-message');
+
+    // Mengatur visibilitas elemen success-message menjadi tersembunyi saat halaman dimuat
+    successMessage.style.display = 'none';
+
+    // Mengatur visibilitas elemen success-message menjadi terlihat saat proses pendaftaran berhasil dilakukan
+    function showSuccessMessage() {
+        successMessage.style.display = 'block';
+    }
+
+    // Panggil fungsi showSuccessMessage() setelah proses pendaftaran berhasil dilakukan
+    // Misalnya, setelah menekan tombol submit atau selesai melakukan permintaan AJAX
+    // Anda dapat menyesuaikan dengan logika dan implementasi pendaftaran Anda
+    // Contoh:
+    var submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', function(event) {
+        // Lakukan validasi dan proses pendaftaran di sini
+
+        // Jika pendaftaran berhasil, panggil fungsi showSuccessMessage()
+        showSuccessMessage();
+    });
+</script>
+
+
 
 <?= $this->endSection(); ?>
