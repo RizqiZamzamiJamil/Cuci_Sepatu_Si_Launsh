@@ -171,6 +171,8 @@
 
 <section class="daftar">
     <div class="container">
+        <?php  ?>
+        
         <div class="image-container">
             <img src="/img/hero-helm.png" alt="" id="helm">
             <img src="/img/hero-sepatu.png" alt="" id="sepatu">
@@ -181,6 +183,7 @@
                     <h1><b>Selamat Bergabung</b></h1>
                     <h3>>>>>>>></h2>
                 </div>
+
 
                 <!-- Baris 1 -->
                 <form action="/pages/saveDaftar" method="post">
@@ -218,6 +221,7 @@
                             <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
                             <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
                         </div>
+
                     </div>
 
                     <!-- Baris 4 -->
