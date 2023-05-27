@@ -154,6 +154,8 @@
 
 <section class="daftar">
     <div class="container">
+        <?php  ?>
+        
         <div class="image-container">
             <img src="/img/hero-helm.png" alt="" id="helm">
             <img src="/img/hero-sepatu.png" alt="" id="sepatu">
@@ -164,18 +166,22 @@
                     <h1><b>Selamat Bergabung</b></h1>
                     <h3>>>>>>>></h2>
                 </div>
+                
     
             <!-- Baris 1 -->
-            <form action="/pages/saveDaftar" method="post">
+            <form action="/Customer/saveDaftar" method="post">
                 <?= csrf_field(); ?>
             <div class="row">
                 <div class="col">
                     <label for="nama" class="form-label">Nama Lengkap</label>
-                    <input type="text" id="nama" class="form-input2" name="nama" required>
+                    <input type="text" id="nama" class="form-input2 is-invalid" name="nama">
+                    <div class="invalid-feedback">
+                            
+                    </div>
                 </div>
                 <div class="col">
                     <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" class="form-input2" name="username" required>
+                    <input type="text" id="username" class="form-input2" name="username">
                 </div>
             </div>
 
@@ -183,11 +189,11 @@
             <div class="row">
                 <div class="col">
                     <label for="email" class="form-label">Alamat surel</label>
-                    <input type="email" id="email" class="form-input2" name="email" required>
+                    <input type="email" id="email" class="form-input2" name="email">
                 </div>
                 <div class="col">
                     <label for="phone" class="form-label">No. Telepon</label>
-                    <input type="phone" id="phone" class="form-input2" name="phone" required>
+                    <input type="number" id="phone" class="form-input2" name="phone">
                 </div>
             </div>
 
@@ -195,11 +201,11 @@
             <div class="row">
                 <div class="col">
                     <label for="password" class="form-label">Kata Sandi</label>
-                    <input type="password" id="password" class="form-input2" name="password" required>
+                    <input type="password" id="password" class="form-input2" name="password">
                 </div>
                 <div class="col">
                     <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
-                    <input type="password" id="confirm-password" class="form-input2" name="confirm-password" required>
+                    <input type="password" id="confirm-password" class="form-input2" name="confirm-password">
                 </div>
             </div>
 
@@ -207,7 +213,7 @@
             <div class="row">
                 <div class="col">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <input type="text" id="alamat" class="form-input2" name="alamat" required>
+                    <input type="text" id="alamat" class="form-input2" name="alamat">
                 </div>
             </div>
             <br>
