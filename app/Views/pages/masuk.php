@@ -108,9 +108,6 @@
         justify-content: center;
     }
 
-    footer {
-        margin-top: -7px;
-    }
 </style>
 <section class="section-1">
     <div class="container">

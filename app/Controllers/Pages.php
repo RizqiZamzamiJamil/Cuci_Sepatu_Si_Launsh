@@ -52,25 +52,36 @@ class Pages extends BaseController
         ];
         return view('pages/masuk', $data);
     }
-    public function cuci(){
+    public function hubungi()
+    {
+        $data = [
+            'title' => 'Hubungi | SI LAUNSH'
+        ];
+        return view('pages/hubungi', $data);
+    }
+    public function cuci()
+    {
         $data = [
             'title' => 'Cuci | SI LAUNSH'
         ];
         return view('pages/cuci', $data);
     }
-    public function cuciSepatu(){
+    public function cuciSepatu()
+    {
         $data = [
             'title' => 'Cuci Sepatu'
         ];
         return view('pages/cuciSepatu', $data);
     }
-    public function cuciHelm(){
+    public function cuciHelm()
+    {
         $data = [
             'title' => 'Cuci Helm'
         ];
         return view('pages/cuciHelm', $data);
     }
-    public function cuciYellowing(){
+    public function cuciYellowing()
+    {
         $data = [
             'title' => 'Yellowing'
         ];
@@ -80,5 +91,6 @@ class Pages extends BaseController
     public function cekData(){
         $validation = session('validation'); 
         dd($validation);
+
     }
 }
