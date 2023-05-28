@@ -3,12 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\UserModel;
-use CodeIgniter\Controller;
+
+//use CodeIgniter\Controller;
 
 //use CodeIginter\Session\Session;
 
 class Auth extends BaseController
 {
+    protected $userModel;
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
     public function login()
     {
         return view('masuk');
@@ -19,12 +25,12 @@ class Auth extends BaseController
         $session = session();
         $userModel = new UserModel();
 
-        $username = $this->request->getPost('username');
-        $password = $this->request->getPost('password');
+        $username = $this->request->getPost('username'); // ambil nilai username
+        $password = $this->request->getPost('password'); // ambil nilai pwd
 
-        $user = $userModel->getUserByUsername($username);
+        $user = $userModel->getUserByUsername($username); // panggil fungsi untuk mencari username
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && (($password === $user['password']))) { // validasi password 
             $sessionData = [
                 'id_user' => $user['id_user'],
                 'username' => $user['username'],
@@ -32,12 +38,13 @@ class Auth extends BaseController
                 'isLoggedIn' => true
             ];
 
-            $session->set($sessionData);
+            $session->set($sessionData); // menyimpan data ke session
 
             //Redirect ke halaman sesuai level pengguna
-            if ($user['level'] === '1') {
+            if ($user['level'] == '1') {
+                //$session->start();
                 return redirect()->to('owner/dashboard');
-            } else if ($user['level'] === '2') {
+            } else if ($user['level'] == '2') {
                 return redirect()->to('admin/dashboard');
             } else {
                 return redirect()->to('customer/dashboard');

@@ -52,9 +52,9 @@ class Autoload extends AutoloadConfig
 
     // load the session library
     // if(file_exist(APPPATH . 'Config/Session.php')){
-    //     require_once APPPATH . 'Config/Session.php';
-    //     $psr4['Config'] = APPPATH . 'Config';
-    // }
+    //      require_once APPPATH . 'Config/Session.php';
+    //      $psr4['Config'] = APPPATH . 'Config';
+    //  }
 
     /**
      * -------------------------------------------------------------------

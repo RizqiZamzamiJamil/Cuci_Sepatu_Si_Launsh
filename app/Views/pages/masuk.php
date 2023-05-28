@@ -129,8 +129,10 @@
                             </div>
                         <?php endif; ?>
                         <div class="form-isi">
-                            <input type="text" class="form-control" id="username" placeholder="Masukkan Username">
-                            <input type="password" class="form-control" id="password" placeholder="Masukkan Kata Sandi">
+                            <input type="text" class="form-control" id="username" placeholder="Masukkan Username"
+                                name="username" required>
+                            <input type="password" class="form-control" id="password" placeholder="Masukkan Kata Sandi"
+                                name="password" required>
                         </div>
 
                         <div class="button-submit">

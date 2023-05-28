@@ -99,15 +99,16 @@
                     <h3 style="margin: 80px 0px 0px 550px;">>>>>>>></h3>
                     <h1 style="margin: 0px 0px 0px 130px;"><b>HUBUNGI KAMI</b></h1>
                     <h5 style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial kami</h5>
-                    <form action="">
+                    <form action="/layanankonsumen/sendQuestion" method="post">
+                        <?= csrf_field(); ?>
                         <div class="row" style="margin-bottom: 8px;">
                             <div class="col">
                                 <label for="pemesan" class="form-label">Nama Depan</label>
-                                <input type="name" id="pemesan" class="form-input2" name="pemesan" required>
+                                <input type="name" id="pemesan1" class="form-input2" name="pemesan1" required>
                             </div>
                             <div class="col">
                                 <label for="pemesan" class="form-label">Nama Belakang</label>
-                                <input type="name" id="pemesan" class="form-input2" name="pemesan" required>
+                                <input type="name" id="pemesan2" class="form-input2" name="pemesan2" required>
                             </div>
 
                         </div>
@@ -126,12 +127,12 @@
                         <div class="row" style="margin-bottom: 15px;">
                             <div class="col">
                                 <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                                <input type="text" id="pertanyaan" class="form-input2 w-100" name="telepon" required>
+                                <input type="text" id="pertanyaan" class="form-input2 w-100" name="pertanyaan" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button>Kirim</button>
+                                <button type="submit">Kirim</button>
                             </div>
                         </div>
                     </form>
@@ -147,7 +148,8 @@
                             <img style="margin: 10px 0px 0px 60px;" src="/img/hubungi-lokasi.png" alt="">
                         </div>
                         <div class="col-10">
-                            <p style="padding: 5px 120px 0px 0px;">Jl. Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65141</p>
+                            <p style="padding: 5px 120px 0px 0px;">Jl. Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru,
+                                Kota Malang, Jawa Timur 65141</p>
                         </div>
                     </div>
                     <div class="row" style="margin-top: -10px;">
