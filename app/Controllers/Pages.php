@@ -38,11 +38,11 @@ class Pages extends BaseController
     }
     public function daftar()
     {
-        session();
         $data = [
             'title' => 'Daftar | SI LAUNSH',
             'validation' => \Config\Services::validation()
         ];
+        
         return view('pages/daftar', $data);
     }
     public function masuk()
@@ -89,8 +89,114 @@ class Pages extends BaseController
     }
 
     public function cekData(){
-        $validation = session('validation'); 
+        $validation = session()->getFlashdata();
         dd($validation);
 
     }
+
+    public function saveDaftar(){
+        $data = [
+            'title' => 'Daftar | SI LAUNSH',
+        ];
+
+        if (!$this->validate([
+            'nama' => [
+                'label' => 'Nama Lengkap',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus di isi!'
+                ]
+            ],
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|is_unique[user.username]',
+                'errors' => [
+                    'required' => 'Username harus di isi!',
+                    'is_unique' => 'Username anda sudah digunakan!'
+                ]
+            ],
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus di isi!',
+                    'valid_email' => 'Email anda tidak sesuai format!'
+                ]
+            ],
+            'phone' => [
+                'label' => 'Nomor Telepon',
+                'rules' => 'required|numeric|min_length[5]|max_length[13]',
+                'errors' => [
+                    'required' => 'Nomor Telepon harus di isi!',
+                    'numeric' => 'Nomor Telepon harus berupa angka!',
+                    'min_length' => 'Nomor telepon terlalu sedikit (12 angka)',
+                    'max_length' => 'Nomor telepon terlalu banyak (12 angka)'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|greater_than_equal_to[8]',
+                'errors' => [
+                    'required' => 'Password harus di isi!',
+                    'greater_than_equal_to' => 'Password minimal 8 karakter',
+                ]
+            ],
+            'confirm_password' => [
+                'label' => 'Konfirmasi Password',
+                'rules' => 'required|greater_than_equal_to[8]|matches[password]',
+                'errors' => [
+                    'required' => 'Confirm Password harus di isi!',
+                    'greater_than_equal_to' => 'Password minimal 8 karakter',
+                    'matches' => 'Tidak sesuai dengan Password',
+
+                ]
+            ],
+            'alamat' => [
+                'label' => 'Alamat',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus di isi!'
+                ]
+            ],
+        ])){
+            $data['validation'] = $this->validator;
+            return view('pages/daftar', $data);
+        };
+
+
+        $time = date('y');
+
+        //Insert data to Customer Model
+        $customerModel = new CustomerModel();
+        $customer = $customerModel->countAllResults() + 1;
+        $id_customer = "C" . $time . $customer;
+        
+        $importCustomer = false;
+        $importCustomer = $this->customerModel->save([
+            'id_customer' => $id_customer,
+            'nama' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'email' => $this->request->getVar('email'),
+            'no_hp' => $this->request->getVar('phone'),
+        ]);
+
+        //Insert data to UserModel
+        $userModel = new UserModel();
+        $user = $userModel->countAllResults() + 1;
+        $id_user = "U" . $time . $user;
+        $level = 3;
+
+        $importUser = false;
+        $importUser = $this->userModel->save([
+            'id_user' => $id_user,
+            'id_pengguna' => $id_customer,
+            'username' => $this->request->getVar('username'),
+            'password' => $this->request->getVar('password'),
+            'level' => $level
+        ]);
+        
+        if($importCustomer == true && $importUser == true){
+            return redirect()->to('/pages/masuk');
+        } 
+     }
 }
