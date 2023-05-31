@@ -28,7 +28,7 @@ class LayananKonsumen extends BaseController
 
         $nama_depan = $this->request->getVar('pemesan1');
         $nama_belakang = $this->request->getVar('pemesan2');
-        $nama_lengkap = $nama_depan . $nama_belakang;
+        $nama_lengkap = $nama_depan . ' ' . $nama_belakang;
 
         $importLayananKonsumen = false;
         $importLayananKonsumen = $this->layananKonsumenModel->save([
@@ -39,9 +39,10 @@ class LayananKonsumen extends BaseController
             'pertanyaan' => $this->request->getVar('pertanyaan')
         ]);
 
+        dd($importLayananKonsumen);
+
         if ($importLayananKonsumen == true) {
             return redirect()->to('/pages/hubungi');
-
         }
     }
 }
