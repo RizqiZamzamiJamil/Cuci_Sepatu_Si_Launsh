@@ -42,14 +42,10 @@ class Auth extends BaseController
 
             //Redirect ke halaman sesuai level pengguna
             if ($user['level'] == '1') {
-                $session->start();
-                $_SESSION["username"] = $username;
                 return redirect()->to('owner/dashboard');
             } else if ($user['level'] == '2') {
                 return redirect()->to('admin/dashboard');
             } else {
-                $session->start();
-                $_SESSION["username"] = $username;
                 return redirect()->to('pages/cuci');
             }
         } else {

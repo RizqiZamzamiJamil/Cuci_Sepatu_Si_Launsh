@@ -148,6 +148,17 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
+
+        <?php
+        if (isset($_SESSION["username"])) {
+            $nama = $_SESSION["username"];
+            echo $nama;
+            //session_destroy();
+        } else {
+            //return redirect()->to('/Pages/masuk');
+        }
+        ?>
+
         <div class="konten">
             <div class="row d-flex">
                 <div class="col">
@@ -177,8 +188,10 @@
                         <div class="row">
                             <div class="col">
                                 <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Regular</button>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Express</button>
+                                <button type="button" class="tombol"
+                                    style="width: 160px; border: 3px solid white; color:white;">Regular</button>
+                                <button type="button" class="tombol"
+                                    style="width: 160px; border: 3px solid white; color:white;">Express</button>
                             </div>
                             <div class="col">
                                 <label for="Alamat" class="form-label">Alamat</label>

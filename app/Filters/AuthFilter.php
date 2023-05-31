@@ -13,7 +13,7 @@ class AuthFilter implements FilterInterface
         $session = session();
 
         //cek apakah sudah login
-        if (!$session->get('logged_in')) {
+        if (!$session->get('isLoggedIn')) {
             return redirect()->to('/pages/masuk');
         }
     }
