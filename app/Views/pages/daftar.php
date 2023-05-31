@@ -3,11 +3,23 @@
 <?= $this->section('content'); ?>
 
 <style>
+    .daftar .container {
+        background: linear-gradient(136.6deg, #0FC598 21.76%, #BFDB38 146.07%),
+            url(/img/tentang-bg1.png);
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-position: center;
+        height: 630px;
+        box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
+        border-radius: 400px 0px 0px 0px;
+        color: white;
+    }
+
     .image-container {
         position: relative;
-        margin-top: -10px;
         width: 1320px;
-        height: 650px;
+        height: 630px;
+        overflow: hidden;
     }
 
     .image-container img {
@@ -66,23 +78,22 @@
     }
 
     #helm {
-        position: absolute;
         width: 190px;
-        height: 245px;
-        left: 1118px;
-        margin-top: 30px;
+        /*         height: 280px; */
+        margin-top: 40px;
+        margin-left: 1120px;
     }
 
     #sepatu {
-        width: 350px;
-        margin-left: -50px;
-        margin-top: 470px;
+        width: 330px;
+        margin-top: 440px;
+        margin-left: -70px;
     }
 
     #bulatan {
-        margin-top: 522px;
-        width: 120px;
-        left: 1187px;
+        width: 150px;
+        margin-top: 480px;
+        margin-left: 1150px;
     }
 
     .form-label {
@@ -96,6 +107,7 @@
         height: 42px;
         border: 3px solid white;
         border-radius: 10px;
+        color: white;
     }
 
 
@@ -137,16 +149,31 @@
 
     }
 
-    footer {
-        margin-top: -7px;
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .message {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
     }
 </style>
 
+
 <section class="daftar">
     <div class="container">
+        <?php  ?>
+        
         <div class="image-container">
-            <img src="/img/tentang-bg0.png" alt="gambar1" id="backg">
-            <img src="/img/tentang-bg1.png" alt="gambar2" id="backg2">
             <img src="/img/hero-helm.png" alt="" id="helm">
             <img src="/img/hero-sepatu.png" alt="" id="sepatu">
             <img src="/img/hero-bulat.png" alt="" id="bulatan">
@@ -155,23 +182,33 @@
                 <div class="col">
                     <h1><b>Selamat Bergabung</b></h1>
                     <h3>>>>>>>></h2>
-                        <?= $validation->listErrors(); ?>
                 </div>
+
+                
 
 
                 <!-- Baris 1 -->
-                <form action="/pages/saveDaftar" method="post">
+                <form action="/Pages/saveDaftar" method="post">
+                    
                     <?= csrf_field(); ?>
                     <div class="row">
                         <div class="col">
                             <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" id="nama" class="form-input2" name="nama" value="<?= old('nama'); ?>"
-                                required>
+                            <input type="text" id="nama" class="form-input2 <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" name="nama" value="<?= old('nama'); ?>">
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('nama') ?>
+                                </div>
+                            </div>
                         </div>
-                        <div class=" col">
+                        <div class="col">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" id="username" class="form-input2" name="username"
-                                value="<?= old('username'); ?>" required>
+                            <input type="text" id="username" class="form-input2 <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" name="username" value="<?= old('username'); ?>">
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('username') ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -179,13 +216,21 @@
                     <div class="row">
                         <div class="col">
                             <label for="email" class="form-label">Alamat surel</label>
-                            <input type="email" id="email" class="form-input2" name="email" value="<?= old('email'); ?>"
-                                required>
+                            <input type="text" id="email" class="form-input2 <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" name="email" value="<?= old('email'); ?>">
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('email') ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="col">
                             <label for="phone" class="form-label">No. Telepon</label>
-                            <input type="number" id="phone" class="form-input2" name="phone" value="<?= old('phone'); ?>"
-                                required>
+                            <input type="phone" id="phone" class="form-input2 <?= ($validation->hasError('phone')) ? 'is-invalid' : '' ?>" name="phone" value="<?= old('phone'); ?>">
+                            <div class="invalid-feedback" >
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('phone') ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -193,22 +238,35 @@
                     <div class="row">
                         <div class="col">
                             <label for="password" class="form-label">Kata Sandi</label>
-                            <input type="password" id="password" class="form-input2" name="password"
-                                value="<?= old('password'); ?>" required>
+                            <input type="password" id="password" class="form-input2 <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" name="password" >
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('password') ?>
+                                </div>
+                            </div>
                         </div>
                         <div class="col">
-                            <label for="confirm-password" class="form-label">Konfirmasi Kata Sandi</label>
-                            <input type="password" id="confirm-password" class="form-input2" name="confirm-password"
-                                value="<?= old('confirm-password'); ?>" required>
+                            <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
+                            <input type="password" id="confirm_password" class="form-input2 <?= ($validation->hasError('confirm_password')) ? 'is-invalid' : '' ?>" name="confirm_password" >
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('confirm_password') ?>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                     <!-- Baris 4 -->
                     <div class="row">
                         <div class="col">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" class="form-input2" name="alamat"
-                                value="<?= old('alamat'); ?>" required>
+                            <input type="text" id="alamat" class="form-input2 <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" name="alamat" value="<?= old('alamat'); ?>">
+                            <div class="invalid-feedback">
+                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                    <?= $validation->getError('alamat') ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -232,5 +290,38 @@
             </div>
         </div>
 </section>
+
+<div id="success-message" class="overlay">
+    <div class="message">
+        <h2>Pendaftaran Berhasil</h2>
+        <p>Anda telah berhasil mendaftar.</p>
+    </div>
+</div>
+<script>
+    // Mendapatkan referensi elemen success-message
+    var successMessage = document.getElementById('success-message');
+
+    // Mengatur visibilitas elemen success-message menjadi tersembunyi saat halaman dimuat
+    successMessage.style.display = 'none';
+
+    // Mengatur visibilitas elemen success-message menjadi terlihat saat proses pendaftaran berhasil dilakukan
+    function showSuccessMessage() {
+        successMessage.style.display = 'block';
+    }
+
+    // Panggil fungsi showSuccessMessage() setelah proses pendaftaran berhasil dilakukan
+    // Misalnya, setelah menekan tombol submit atau selesai melakukan permintaan AJAX
+    // Anda dapat menyesuaikan dengan logika dan implementasi pendaftaran Anda
+    // Contoh:
+    var submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener('click', function(event) {
+        // Lakukan validasi dan proses pendaftaran di sini
+
+        // Jika pendaftaran berhasil, panggil fungsi showSuccessMessage()
+        showSuccessMessage();
+    });
+</script>
+
+
 
 <?= $this->endSection(); ?>
