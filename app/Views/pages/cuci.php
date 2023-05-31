@@ -72,7 +72,7 @@
         opacity: 0.8;
     }
 
-/*     .image-box::before {
+    /*     .image-box::before {
         content: "";
         position: absolute;
         top: 0;
@@ -109,6 +109,18 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
+
+        <?php
+        if (isset($_SESSION["username"])) {
+            $nama = $_SESSION["username"];
+            echo $nama;
+            session_destroy();
+        } else {
+            //return redirect()->to('/Pages/masuk');
+        }
+        ?>
+
+
         <div class="konten">
             <div class="row">
                 <div class="col" style="margin-top: 100px; margin-left: 150px;">

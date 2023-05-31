@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\LayananModel;
 
 //use CodeIgniter\Controller;
 
@@ -10,14 +10,14 @@ use App\Models\UserModel;
 
 class Auth extends BaseController
 {
-    protected $userModel;
+    protected $layananModel;
     public function __construct()
     {
-        $this->userModel = new UserModel();
+        $this->layananModel = new LayananModel();
     }
-    public function login()
+    public function index()
     {
-        return view('masuk');
+        return view('pages/cuciSepatu');
     }
 
     public function processLogin()
@@ -42,27 +42,17 @@ class Auth extends BaseController
 
             //Redirect ke halaman sesuai level pengguna
             if ($user['level'] == '1') {
-                $session->start();
-                $_SESSION["username"] = $username;
+                //$session->start();
                 return redirect()->to('owner/dashboard');
             } else if ($user['level'] == '2') {
                 return redirect()->to('admin/dashboard');
             } else {
-                $session->start();
-                $_SESSION["username"] = $username;
-                return redirect()->to('pages/cuci');
+                return redirect()->to('customer/dashboard');
             }
         } else {
             $session->setFlashdata('message', 'Username or Password is incorect!');
             return redirect()->to('pages/masuk');
         }
-    }
-
-    public function logout()
-    {
-        $session = session();
-        $session->destroy();
-        return redirect()->to('pages/masuk');
     }
 }
 ?>
