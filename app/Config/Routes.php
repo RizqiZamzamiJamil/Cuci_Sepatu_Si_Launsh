@@ -31,7 +31,10 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
-$routes->get('pages/cuci', 'Pages::cuci', ['filter' => 'pages/masuk']);
+$routes->get('pages/cuci', 'Pages::cuci', ['filter' => 'pages/masuk']); // buat rute untuk memfilter halaman
+$routes->get('pages/cuci/cuciSepatu', 'Pages::cuciSepatu', ['filter' => 'pages/masuk']);
+$routes->get('pages/cuci/cuciHelm', 'Pages::cuciHelm,', ['filter' => 'pages/masuk']);
+$routes->get('pages/cuci/cuciYellowing', 'Pages::cuciYellowing', ['filter' => 'pages/masuk']);
 /* $routes->get('/pages/daftar', 'Pages::index');
 $routes->post('/register/save', 'Register::save');
 $routes->get('/register/success', 'Register::success'); */

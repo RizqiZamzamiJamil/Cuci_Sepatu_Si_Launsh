@@ -65,7 +65,11 @@ class Filters extends BaseConfig
     public array $filters = [
         'pages/masuk' => [
             'before' => [
+                // tulis halaman-halaman yang gabisa diakses sebelum login di sini
                 'cuci/*',
+                'cuciSepatu/*',
+                'cuciHelm/*',
+                'cuciYellowing/*',
             ],
         ],
     ];
