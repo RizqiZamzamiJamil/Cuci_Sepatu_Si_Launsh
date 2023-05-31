@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
 use App\Models\LayananModel;
+use App\Models\KategoriBarangModel;
 
 //use CodeIgniter\Controller;
 
@@ -10,49 +12,24 @@ use App\Models\LayananModel;
 
 class Auth extends BaseController
 {
+    protected $userModel;
     protected $layananModel;
+    protected $kategoriBarangModel;
     public function __construct()
     {
+        $this->userModel = new UserModel();
         $this->layananModel = new LayananModel();
+        $this->kategoriBarangModel = new KategoriBarangModel();
     }
     public function index()
     {
-        return view('pages/cuciSepatu');
+        return view('pages/cuci');
     }
 
-    public function processLogin()
+    public function insertPesanan()
     {
-        $session = session();
-        $userModel = new UserModel();
+        $time = date('y');
 
-        $username = $this->request->getPost('username'); // ambil nilai username
-        $password = $this->request->getPost('password'); // ambil nilai pwd
-
-        $user = $userModel->getUserByUsername($username); // panggil fungsi untuk mencari username
-
-        if ($user && (($password === $user['password']))) { // validasi password 
-            $sessionData = [
-                'id_user' => $user['id_user'],
-                'username' => $user['username'],
-                'level' => $user['level'],
-                'isLoggedIn' => true
-            ];
-
-            $session->set($sessionData); // menyimpan data ke session
-
-            //Redirect ke halaman sesuai level pengguna
-            if ($user['level'] == '1') {
-                //$session->start();
-                return redirect()->to('owner/dashboard');
-            } else if ($user['level'] == '2') {
-                return redirect()->to('admin/dashboard');
-            } else {
-                return redirect()->to('customer/dashboard');
-            }
-        } else {
-            $session->setFlashdata('message', 'Username or Password is incorect!');
-            return redirect()->to('pages/masuk');
-        }
     }
 }
 ?>

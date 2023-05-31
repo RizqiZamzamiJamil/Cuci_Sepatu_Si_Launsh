@@ -148,6 +148,15 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
+
+        <?php
+        if (isset($_SESSION["username"])) {
+            $nama = $_SESSION["username"];
+            echo $nama;
+            //session_destroy();
+        }
+        ?>
+
         <div class="konten">
             <div class="row d-flex">
                 <div class="col">
@@ -203,17 +212,6 @@
             <h5>Layanan Lainnya</h5>
             <button type="button" class="tombol">Antar & Jemput</button>
         </div>
-
-        <?php
-        if (isset($_SESSION["username"])) {
-            $nama = $_SESSION["username"];
-            echo $nama;
-            //session_destroy();
-        } else {
-            //return redirect()->to('/Pages/masuk');
-        }
-        ?>
-
         <div class="row">
             <div class="col">
                 <div class="jenis-pembayaran">

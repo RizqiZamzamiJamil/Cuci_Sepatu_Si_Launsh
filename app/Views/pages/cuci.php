@@ -115,8 +115,6 @@
             $nama = $_SESSION["username"];
             echo $nama;
             //session_destroy();
-        } else {
-            //return redirect()->to('/Pages/masuk');
         }
         ?>
 
