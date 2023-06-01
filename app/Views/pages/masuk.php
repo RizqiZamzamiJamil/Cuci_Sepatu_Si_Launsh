@@ -107,7 +107,6 @@
         display: flex;
         justify-content: center;
     }
-
 </style>
 <section class="section-1">
     <div class="container">
@@ -118,21 +117,29 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="login-form">
-                    <div class="header">
-                        <h3>>>>>>>></h3>
-                        <h1><b>Selamat Datang Kembali</b></h1>
-                    </div>
-                    <div class="form-isi">
-                        <input type="email" class="form-control" id="email" placeholder="Masukkan Alamat Surel">
-                        <input type="password" class="form-control" id="password" placeholder="Masukkan Kata Sandi">
-                    </div>
+                <form action="/auth/processLogin" method="POST">
+                    <div class="login-form">
+                        <div class="header">
+                            <h3>>>>>>>></h3>
+                            <h1><b>Selamat Datang Kembali</b></h1>
+                        </div>
+                        <?php if (session()->getFlashdata('message')): ?>
+                            <div>
+                                <?= session()->getFlashdata('message') ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="form-isi">
+                            <input type="text" class="form-control" id="username" placeholder="Masukkan Username"
+                                name="username" required>
+                            <input type="password" class="form-control" id="password" placeholder="Masukkan Kata Sandi"
+                                name="password" required>
+                        </div>
 
-                    <div class="button-submit">
-                        <button type="submit" style="font-weight: bold;" class="submit-btn">Masuk</button>
+                        <div class="button-submit">
+                            <button type="submit" style="font-weight: bold;" class="submit-btn">Masuk</button>
+                        </div>
                     </div>
-
-                </div>
+                </form>
 
             </div>
         </div>

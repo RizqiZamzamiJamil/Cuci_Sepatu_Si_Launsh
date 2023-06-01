@@ -148,6 +148,15 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
+
+        <?php
+        if (isset($_SESSION["username"])) {
+            $nama = $_SESSION["username"];
+            echo $nama;
+            //session_destroy();
+        }
+        ?>
+
         <div class="konten">
             <div class="row d-flex">
                 <div class="col">
@@ -161,7 +170,7 @@
                 <div class="col-8">
                     <h2><b>Cuci Sepatu</b></h2>
                     <hr style="width: 250px;opacity: 1;">
-                    <form>
+                    <form action="/pemesanan/insertPesanan">
                         <br>
                         <div class="row">
                             <div class="col">
@@ -177,8 +186,10 @@
                         <div class="row">
                             <div class="col">
                                 <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Fast Clean</button>
-                                <button type="button" class="tombol" style="width: 160px; border: 3px solid white; color:white;">Deep Clean</button>
+                                <button type="button" class="tombol"
+                                    style="width: 160px; border: 3px solid white; color:white;">Fast Clean</button>
+                                <button type="button" class="tombol"
+                                    style="width: 160px; border: 3px solid white; color:white;">Deep Clean</button>
                             </div>
                             <div class="col">
                                 <label for="Alamat" class="form-label">Alamat</label>

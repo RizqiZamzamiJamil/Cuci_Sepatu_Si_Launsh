@@ -148,6 +148,15 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
+
+        <?php
+        if (isset($_SESSION["username"])) {
+            $nama = $_SESSION["username"];
+            echo $nama;
+            //session_destroy();
+        }
+        ?>
+
         <div class="konten">
             <div class="row d-flex">
                 <div class="col">

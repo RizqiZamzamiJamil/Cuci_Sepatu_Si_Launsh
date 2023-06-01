@@ -40,9 +40,21 @@ class Autoload extends AutoloadConfig
      * @phpstan-var array<string, string|list<string>>
      */
     public $psr4 = [
-        APP_NAMESPACE => APPPATH, // For custom app namespace
-        'Config'      => APPPATH . 'Config',
+        APP_NAMESPACE => APPPATH,
+        // For custom app namespace
+        'Config' => APPPATH . 'Config',
     ];
+
+    public $aliases = [
+        'Config' => \Config\Config::class,
+        'Session' => \CodeIgniter\Session\Session::class
+    ];
+
+    // load the session library
+    // if(file_exist(APPPATH . 'Config/Session.php')){
+    //      require_once APPPATH . 'Config/Session.php';
+    //      $psr4['Config'] = APPPATH . 'Config';
+    //  }
 
     /**
      * -------------------------------------------------------------------

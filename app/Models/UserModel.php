@@ -9,4 +9,8 @@ class UserModel extends Model
     protected $table = 'user';
     protected $allowedFields = ['id_user', 'id_pengguna', 'username', 'password', 'level'];
 
+    public function getUserByUsername($username)
+    {
+        return $this->where('username', $username)->first();
+    }
 }

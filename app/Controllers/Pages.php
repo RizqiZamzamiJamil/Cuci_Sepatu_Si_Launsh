@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\CustomerModel;
 use App\Models\UserModel;
 
@@ -10,12 +9,12 @@ class Pages extends BaseController
 {
     protected $customerModel;
     protected $userModel;
+
     public function __construct()
     {
         $this->customerModel = new CustomerModel();
         $this->userModel = new UserModel();
     }
-
     public function index()
     {
         $data = [
@@ -40,8 +39,10 @@ class Pages extends BaseController
     public function daftar()
     {
         $data = [
-            'title' => 'Daftar | SI LAUNSH'
+            'title' => 'Daftar | SI LAUNSH',
+            'validation' => \Config\Services::validation()
         ];
+        
         return view('pages/daftar', $data);
     }
     public function masuk()
@@ -86,54 +87,90 @@ class Pages extends BaseController
         ];
         return view('pages/cuciYellowing', $data);
     }
-    // public function saveDaftar()
-    // {
-    //     /*$db = \Config\Database::connect();
 
-    //     $id = $db->query("SELECT * FROM customer");
-    //     $num = mysql_num_rows($id);
-    //     $jumlah = $num + 1;
-    //     $time = date('ym');
-    //     $id_customer = "C" . $time . $num;
-    //     $row = ("SELECT id_customer FROM customer");
-    //     $result = mysqli_query($db, $row);
-    //     $num = mysql_num_rows($result);
-    //     $jumlah = $num + 1;
-    //     $time = date('ym');
-    //     $id_customer = "C" . $time . $num;*/
+    public function cekData(){
+        $validation = session()->getFlashdata();
+        dd($validation);
 
-    //     $customer = $this->customerModel->findAll();
-    //     dd($this->request->getVar('id_customer'));
-    //     $tmp = 0;
-    //     foreach ($customer as $row) {
-    //         $tmp++;
-    //     }
-    //     //$num = mysqli_num_rows($customer);
-    //     $jumlah = $tmp;
-    //     $time = date('ym');
-    //     $id_customer = "C" . $time . $tmp;
-    //     if (($this->request->getVar('password')) == ($this->request->getVar('confirm-password'))) {
-    //         $this->customerModel->save([
-    //             'id_customer' => $id_customer,
-    //             'nama' => $this->request->getVar('nama-depan') . $this->request->getVar('nama-belakang'),
-    //             'alamat' => $this->request->getVar('alamat'),
-    //             'email' => $this->request->getVar('email')
-    //         ]);
-    //     }
-    //     return redirect()->to('/pages');
-    //     /*dd($this->request->getVar('nama-depan'));*/
-    // }
+    }
 
-    public function saveDaftar()
-    {
-        // dd($this->request->getVar());
+    public function saveDaftar(){
+        $data = [
+            'title' => 'Daftar | SI LAUNSH',
+        ];
+
+        if (!$this->validate([
+            'nama' => [
+                'label' => 'Nama Lengkap',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Nama Lengkap harus di isi!'
+                ]
+            ],
+            'username' => [
+                'label' => 'Username',
+                'rules' => 'required|is_unique[user.username]',
+                'errors' => [
+                    'required' => 'Username harus di isi!',
+                    'is_unique' => 'Username anda sudah digunakan!'
+                ]
+            ],
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Email harus di isi!',
+                    'valid_email' => 'Email anda tidak sesuai format!'
+                ]
+            ],
+            'phone' => [
+                'label' => 'Nomor Telepon',
+                'rules' => 'required|numeric|min_length[5]|max_length[13]',
+                'errors' => [
+                    'required' => 'Nomor Telepon harus di isi!',
+                    'numeric' => 'Nomor Telepon harus berupa angka!',
+                    'min_length' => 'Nomor telepon terlalu sedikit (12 angka)',
+                    'max_length' => 'Nomor telepon terlalu banyak (12 angka)'
+                ]
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|greater_than_equal_to[8]',
+                'errors' => [
+                    'required' => 'Password harus di isi!',
+                    'greater_than_equal_to' => 'Password minimal 8 karakter',
+                ]
+            ],
+            'confirm_password' => [
+                'label' => 'Konfirmasi Password',
+                'rules' => 'required|greater_than_equal_to[8]|matches[password]',
+                'errors' => [
+                    'required' => 'Confirm Password harus di isi!',
+                    'greater_than_equal_to' => 'Password minimal 8 karakter',
+                    'matches' => 'Tidak sesuai dengan Password',
+
+                ]
+            ],
+            'alamat' => [
+                'label' => 'Alamat',
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Alamat harus di isi!'
+                ]
+            ],
+        ])){
+            $data['validation'] = $this->validator;
+            return view('pages/daftar', $data);
+        };
+
+
         $time = date('y');
 
         //Insert data to Customer Model
         $customerModel = new CustomerModel();
         $customer = $customerModel->countAllResults() + 1;
         $id_customer = "C" . $time . $customer;
-
+        
         $importCustomer = false;
         $importCustomer = $this->customerModel->save([
             'id_customer' => $id_customer,
@@ -157,11 +194,9 @@ class Pages extends BaseController
             'password' => $this->request->getVar('password'),
             'level' => $level
         ]);
-
-        if ($importCustomer == true && $importUser == true) {
+        
+        if($importCustomer == true && $importUser == true){
             return redirect()->to('/pages/masuk');
-        } else {
-            return redirect()->to('/pages/daftar');
-        }
-    }
+        } 
+     }
 }

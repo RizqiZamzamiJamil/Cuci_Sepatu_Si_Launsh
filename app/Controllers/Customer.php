@@ -3,42 +3,20 @@
 namespace App\Controllers;
 
 use App\Models\CustomerModel;
+use App\Models\UserModel;
 
 class Customer extends BaseController
 {
+    protected $customerModel;
+    protected $userModel;
+    public function __construct()
+    {
+        $this->customerModel = new CustomerModel();
+        $this->userModel = new UserModel();
+    }
     // Method untuk menampilkan halaman form pendaftaran akun
     public function index()
     {
         return view('pages/daftar');
     }
-
-    // Method untuk memproses data pendaftaran akun
-    public function save()
-    {
-        $accountModel = new CustomerModel();
-
-        // Ambil data dari form pendaftaran
-        $nama = $this->request->getPost('nama_depan', 'nama_belakang');
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-        $no_hp = $this->request->getPost('phone');
-        $alamat = $this->request->getPost('alamat');
-
-        // Simpan data ke database menggunakan model
-        $data = [
-            'nama_depan','nama_belakang' => $nama,
-            'email' => $email,
-            'phone' => $no_hp,
-            'password' => $password,
-            'alamat' => $alamat
-        ];
-        $accountModel->saveAccount($data);
-
-        // Redirect ke halaman sukses atau halaman lain yang diinginkan
-        return redirect()->to('/pages/home');
-    }
-    /*     public function index()
-    {
-        return view('welcome_message');
-    } */
 }
