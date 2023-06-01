@@ -38,7 +38,7 @@
     footer {
         margin-top: -7px;
     }
-
+    
     .konten {
         position: relative;
         z-index: 2;
