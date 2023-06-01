@@ -18,5 +18,21 @@ footer {
   .footer-links a {
     margin-right: 10px;
     color: #333333;
-    text-decoration: none;
+    text-decoration: none;  
+  }
+
+  /* Tablet */
+  @media (max-width:768px){
+    html{
+      font-size: 62.5%;
+    }
+  }
+
+
+
+  /* Handphone */
+  @media (max-width:450px){
+    html{
+      font-size: 55%;
+    }
   }

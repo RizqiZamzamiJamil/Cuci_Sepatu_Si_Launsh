@@ -35,10 +35,6 @@
         margin-left: 1158px;
     }
 
-    footer {
-        margin-top: -7px;
-    }
-
     .konten {
         position: relative;
         z-index: 2;

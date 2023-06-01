@@ -74,7 +74,7 @@ $level = $_SESSION["level"];
         width: 760px;
     }
 
-    button {
+    .section-1 button {
         display: inline-block;
         padding: 5px 15px;
         margin: 5px;
@@ -146,13 +146,10 @@ $level = $_SESSION["level"];
                 </div>
 
                 <div class="row" style="padding: 26px; height:415px;">
-                    <div class="col-3"
-                        style="background:#f3f3f3; margin-right:20px; border-radius: 0px 40px 40px 40px;">
+                    <div class="col-3" style="background: #F3F3F3; margin-right:20px; border-radius: 0px 40px 40px 40px;">
                         <div class="row" style="margin-top: 20px;">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;"
-                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-proses.png" alt="">
                                     Proses
                                 </button>
@@ -165,20 +162,18 @@ $level = $_SESSION["level"];
                         </div>
                         <div class="row" style="margin-top: 100px;">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;"
-                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-akun.png" alt=""> Akun
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ubah Akun</a></li>
-                                    <li><a class="dropdown-item" href="#">Hapus Akun</a></li>
-                                    <li><a class="dropdown-item" href="<?= site_url('auth/logout') ?>">Keluar</a></li>
+                                    <li><a id="ubah" class="dropdown-item" href="#">Ubah Akun</a></li>
+                                    <li><a id="hapus" class="dropdown-item" href="#">Hapus Akun</a></li>
+                                    <li><a onclick="keluar()" class="dropdown-item" href="#">Keluar</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col" style="background: #f3f3f3; border-radius: 40px 0px 40px 40px;">
+                    <div class="col" style="background: #F3F3F3; border-radius: 40px 0px 40px 40px;">
                         <form action="" style="margin: 20px;">
                             <h6 style="margin-bottom: -3px;">Nomor Customer</h6>
                             <?php echo '<h2>' . $id_pengguna . '</h2>';
@@ -190,7 +185,7 @@ $level = $_SESSION["level"];
                                     <label for="email">Alamat Surel</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="email" id="email" name="email" value="<?php echo $email; ?>">
+                                    <input type="email" id="email" name="email" value="<?php echo $email; ?>" disabled>
                                 </div>
 
                             </div>
@@ -200,8 +195,7 @@ $level = $_SESSION["level"];
                                     <label for="password">Kata Sandi</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="password" id="password" name="password"
-                                        value="<?php echo $password; ?>">
+                                    <input type="password" id="password" name="password" value="<?php echo $password; ?>" disabled>
                                 </div>
                             </div>
 
@@ -210,7 +204,7 @@ $level = $_SESSION["level"];
                                     <label for="alamat">Alamat</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>">
+                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>" disabled>
                                 </div>
                             </div>
 
@@ -219,7 +213,7 @@ $level = $_SESSION["level"];
                                     <label for="email">Nomor Telepon</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="phone" id="phone" name="phone" value="<?php echo $no_hp; ?>">
+                                    <input type="phone" id="phone" name="phone" value="<?php echo $no_hp; ?>" disabled>
                                 </div>
                             </div>
 
@@ -228,7 +222,7 @@ $level = $_SESSION["level"];
                                     <label for="ttl">Tanggal Lahir</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="date" id="ttl" name="ttl" value="<?php echo $tgl_lahir; ?>">
+                                    <input type="date" id="ttl" name="ttl" value="<?php echo $tgl_lahir; ?>" disabled>
                                 </div>
                             </div>
 
@@ -248,19 +242,6 @@ $level = $_SESSION["level"];
                                 <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
                             </form> -->
 
-                            <!-- <script>
-                                // Ambil elemen input dan textarea yang akan diubah status readonly-nya
-                                const inputFields = document.querySelectorAll('input[readonly], textarea[readonly]');
-
-                                // Tambahkan event listener pada tombol edit untuk mengubah status readonly
-                                document.getElementById("editBtn").addEventListener("click", function() {
-                                    // Loop melalui setiap elemen input dan textarea
-                                    inputFields.forEach(function(field) {
-                                        field.removeAttribute("readonly");
-                                    });
-                                });
-                            </script> -->
-
                         </form>
                     </div>
                 </div>
@@ -269,4 +250,113 @@ $level = $_SESSION["level"];
 
     </div>
 </section>
+
+<!-- Konfirmasi Pop Up -->
+<div id="confirmationContainer" class="confirmation-container">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            animation: fade-in 0.6s forwards;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            margin: 270px auto;
+            border-radius: 20px;
+        }
+
+        .button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .cancel,
+        .confirm {
+            padding: 10px 20px;
+            margin-left: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            width: 100px;
+        }
+
+        .confirm {
+            background-color: red;
+            transition: background-color 0.3s ease;
+        }
+
+        .cancel {
+            background-color: blue;
+            transition: background-color 0.3s ease;
+        }
+
+        .confirm:hover {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+
+        .cancel:hover {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+    </style>
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h2>Yakin mau keluar?</h2>
+            <div class="button-container">
+                <button class="cancel" onclick="enggak()">Enggak</button>
+                <button class="confirm" onclick="iya()">Iya</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // mengubah input disabled menjadi enabled
+    const inputFields = document.querySelectorAll('input[disabled]');
+    document.getElementById("ubah").addEventListener("click", function() {
+        // Loop melalui setiap elemen input dan textarea
+        inputFields.forEach(function(field) {
+            field.removeAttribute("disabled");
+        });
+    });
+
+
+    // konfimasi keluar
+    function keluar() {
+        document.getElementById("confirmation-modal").style.display = "block";
+    }
+
+    function enggak() {
+        document.getElementById("confirmation-modal").style.display = "none";
+    }
+
+    function iya() {
+        window.location.href = "<?= site_url('auth/logout') ?>";
+    }
+</script>
 <?= $this->endSection(); ?>
