@@ -70,6 +70,7 @@ class Filters extends BaseConfig
                 'cuciSepatu/*',
                 'cuciHelm/*',
                 'cuciYellowing/*',
+                'profil/*'
             ],
         ],
     ];

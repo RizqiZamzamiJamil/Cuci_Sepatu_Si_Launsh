@@ -35,6 +35,7 @@ $routes->get('pages/cuci', 'Pages::cuci', ['filter' => 'pages/masuk']); // buat 
 $routes->get('pages/cuci/cuciSepatu', 'Pages::cuciSepatu', ['filter' => 'pages/masuk']);
 $routes->get('pages/cuci/cuciHelm', 'Pages::cuciHelm,', ['filter' => 'pages/masuk']);
 $routes->get('pages/cuci/cuciYellowing', 'Pages::cuciYellowing', ['filter' => 'pages/masuk']);
+$routes->get('pages/profil', 'Pages::profil', ['filter' => 'pages/masuk']);
 /* $routes->get('/pages/daftar', 'Pages::index');
 $routes->post('/register/save', 'Register::save');
 $routes->get('/register/success', 'Register::success'); */
