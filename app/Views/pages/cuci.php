@@ -38,7 +38,7 @@
     footer {
         margin-top: -7px;
     }
-    
+
     .konten {
         position: relative;
         z-index: 2;
@@ -47,9 +47,6 @@
     .konten .row-text {
         margin-left: 150px;
     }
-
-
-
 
     .image-row {
         display: flex;
@@ -109,15 +106,6 @@
         <div class="image-container">
             <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
-
-        <?php
-        if (isset($_SESSION["username"])) {
-            $nama = $_SESSION["username"];
-            echo $nama;
-            //session_destroy();
-        }
-        ?>
-
 
         <div class="konten">
             <div class="row">

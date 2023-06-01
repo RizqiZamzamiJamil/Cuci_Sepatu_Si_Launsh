@@ -62,14 +62,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
     }
 
     .navbar-nav .nav-link.active {
-        color:#0FC598;
+        color: #0FC598;
     }
 
-    .navbar-nav .signup.active, .signin.active{
+    .navbar-nav .signup.active,
+    .signin.active {
         background-color: #0FC598;
         color: white;
     }
-
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
@@ -89,8 +89,21 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/about') !== false ? 'active' : ''); ?>" href="/pages/about">Tentang Kami</a>
                 <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/testimoni') !== false ? 'active' : ''); ?>" href="/pages/testimoni">Testimoni</a>
                 <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/hubungi') !== false ? 'active' : ''); ?>" href="/pages/hubungi">Hubungi Kami</a>
-                <a class="signup <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/daftar') !== false ? 'active' : ''); ?>" href="/pages/daftar">Daftar</a>
-                <a class="signin <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : ''); ?>" href="/pages/masuk">Masuk</a>
+                <?php if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+
+                    // Tampilkan tombol logo profil dan nama username
+                    echo '<a style="margin-left:60px;" class="nav-link" href="/pages/profil"> <b>'.$username.'</b></a>';
+                    echo '<a id="icon-profil" href="/pages/profil"><img src="/img/profil.png" alt="Profile"></a>';
+
+                } else {
+                    // Tampilkan tombol daftar dan masuk
+                    echo '<a class="signup ' . (strpos($_SERVER['REQUEST_URI'], '/pages/daftar') !== false ? 'active' : '') . '" href="/pages/daftar">Daftar</a>';
+                    echo '<a class="signin ' . (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : '') . '" href="/pages/masuk">Masuk</a>';
+                }
+                ?>
+                <!-- <a class="signup <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/daftar') !== false ? 'active' : ''); ?>" href="/pages/daftar">Daftar</a>
+                <a class="signin <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : ''); ?>" href="/pages/masuk">Masuk</a> -->
             </div>
         </div>
     </div>

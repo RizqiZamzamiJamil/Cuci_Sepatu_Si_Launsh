@@ -33,6 +33,7 @@ class Auth extends BaseController
         if ($user && (($password === $user['password']))) { // validasi password 
             $sessionData = [
                 'id_user' => $user['id_user'],
+                'id_pengguna' => $user['id_pengguna'],
                 'username' => $user['username'],
                 'level' => $user['level'],
                 'isLoggedIn' => true
@@ -46,7 +47,7 @@ class Auth extends BaseController
             } else if ($user['level'] == '2') {
                 return redirect()->to('admin/dashboard');
             } else {
-                return redirect()->to('pages/cuci');
+                return redirect()->to('/');
             }
         } else {
             $session->setFlashdata('message', 'Username or Password is incorect!');
@@ -61,4 +62,3 @@ class Auth extends BaseController
         return redirect()->to('pages/masuk');
     }
 }
-?>

@@ -88,6 +88,13 @@ class Pages extends BaseController
         return view('pages/cuciYellowing', $data);
     }
 
+    public function profil(){
+        $data = [
+            'title' => 'Profil | SI LAUNSH'
+        ];
+        return view('pages/profil', $data);
+    }
+
     public function cekData(){
         $validation = session()->getFlashdata();
         dd($validation);

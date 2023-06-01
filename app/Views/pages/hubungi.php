@@ -78,7 +78,6 @@
         margin-bottom: 10px;
         color: white;
         border-style: none;
-
         border: none;
     }
 

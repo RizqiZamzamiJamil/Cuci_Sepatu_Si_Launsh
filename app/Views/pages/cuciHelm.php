@@ -117,7 +117,7 @@
         box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
     }
 
-    span {
+    .total span  {
         display: inline-block;
         padding: 10px 20px;
         margin: 5px;

@@ -1,5 +1,5 @@
 <?= $this->extend('layout/template'); ?>
-
+<?php $session = session(); ?>
 <?= $this->section('content'); ?>
 
 <style>
@@ -60,6 +60,7 @@
     .cuci-sekarang:hover {
         transform: scale(1.1);
     }
+
     a {
         text-decoration: none;
     }
@@ -357,7 +358,7 @@
     }
 
     .section-5 .container .col {
-        
+
         height: 600px;
     }
 
@@ -404,13 +405,15 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="cuci-sekarang">
-                    <a href="<?= base_url('/pages/cuci/') ?>">
-                        <h4>
-                            Cuci Sekarang
-                        </h4>
-                    </a>
-                </div>
+                <?php if (isset($_SESSION['isLoggedIn'])) { ?>
+                    <div class="cuci-sekarang">
+                        <a href="<?= base_url('/pages/cuci/') ?>">
+                            <h4>
+                                Cuci Sekarang
+                            </h4>
+                        </a>
+                    </div>
+                <?php } ?>
                 <h3>>>>>>></h3>
                 <h2><b>Membantu Anda Untuk Merawat Sepatu Dan Helm Anda </b></h2>
                 <p>Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan memiliki cabang di beberapa Kota Besar di Jawa Timur.</p>

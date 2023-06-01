@@ -13,6 +13,7 @@
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 400px 0px 0px 0px;
         color: white;
+        overflow: hidden;
     }
 
     .image-container {

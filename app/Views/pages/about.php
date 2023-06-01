@@ -12,13 +12,13 @@
         box-shadow: -18px 10px 38px rgba(0, 0, 0, 0.5);
         border-radius: 400px 0px 0px 0px;
         color: white;
+        overflow: hidden;
     }
 
     .image-container {
         position: relative;
         width: 1320px;
         height: 630px;
-        overflow: hidden;
     }
 
     .image-container img {
