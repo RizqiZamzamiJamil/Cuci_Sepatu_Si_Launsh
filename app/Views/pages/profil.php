@@ -5,6 +5,7 @@
 <?php
 $username = $_SESSION["username"];
 $id_user = $_SESSION["id_user"];
+$id_pengguna = $_SESSION["id_pengguna"];
 $level = $_SESSION["level"];
 ?>
 
@@ -128,27 +129,32 @@ $level = $_SESSION["level"];
             <div class="profilku">
                 <div class="row">
                     <div class="col-2">
-                        <img src="/img/profil-img.png" alt="" style="width: 120px; border-radius:50%;">
+                        <img src="/img/<?php echo $foto; ?>" alt="" style="width: 120px; border-radius:50%;">
                     </div>
                     <div class="col-10" style="margin: 10px 10px 0px 0px;">
                         <div class="row">
                             <div class="col-9" style="padding-left: 20px; margin: 15px 0px;">
-                                <h2 style="margin-bottom: -5px;"><b>Putri Rahayu</b></h2>
-                                <h3>Perempuan</h3>
-                            </div>
-                            <div class="col">
-                                <button style="margin: 30px 0px;">Edit <img style="width: 15px; margin:3px;" src="/img/profil-pen.png" alt=""></button>
+                                <h2 style="margin-bottom: -5px;"><b>
+                                        <?php echo $nama; ?>
+                                    </b></h2>
+                                <h3>
+                                    <?php echo $jk; ?>
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row" style="padding: 26px; height:415px;">
-                    <div class="col-3" style="background:#f3f3f3; margin-right:20px; border-radius: 0px 40px 40px 40px;">
+                    <div class="col-3"
+                        style="background:#f3f3f3; margin-right:20px; border-radius: 0px 40px 40px 40px;">
                         <div class="row" style="margin-top: 20px;">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img style="width: 20px; margin-right:5px;" src="/img/profil-proses.png" alt=""> Proses
+                                <button style="background: none; border:none; color:black;"
+                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img style="width: 20px; margin-right:5px;" src="/img/profil-proses.png" alt="">
+                                    Proses
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Menunggu</a></li>
@@ -159,7 +165,9 @@ $level = $_SESSION["level"];
                         </div>
                         <div class="row" style="margin-top: 100px;">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button style="background: none; border:none; color:black;"
+                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-akun.png" alt=""> Akun
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
@@ -172,8 +180,8 @@ $level = $_SESSION["level"];
                     </div>
                     <div class="col" style="background: #f3f3f3; border-radius: 40px 0px 40px 40px;">
                         <form action="" style="margin: 20px;">
-                            <h6 style="margin-bottom: -3px;">Nomor Pengguna</h6>
-                            <?php echo '<h2>' . $id_user . '</h2>';
+                            <h6 style="margin-bottom: -3px;">Nomor Customer</h6>
+                            <?php echo '<h2>' . $id_pengguna . '</h2>';
                             ?>
 
                             <!-- Form tampilan data akun -->
@@ -182,7 +190,7 @@ $level = $_SESSION["level"];
                                     <label for="email">Alamat Surel</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="email" id="email" name="email">
+                                    <input type="email" id="email" name="email" value="<?php echo $email; ?>">
                                 </div>
 
                             </div>
@@ -192,7 +200,8 @@ $level = $_SESSION["level"];
                                     <label for="password">Kata Sandi</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="password" id="password" name="password">
+                                    <input type="password" id="password" name="password"
+                                        value="<?php echo $password; ?>">
                                 </div>
                             </div>
 
@@ -201,7 +210,7 @@ $level = $_SESSION["level"];
                                     <label for="alamat">Alamat</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="text" id="alamat" name="alamat">
+                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>">
                                 </div>
                             </div>
 
@@ -210,7 +219,7 @@ $level = $_SESSION["level"];
                                     <label for="email">Nomor Telepon</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="phone" id="phone" name="phone">
+                                    <input type="phone" id="phone" name="phone" value="<?php echo $no_hp; ?>">
                                 </div>
                             </div>
 
@@ -219,7 +228,7 @@ $level = $_SESSION["level"];
                                     <label for="ttl">Tanggal Lahir</label>
                                 </div>
                                 <div class="form-column">
-                                    <input type="date" id="ttl" name="ttl">
+                                    <input type="date" id="ttl" name="ttl" value="<?php echo $tgl_lahir; ?>">
                                 </div>
                             </div>
 

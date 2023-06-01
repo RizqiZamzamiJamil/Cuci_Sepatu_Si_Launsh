@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\CustomerModel;
 use App\Models\UserModel;
 
@@ -42,7 +43,7 @@ class Pages extends BaseController
             'title' => 'Daftar | SI LAUNSH',
             'validation' => \Config\Services::validation()
         ];
-        
+
         return view('pages/daftar', $data);
     }
     public function masuk()
@@ -88,87 +89,125 @@ class Pages extends BaseController
         return view('pages/cuciYellowing', $data);
     }
 
-    public function profil(){
+    public function profil()
+    {
+        $username = $_SESSION['username']; // ambil username dari session
+        $id_pengguna = $_SESSION['id_pengguna']; //ambil id_pengguna dari session
+
+        $userModel = new UserModel(); // buat objek
+        $customerModel = new CustomerModel(); // buat objek
+
+        $user = $userModel->getUserByUsername($username); //panggil fungsi untuk mencari user
+        $password = $user['password'];
+
+        $cust = $customerModel->getCustomerByIdPengguna($id_pengguna); // panggil fungsi untuk mencari customer
+        $nama = $cust['nama'];
+        $alamat = $cust['alamat'];
+        $email = $cust['email'];
+        $tgl_lahir = $cust['tgl_lahir'];
+        $no_hp = $cust['no_hp'];
+        $jk = $cust['jk'];
+        if ($jk == 'L') {
+            $jk = 'Laki-laki';
+        } else {
+            $jk = 'Perempuan';
+        }
+        $foto = $cust['foto'];
+
         $data = [
-            'title' => 'Profil | SI LAUNSH'
+            'title' => 'Profil | SI LAUNSH',
+            'password' => $password,
+            'nama' => $nama,
+            'alamat' => $alamat,
+            'email' => $email,
+            'tgl_lahir' => $tgl_lahir,
+            'no_hp' => $no_hp,
+            'jk' => $jk,
+            'foto' => $foto
         ];
+
         return view('pages/profil', $data);
     }
 
-    public function cekData(){
+    public function cekData()
+    {
         $validation = session()->getFlashdata();
         dd($validation);
 
     }
 
-    public function saveDaftar(){
+    public function saveDaftar()
+    {
         $data = [
             'title' => 'Daftar | SI LAUNSH',
         ];
 
-        if (!$this->validate([
-            'nama' => [
-                'label' => 'Nama Lengkap',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Nama Lengkap harus di isi!'
-                ]
-            ],
-            'username' => [
-                'label' => 'Username',
-                'rules' => 'required|is_unique[user.username]',
-                'errors' => [
-                    'required' => 'Username harus di isi!',
-                    'is_unique' => 'Username anda sudah digunakan!'
-                ]
-            ],
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Email harus di isi!',
-                    'valid_email' => 'Email anda tidak sesuai format!'
-                ]
-            ],
-            'phone' => [
-                'label' => 'Nomor Telepon',
-                'rules' => 'required|numeric|min_length[5]|max_length[13]',
-                'errors' => [
-                    'required' => 'Nomor Telepon harus di isi!',
-                    'numeric' => 'Nomor Telepon harus berupa angka!',
-                    'min_length' => 'Nomor telepon terlalu sedikit (12 angka)',
-                    'max_length' => 'Nomor telepon terlalu banyak (12 angka)'
-                ]
-            ],
-            'password' => [
-                'label' => 'Password',
-                'rules' => 'required|greater_than_equal_to[8]',
-                'errors' => [
-                    'required' => 'Password harus di isi!',
-                    'greater_than_equal_to' => 'Password minimal 8 karakter',
-                ]
-            ],
-            'confirm_password' => [
-                'label' => 'Konfirmasi Password',
-                'rules' => 'required|greater_than_equal_to[8]|matches[password]',
-                'errors' => [
-                    'required' => 'Confirm Password harus di isi!',
-                    'greater_than_equal_to' => 'Password minimal 8 karakter',
-                    'matches' => 'Tidak sesuai dengan Password',
+        if (
+            !$this->validate([
+                'nama' => [
+                    'label' => 'Nama Lengkap',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Nama Lengkap harus di isi!'
+                    ]
+                ],
+                'username' => [
+                    'label' => 'Username',
+                    'rules' => 'required|is_unique[user.username]',
+                    'errors' => [
+                        'required' => 'Username harus di isi!',
+                        'is_unique' => 'Username anda sudah digunakan!'
+                    ]
+                ],
+                'email' => [
+                    'label' => 'Email',
+                    'rules' => 'required|valid_email',
+                    'errors' => [
+                        'required' => 'Email harus di isi!',
+                        'valid_email' => 'Email anda tidak sesuai format!'
+                    ]
+                ],
+                'phone' => [
+                    'label' => 'Nomor Telepon',
+                    'rules' => 'required|numeric|min_length[5]|max_length[13]',
+                    'errors' => [
+                        'required' => 'Nomor Telepon harus di isi!',
+                        'numeric' => 'Nomor Telepon harus berupa angka!',
+                        'min_length' => 'Nomor telepon terlalu sedikit (12 angka)',
+                        'max_length' => 'Nomor telepon terlalu banyak (12 angka)'
+                    ]
+                ],
+                'password' => [
+                    'label' => 'Password',
+                    'rules' => 'required|greater_than_equal_to[8]',
+                    'errors' => [
+                        'required' => 'Password harus di isi!',
+                        'greater_than_equal_to' => 'Password minimal 8 karakter',
+                    ]
+                ],
+                'confirm_password' => [
+                    'label' => 'Konfirmasi Password',
+                    'rules' => 'required|greater_than_equal_to[8]|matches[password]',
+                    'errors' => [
+                        'required' => 'Confirm Password harus di isi!',
+                        'greater_than_equal_to' => 'Password minimal 8 karakter',
+                        'matches' => 'Tidak sesuai dengan Password',
 
-                ]
-            ],
-            'alamat' => [
-                'label' => 'Alamat',
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Alamat harus di isi!'
-                ]
-            ],
-        ])){
+                    ]
+                ],
+                'alamat' => [
+                    'label' => 'Alamat',
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Alamat harus di isi!'
+                    ]
+                ],
+            ])
+        ) {
             $data['validation'] = $this->validator;
             return view('pages/daftar', $data);
-        };
+        }
+        ;
 
 
         $time = date('y');
@@ -177,7 +216,7 @@ class Pages extends BaseController
         $customerModel = new CustomerModel();
         $customer = $customerModel->countAllResults() + 1;
         $id_customer = "C" . $time . $customer;
-        
+
         $importCustomer = false;
         $importCustomer = $this->customerModel->save([
             'id_customer' => $id_customer,
@@ -201,9 +240,9 @@ class Pages extends BaseController
             'password' => $this->request->getVar('password'),
             'level' => $level
         ]);
-        
-        if($importCustomer == true && $importUser == true){
+
+        if ($importCustomer == true && $importUser == true) {
             return redirect()->to('/pages/masuk');
-        } 
-     }
+        }
+    }
 }
