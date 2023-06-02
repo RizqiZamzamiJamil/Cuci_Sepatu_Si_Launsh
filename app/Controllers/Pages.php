@@ -179,18 +179,18 @@ class Pages extends BaseController
                 ],
                 'password' => [
                     'label' => 'Password',
-                    'rules' => 'required|greater_than_equal_to[8]',
+                    'rules' => 'required|min_length[8]',
                     'errors' => [
                         'required' => 'Password harus di isi!',
-                        'greater_than_equal_to' => 'Password minimal 8 karakter',
+                        'min_length' => 'Password minimal 8 karakter',
                     ]
                 ],
                 'confirm_password' => [
                     'label' => 'Konfirmasi Password',
-                    'rules' => 'required|greater_than_equal_to[8]|matches[password]',
+                    'rules' => 'required|min_length[8]|matches[password]',
                     'errors' => [
                         'required' => 'Confirm Password harus di isi!',
-                        'greater_than_equal_to' => 'Password minimal 8 karakter',
+                        'min_length' => 'Password minimal 8 karakter',
                         'matches' => 'Tidak sesuai dengan Password',
 
                     ]
