@@ -109,7 +109,7 @@ class Pages extends BaseController
         $jk = $cust['jk'];
         if ($jk == 'L') {
             $jk = 'Laki-laki';
-        } else {
+        } else if ($jk == 'P') {
             $jk = 'Perempuan';
         }
         $foto = $cust['foto'];

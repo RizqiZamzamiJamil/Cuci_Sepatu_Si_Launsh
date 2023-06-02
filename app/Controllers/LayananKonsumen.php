@@ -19,9 +19,18 @@ class LayananKonsumen extends BaseController
 
     public function sendQuestion()
     {
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'telepon' => 'required|numeric|min_length[5]|max_length[13]'
+        ]);
+
+        if (!$this->validate($validation->getRules())) {
+            // Jika validasi gagal, kembalikan pesan error
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
         $time = date('y');
 
-        //Insert data to LayananKonsumenModel
         $layananKonsumenModel = new LayananKonsumenModel();
         $lk = $layananKonsumenModel->countAllResults() + 1;
         $id_lk = "LK" . $time . $lk;
@@ -30,19 +39,16 @@ class LayananKonsumen extends BaseController
         $nama_belakang = $this->request->getVar('pemesan2');
         $nama_lengkap = $nama_depan . ' ' . $nama_belakang;
 
-        $importLayananKonsumen = false;
-        $importLayananKonsumen = $this->layananKonsumenModel->save([
+        //Insert data to LayananKonsumenModel
+        $insertData = [
             'id_lk' => $id_lk,
             'nama' => $nama_lengkap,
             'email' => $this->request->getVar('email'),
-            'no_hp' => $this->request->getVar('telepon'),
+            'telepon' => $this->request->getVar('telepon'),
             'pertanyaan' => $this->request->getVar('pertanyaan')
-        ]);
+        ];
 
-        dd($importLayananKonsumen);
-
-        if ($importLayananKonsumen == true) {
-            return redirect()->to('/pages/hubungi');
-        }
+        $layananKonsumenModel->insert($insertData); // memasukkan data ke db
+        return redirect()->to('pages/hubungi');
     }
 }
