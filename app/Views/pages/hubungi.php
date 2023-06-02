@@ -100,6 +100,17 @@
                     <h5 style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial kami</h5>
                     <form action="/layanankonsumen/sendQuestion" method="post">
                         <?= csrf_field(); ?>
+                        <?php if (session()->has('errors')): ?>
+                            <div class="alert alert-danger">
+                                <ul>
+                                    <?php foreach (session('errors') as $error): ?>
+                                        <li>
+                                            <?= esc($error) ?>
+                                        </li>
+                                    <?php endforeach ?>
+                                </ul>
+                            </div>
+                        <?php endif ?>
                         <div class="row" style="margin-bottom: 8px;">
                             <div class="col">
                                 <label for="pemesan" class="form-label">Nama Depan</label>
