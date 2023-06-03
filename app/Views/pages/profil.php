@@ -213,10 +213,13 @@ $level = $_SESSION["level"];
 
                 <div class="row" style="padding: 26px; height:415px;">
                     <!-- Menu Kiri -->
-                    <div class="col-3" style="background: #F3F3F3; margin-right:20px; border-radius: 0px 40px 40px 40px;" data-aos="zoom-out" data-aos-delay="600">
+                    <div class="col-3"
+                        style="background: #F3F3F3; margin-right:20px; border-radius: 0px 40px 40px 40px;" data-aos="zoom-out" data-aos-delay="600">
                         <div class="row" style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="700">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button style="background: none; border:none; color:black;"
+                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-proses.png" alt="">
                                     Proses
                                 </button>
@@ -229,12 +232,20 @@ $level = $_SESSION["level"];
                         </div>
                         <div class="row" style="margin-top: 100px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button style="background: none; border:none; color:black;"
+                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-akun.png" alt=""> Akun
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
                                     <li><a id="ubah" class="dropdown-item" href="#">Ubah Akun</a></li>
-                                    <li><a id="hapus" class="dropdown-item" href="#">Hapus Akun</a></li>
+                                    <!-- <form id="delete-form" action="/auth/<?= $_SESSION['username'] ?>" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <li><a onclick="return confirm('Yakin ingin menghapus akun?')"
+                                                class="dropdown-item" href="#">Hapus Akun</a></li>
+                                    </form> -->
+                                    <li><a onclick="hapus()" class="dropdown-item" href="#">Hapus Akun</a></li>
                                     <li><a onclick="keluar()" class="dropdown-item" href="#">Keluar</a></li>
                                 </ul>
                             </div>
@@ -264,7 +275,8 @@ $level = $_SESSION["level"];
                                     <label for="password">Kata Sandi</label>
                                 </div>
                                 <div class="form-column" data-aos="zoom-out" data-aos-delay="1400">
-                                    <input type="password" id="password" name="password" value="<?php echo $password; ?>" disabled>
+                                    <input type="password" id="password" name="password"
+                                        value="<?php echo $password; ?>" disabled>
                                 </div>
                             </div>
 
@@ -273,7 +285,8 @@ $level = $_SESSION["level"];
                                     <label for="alamat">Alamat</label>
                                 </div>
                                 <div class="form-column" data-aos="zoom-out" data-aos-delay="1600">
-                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>" disabled>
+                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>"
+                                        disabled>
                                 </div>
                             </div>
 
@@ -386,13 +399,22 @@ $level = $_SESSION["level"];
             </div>
         </div>
     </div>
+    <div id="confirmation-delete" class="modal">
+        <div class="modal-content">
+            <h2>Yakin ingin menghapus akun?</h2>
+            <div class="button-container">
+                <button class="cancel" onclick="no()">Enggak</button>
+                <button class="confirm" onclick="yes()">Iya</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
     // mengubah input disabled menjadi enabled
     const inputFields = document.querySelectorAll('input[disabled]');
-    document.getElementById("ubah").addEventListener("click", function() {
-        inputFields.forEach(function(field) {
+    document.getElementById("ubah").addEventListener("click", function () {
+        inputFields.forEach(function (field) {
             field.removeAttribute("disabled");
         });
     });
@@ -435,5 +457,24 @@ $level = $_SESSION["level"];
             };
             reader.readAsDataURL(event.target.files[0]);
         } */
+
+    // document.getElementById('delete-form').addEventListener('submit', function(e){
+    //     e.preventDefault();
+
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.open('POST', this.get)
+    // })
+
+    function hapus() {
+        document.getElementById("confirmation-delete").style.display = "block";
+    }
+
+    function no() {
+        document.getElementById("confirmation-delete").style.display = "none";
+    }
+
+    function yes() {
+        window.location.href = "<?= site_url('auth/hapusAkun') ?>";
+    }
 </script>
 <?= $this->endSection(); ?>
