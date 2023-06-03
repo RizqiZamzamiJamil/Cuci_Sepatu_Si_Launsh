@@ -61,4 +61,19 @@ class Auth extends BaseController
         $session->destroy();
         return redirect()->to('pages/masuk');
     }
+
+    public function hapusAkun()
+    {
+        $username = $_SESSION['username'];
+        $userModel = new UserModel();
+
+        $user = $userModel->getUserByUsername($username);
+        $id_user = $user['id_user'];
+        if ($user) {
+            $this->userModel->delete($id_user);
+            return redirect()->to('pages/index');
+        } else {
+            return redirect()->to('pages/profil');
+        }
+    }
 }
