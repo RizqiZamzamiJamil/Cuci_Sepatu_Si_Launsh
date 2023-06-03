@@ -16,34 +16,39 @@
     }
 
     .image-container {
-        position: relative;
+        position: absolute;
         width: 1320px;
         height: 630px;
+
     }
 
     .image-container img {
         position: absolute;
+        height: auto;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         top: 0;
         left: 0;
     }
 
-    .image-container .row {
+    .row {
         position: relative;
         width: 790px;
         color: white;
         margin-left: 300px;
     }
 
-    .image-container .row h1 {
+    .row h1 {
         margin-top: 100px;
     }
 
-    .image-container .row h3 {
+    .row h3 {
         font-size: 20px;
         margin-top: -10px;
     }
 
-    .image-container .row h2 {
+    .row h2 {
         font-family: 'Poppins', sans-serif;
         font-size: 52px;
         font-weight: 700px;
@@ -53,37 +58,18 @@
         margin-bottom: 10px;
     }
 
-    .image-container .row p {
+    .row p {
         margin-left: 60px;
         margin-top: 30px;
         font-size: 20px;
         font-weight: 400;
     }
 
-    .image-wrapper {
-        overflow: hidden;
-    }
-
-    #backg {
-        width: 1320px;
-        margin-top: -54px;
-        margin-left: -12px;
-        height: 707px;
-    }
-
-    #backg2 {
-        width: 1320px;
-        margin-left: -12px;
-        margin-top: -7px;
-        height: 650px;
-    }
-
     #helm {
-        position: absolute;
         width: 190px;
-        height: 245px;
-        left: 1118px;
-        margin-top: 30px;
+        /*         height: 280px; */
+        margin-top: 40px;
+        margin-left: 1120px;
     }
 
     #sepatu {
@@ -93,29 +79,26 @@
     }
 
     #bulatan {
-        margin-top: 500px;
-        width: 120px;
-        left: 1187px;
+        width: 150px;
+        margin-top: 480px;
+        margin-left: 1158px;
     }
-
 </style>
 
-<section class="tentang-kami">
+<section class="tentang-kami" data-aos="fade-up">
     <div class="container">
         <div class="image-container">
-            <div class="image-wrapper">
-                <img src="/img/hero-helm.png" alt="" id="helm">
-                <img src="/img/hero-sepatu.png" alt="" id="sepatu">
-                <img src="/img/hero-bulat.png" alt="" id="bulatan">
-            </div>
+            <img data-aos="fade-left" src="/img/hero-helm.png" alt="" id="helm">
+            <img data-aos="fade-right" data-aos-delay="100" src="/img/hero-sepatu.png" alt="" id="sepatu">
+            <img data-aos="fade-up" data-aos-delay="200" src="/img/hero-bulat.png" alt="" id="bulatan">
 
-            <div class="row">
-                <div class="col">
-                    <h1><b>TENTANG KAMI </b></h1>
-                    <h3><b>Wash And Care To Make You Feel Confident</b></h3>
-                    <p>Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan Juga memiliki Beberapa Cabang Di kota kota besar di Jawa Timur.
-                        Berbagai layanan seperti pencucian sepatu dan helm kami tawarkan untuk mengembalikan kejayaan sepatu dan helm anda. Sesuai dengan motto kami “Wash And Care To Make You Feel Confident“. Sampai saat ini kami telah menyelesaikan 30317 pasang sepatu dan helm yang akan terus bertambah. Tunggu apalagi? Yuk Antar Sepatu dan Helm anda ke toko kami, dan dapatkan pelayanan yang memuaskan</p>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1 data-aos="fade-up" data-aos-delay="100"><b>TENTANG KAMI </b></h1>
+                <h3 data-aos="fade-up" data-aos-delay="200"><b>Wash And Care To Make You Feel Confident</b></h3>
+                <p data-aos="fade-up" data-aos-delay="300">Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan Juga memiliki Beberapa Cabang Di kota kota besar di Jawa Timur.
+                    Berbagai layanan seperti pencucian sepatu dan helm kami tawarkan untuk mengembalikan kejayaan sepatu dan helm anda. Sesuai dengan motto kami “Wash And Care To Make You Feel Confident“. Sampai saat ini kami telah menyelesaikan 30317 pasang sepatu dan helm yang akan terus bertambah. Tunggu apalagi? Yuk Antar Sepatu dan Helm anda ke toko kami, dan dapatkan pelayanan yang memuaskan</p>
             </div>
         </div>
     </div>

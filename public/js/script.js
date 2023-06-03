@@ -12,3 +12,10 @@ function showSuccessMessage() {
   window.onload = function() {
     showSuccessMessage();
   };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+      duration: 800, // Durasi animasi dalam milidetik (ms)
+      easing: 'ease-in-out', // Jenis kurva perpindahan animasi (ease, linear, ease-in, ease-out, ease-in-out)
+    });
+  });

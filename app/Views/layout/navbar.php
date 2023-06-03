@@ -12,7 +12,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
     }
 
     .navbar-nav {
-        width: 1000px;
+        width: 640px;
+
     }
 
     .navbar a:hover,
@@ -24,11 +25,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
     .navbar-brand {
         color: #0FC598;
-    }
-
-
-    .collapse {
-        margin-left: 500px;
     }
 
     .navbar .signin,
@@ -70,6 +66,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
         background-color: #0FC598;
         color: white;
     }
+    #pp{
+        width: 40px;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
@@ -92,9 +91,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <?php if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
 
-                    // Tampilkan tombol logo profil dan nama username
-                    echo '<a style="margin-left:60px;" class="nav-link" href="/pages/profil"> <b>'.$username.'</b></a>';
-                    echo '<a id="icon-profil" href="/pages/profil"><img src="/img/profil.png" alt="Profile"></a>';
+                    //Tampilkan tombol logo profil dan nama username
+                    echo '<a style="margin-left:60px;" class="nav-link" href="/pages/profil"> <b>'.$username.'</b><img id="pp" src="/img/profil.png" alt="Profile"></a>';
 
                 } else {
                     // Tampilkan tombol daftar dan masuk
@@ -102,9 +100,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
                     echo '<a class="signin ' . (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : '') . '" href="/pages/masuk">Masuk</a>';
                 }
                 ?>
-                <!-- <a class="signup <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/daftar') !== false ? 'active' : ''); ?>" href="/pages/daftar">Daftar</a>
-                <a class="signin <?php echo (strpos($_SERVER['REQUEST_URI'], '/pages/masuk') !== false ? 'active' : ''); ?>" href="/pages/masuk">Masuk</a> -->
+    
             </div>
         </div>
     </div>
 </nav>
+

@@ -87,43 +87,43 @@
     }
 </style>
 
-<section class="section-1">
+<section class="section-1" data-aos="fade-up">
     <div class="container">
         <div class="image-container">
             <div class="image-wrapper">
-                <img src="/img/hero-bulat.png" alt="" id="bulatan">
+                <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
             </div>
             <div class="row">
                 <div class="col">
-                    <h3 style="margin: 80px 0px 0px 550px;">>>>>>>></h3>
-                    <h1 style="margin: 0px 0px 0px 130px;"><b>HUBUNGI KAMI</b></h1>
-                    <h5 style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial kami</h5>
-                    <form action="/layanankonsumen/sendQuestion" method="post">
+                    <h3 data-aos="fade-up" data-aos-delay="100" style="margin: 80px 0px 0px 550px;">>>>>>>></h3>
+                    <h1 data-aos="fade-up" data-aos-delay="200" style="margin: 0px 0px 0px 130px;"><b>HUBUNGI KAMI</b></h1>
+                    <h5 data-aos="fade-up" data-aos-delay="300" style="margin: -5px 0px 0px 130px;">Lebih deket dengan kami, melalui media sosial kami</h5>
+                    <form action="/layanankonsumen/sendQuestion" method="post" data-aos="fade-up" data-aos-delay="500">
                         <?= csrf_field(); ?>
                         <div class="row" style="margin-bottom: 8px;">
-                            <div class="col">
+                            <div class="col" data-aos="fade-up" data-aos-delay="600">
                                 <label for="pemesan" class="form-label">Nama Depan</label>
                                 <input type="name" id="pemesan1" class="form-input2" name="pemesan1" required>
                             </div>
-                            <div class="col">
+                            <div class="col" data-aos="fade-up" data-aos-delay="700">
                                 <label for="pemesan" class="form-label">Nama Belakang</label>
                                 <input type="name" id="pemesan2" class="form-input2" name="pemesan2" required>
                             </div>
 
                         </div>
-                        <div class="row" style="margin-bottom: 8px;">
+                        <div class="row" style="margin-bottom: 8px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label for="email" class="form-label">Alamat Surel</label>
                                 <input type="email" id="email" class="form-input2 w-100" name="email" required>
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 8px;">
+                        <div class="row" style="margin-bottom: 8px;" data-aos="fade-up" data-aos-delay="900">
                             <div class="col">
                                 <label for="phone" class="form-label">Telepon</label>
                                 <input type="phone" id="phone" class="form-input2 w-100" name="telepon" required>
                             </div>
                         </div>
-                        <div class="row" style="margin-bottom: 15px;">
+                        <div class="row" style="margin-bottom: 15px;" data-aos="fade-up" data-aos-delay="1000">
                             <div class="col">
                                 <label for="pertanyaan" class="form-label">Pertanyaan</label>
                                 <input type="text" id="pertanyaan" class="form-input2 w-100" name="pertanyaan" required>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="submit">Kirim</button>
+                                <button data-aos="fade-up" data-aos-delay="1100" type="submit">Kirim</button>
                             </div>
                         </div>
                     </form>
@@ -139,10 +139,10 @@
                 <div class="col" style="margin-top: 100px;">
                     <div class="row">
                         <div class="col">
-                            <img src="/img/hubungi.png" alt="" id="hubungi">
+                            <img data-aos="zoom-in" src="/img/hubungi.png" alt="" id="hubungi">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" data-aos="fade-up" data-aos-delay="200">
                         <div class="col-2">
                             <img style="margin: 10px 0px 0px 60px;" src="/img/hubungi-lokasi.png" alt="">
                         </div>
@@ -151,7 +151,7 @@
                                 Kota Malang, Jawa Timur 65141</p>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: -10px;">
+                    <div class="row" style="margin-top: -10px;" data-aos="fade-up" data-aos-delay="300">
                         <div class="col-2">
                             <img style="margin-left: 60px;" src="/img/hubungi-pesan.png" alt="">
                         </div>
@@ -159,7 +159,7 @@
                             <p style="padding: 5px 120px 0px 0px;">silaunshhelmsepatu@gmail.com</p>
                         </div>
                     </div>
-                    <div class="row" style="margin-top: -10px;">
+                    <div class="row" style="margin-top: -10px;" data-aos="fade-up" data-aos-delay="400">
                         <div class="col-2">
                             <img style="margin-left: 60px;" src="/img/hubungi-telepon.png" alt="">
                         </div>
