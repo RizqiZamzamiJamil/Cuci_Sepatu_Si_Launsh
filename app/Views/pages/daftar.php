@@ -13,87 +13,50 @@
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 400px 0px 0px 0px;
         color: white;
-    }
-
-    .image-container {
         position: relative;
-        width: 1320px;
-        height: 630px;
         overflow: hidden;
     }
 
-    .image-container img {
+    .image-wrapper img {
         position: absolute;
-        top: 0;
-        left: 0;
     }
 
-    .image-container .row {
+    .konten {
         position: relative;
-        width: 1000px;
+        width: 800px;
         color: white;
-        margin-left: 110px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .image-container .row h1 {
+    .konten h1 {
         margin-top: 100px;
         display: inline-block;
     }
 
-    .image-container .row h3 {
+    .konten h3 {
         font-size: 20px;
         margin-top: -10px;
         display: inline-block;
     }
 
-    .image-container .row h2 {
-        font-family: 'Poppins', sans-serif;
-        font-size: 52px;
-        font-weight: 700px;
-        width: 614px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 10px;
-    }
-
-    .image-container .row p {
-        margin-left: 60px;
-        margin-top: 30px;
-        font-size: 20px;
-        font-weight: 400;
-    }
-
-    #backg {
-        width: 1320px;
-        margin-top: -54px;
-        margin-left: -12px;
-        height: 707px;
-    }
-
-    #backg2 {
-        width: 1320px;
-        margin-left: -12px;
-        margin-top: -7px;
-        height: 650px;
-    }
-
     #helm {
-        width: 190px;
-        /*         height: 280px; */
-        margin-top: 40px;
-        margin-left: 1120px;
+        top: 30px;
+        right: 0;
+        height: 250px;
+
     }
 
     #sepatu {
-        width: 330px;
-        margin-top: 440px;
-        margin-left: -70px;
+        height: 230px;
+        bottom: -80px;
+        left: -40px;
     }
 
     #bulatan {
-        width: 150px;
-        margin-top: 480px;
-        margin-left: 1150px;
+        bottom: 0;
+        right: 0;
+        height: 130px;
     }
 
     .form-label {
@@ -149,177 +112,162 @@
 
     }
 
-    .overlay {
+    #popup {
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
     }
 
-    .message {
-        background-color: white;
-        padding: 20px;
+    #popup p {
+        margin: 0;
+        font-size: 16px;
         text-align: center;
     }
 </style>
 
 
-<section class="daftar">
+<section class="daftar" data-aos="fade-up">
     <div class="container">
         <?php  ?>
-        
-        <div class="image-container">
-            <img src="/img/hero-helm.png" alt="" id="helm">
-            <img src="/img/hero-sepatu.png" alt="" id="sepatu">
-            <img src="/img/hero-bulat.png" alt="" id="bulatan">
+        <div class="image-wrapper">
+            <img data-aos="fade-left" data-aos-delay="100" src="/img/hero-helm.png" alt="" id="helm">
+            <img data-aos="fade-right" data-aos-delay="200" src="/img/hero-sepatu.png" alt="" id="sepatu">
+            <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
+        </div>
 
-            <div class="row">
-                <div class="col">
-                    <h1><b>Selamat Bergabung</b></h1>
-                    <h3>>>>>>>></h2>
+        <div class="konten">
+            <div class="col">
+                <h1 data-aos="fade-up" data-aos-delay="200"><b>Selamat Bergabung</b></h1>
+                <h3 data-aos="fade-up" data-aos-delay="300">>>>>>>></h2>
+            </div>
+            <!-- Baris 1 -->
+            <form action="/Pages/saveDaftar" method="post">
+
+                <?= csrf_field(); ?>
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="400">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input type="text" id="nama" class="form-input2 <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" name="nama" value="<?= old('nama'); ?>">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('nama') ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="450">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-input2 <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" name="username" value="<?= old('username'); ?>">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('username') ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                
-
-
-                <!-- Baris 1 -->
-                <form action="/Pages/saveDaftar" method="post">
-                    
-                    <?= csrf_field(); ?>
-                    <div class="row">
-                        <div class="col">
-                            <label for="nama" class="form-label">Nama Lengkap</label>
-                            <input type="text" id="nama" class="form-input2 <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" name="nama" value="<?= old('nama'); ?>">
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('nama') ?>
-                                </div>
+                <!-- Baris 2 -->
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="500">
+                        <label for="email" class="form-label">Alamat surel</label>
+                        <input type="text" id="email" class="form-input2 <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" name="email" value="<?= old('email'); ?>">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('email') ?>
                             </div>
                         </div>
-                        <div class="col">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" id="username" class="form-input2 <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" name="username" value="<?= old('username'); ?>">
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('username') ?>
-                                </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="550">
+                        <label for="phone" class="form-label">No. Telepon</label>
+                        <input type="phone" id="phone" class="form-input2 <?= ($validation->hasError('phone')) ? 'is-invalid' : '' ?>" name="phone" value="<?= old('phone'); ?>">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('phone') ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris 3 -->
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="600">
+                        <label for="password" class="form-label">Kata Sandi</label>
+                        <input type="password" id="password" class="form-input2 <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" name="password">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('password') ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="650">
+                        <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
+                        <input type="password" id="confirm_password" class="form-input2 <?= ($validation->hasError('confirm_password')) ? 'is-invalid' : '' ?>" name="confirm_password">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('confirm_password') ?>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Baris 2 -->
-                    <div class="row">
-                        <div class="col">
-                            <label for="email" class="form-label">Alamat surel</label>
-                            <input type="text" id="email" class="form-input2 <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" name="email" value="<?= old('email'); ?>">
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('email') ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <label for="phone" class="form-label">No. Telepon</label>
-                            <input type="phone" id="phone" class="form-input2 <?= ($validation->hasError('phone')) ? 'is-invalid' : '' ?>" name="phone" value="<?= old('phone'); ?>">
-                            <div class="invalid-feedback" >
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('phone') ?>
-                                </div>
+                </div>
+
+                <!-- Baris 4 -->
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="700">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <input type="text" id="alamat" class="form-input2 <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" name="alamat" value="<?= old('alamat'); ?>">
+                        <div class="invalid-feedback">
+                            <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
+                                <?= $validation->getError('alamat') ?>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Baris 3 -->
-                    <div class="row">
-                        <div class="col">
-                            <label for="password" class="form-label">Kata Sandi</label>
-                            <input type="password" id="password" class="form-input2 <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" name="password" >
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('password') ?>
-                                </div>
-                            </div>
+                </div>
+                <br>
+                <br>
+                <!-- Baris 5 -->
+                <div class="row">
+                    <div class="col">
+                        <div class="checkbox-group" data-aos="fade-up" data-aos-delay="800">
+                            <label>
+                                <input type="checkbox" name="agree_policy" required>
+                                Setuju Kebijakan Si Launsh
+                            </label>
                         </div>
-                        <div class="col">
-                            <label for="confirm_password" class="form-label">Konfirmasi Kata Sandi</label>
-                            <input type="password" id="confirm_password" class="form-input2 <?= ($validation->hasError('confirm_password')) ? 'is-invalid' : '' ?>" name="confirm_password" >
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('confirm_password') ?>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Baris 4 -->
-                    <div class="row">
-                        <div class="col">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" id="alamat" class="form-input2 <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" name="alamat" value="<?= old('alamat'); ?>">
-                            <div class="invalid-feedback">
-                                <div class="alert alert-danger alert-dismissible py-2" style="width:75%;" role="alert">
-                                    <?= $validation->getError('alamat') ?>
-                                </div>
-                            </div>
+                        <div class="button-container">
+                            <button type="submit" style="font-weight: bold;" class="submit-btn" data-aos="fade-up" data-aos-delay="900">Daftar</button>
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <!-- Baris 5 -->
-                    <div class="row">
-                        <div class="col">
-                            <div class="checkbox-group">
-                                <label>
-                                    <input type="checkbox" name="agree_policy" required>
-                                    Setuju Kebijakan Si Launsh
-                                </label>
-                            </div>
-                            <div class="button-container">
-                                <button type="submit" style="font-weight: bold;" class="submit-btn">Daftar</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
+                </div>
+            </form>
+        </div>
+        <div id="popup" style="display: none;">
+            <p>Pendaftaran akun berhasil</p>
         </div>
 </section>
 
-<div id="success-message" class="overlay">
-    <div class="message">
-        <h2>Pendaftaran Berhasil</h2>
-        <p>Anda telah berhasil mendaftar.</p>
-    </div>
-</div>
 <script>
-    // Mendapatkan referensi elemen success-message
-    var successMessage = document.getElementById('success-message');
-
-    // Mengatur visibilitas elemen success-message menjadi tersembunyi saat halaman dimuat
-    successMessage.style.display = 'none';
-
-    // Mengatur visibilitas elemen success-message menjadi terlihat saat proses pendaftaran berhasil dilakukan
-    function showSuccessMessage() {
-        successMessage.style.display = 'block';
+    // Menampilkan pop-up
+    function showPopup() {
+        document.getElementById('popup').style.display = 'block';
     }
 
-    // Panggil fungsi showSuccessMessage() setelah proses pendaftaran berhasil dilakukan
-    // Misalnya, setelah menekan tombol submit atau selesai melakukan permintaan AJAX
-    // Anda dapat menyesuaikan dengan logika dan implementasi pendaftaran Anda
-    // Contoh:
-    var submitButton = document.getElementById('submit-button');
-    submitButton.addEventListener('click', function(event) {
-        // Lakukan validasi dan proses pendaftaran di sini
+    // Menyembunyikan pop-up
+    function hidePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
 
-        // Jika pendaftaran berhasil, panggil fungsi showSuccessMessage()
-        showSuccessMessage();
-    });
+    // Membuat pop-up otomatis menutup setelah beberapa detik
+    function autoClosePopup() {
+        setTimeout(function() {
+            hidePopup();
+        }, 3000); // Ganti angka 3000 dengan durasi dalam milidetik
+    }
 </script>
 
 

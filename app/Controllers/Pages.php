@@ -133,7 +133,6 @@ class Pages extends BaseController
     {
         $validation = session()->getFlashdata();
         dd($validation);
-
     }
 
     public function saveDaftar()
@@ -206,8 +205,7 @@ class Pages extends BaseController
         ) {
             $data['validation'] = $this->validator;
             return view('pages/daftar', $data);
-        }
-        ;
+        };
 
 
         $time = date('y');
@@ -242,6 +240,8 @@ class Pages extends BaseController
         ]);
 
         if ($importCustomer == true && $importUser == true) {
+            // Panggil fungsi JavaScript untuk menampilkan pop-up
+            echo '<script>showPopup(); autoClosePopup();</script>';
             return redirect()->to('/pages/masuk');
         }
     }

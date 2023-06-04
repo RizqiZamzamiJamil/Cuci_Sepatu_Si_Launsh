@@ -11,7 +11,7 @@
         height: 630px;
         box-shadow: -18px -24px 38px rgba(0, 0, 0, 0.25);
         border-radius: 400px 0px 0px 0px;
-
+        position: relative;
         color: white;
     }
 
@@ -22,21 +22,19 @@
         z-index: 1;
     }
 
-    .image-container img {
+    .image-wrapper img {
         position: absolute;
-        top: 0;
-        left: 0;
     }
 
-    #hero-bulat {
-        width: 150px;
-        margin-top: 470px;
-        margin-left: 1158px;
+    #bulatan {
+        bottom: 0;
+        right: 0;
+        height: 130px;
     }
 
     .konten {
         position: relative;
-        z-index: 2;
+        top: 50px;
     }
 
     .col {
@@ -50,7 +48,6 @@
     }
 
     .konten h1 {
-        margin-top: 100px;
         margin-left: 180px;
     }
 
@@ -60,7 +57,7 @@
 
     .section-2 {
         position: relative;
-        margin-bottom: 100px;
+        height: 640px;
         z-index: 2;
     }
 
@@ -68,18 +65,16 @@
         margin-top: 50px;
     }
 
-    .section-2 h5 {
-        margin-top: 50px;
-    }
-
     .layanan-lain {
-        margin-top: 100px;
-        margin-left: 150px;
+        position: relative;
+        top: 50px;
+        left: 150px;
     }
 
     .jenis-pembayaran {
-        margin-top: 100px;
-        margin-left: 150px;
+        position: relative;
+        top: 80px;
+        left: 150px;
     }
 
     .total {
@@ -99,7 +94,7 @@
         background: none;
         border: 3px solid black;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 16px;
         cursor: pointer;
         width: 200px;
     }
@@ -117,7 +112,7 @@
         box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
     }
 
-    .total span  {
+    .total span {
         display: inline-block;
         padding: 10px 20px;
         margin: 5px;
@@ -136,17 +131,17 @@
 
     .form-input2 {
         background: none;
-        width: 350px;
+        width: 96%;
         height: 42px;
         border: 3px solid white;
         border-radius: 10px;
         color: white;
     }
 </style>
-<section class="section-1">
+<section class="section-1" data-aos="fade-up">
     <div class="container">
-        <div class="image-container">
-            <img src="/img/hero-bulat.png" alt="" id="hero-bulat">
+        <div class="image-wrapper">
+            <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
         </div>
 
         <?php
@@ -160,47 +155,43 @@
         <div class="konten">
             <div class="row d-flex">
                 <div class="col">
-                    <h1><b>Detail Pesanan </b></h1>
+                    <h1 data-aos="fade-up" data-aos-delay="200"><b>Detail Pesanan </b></h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-4" data-aos="fade-up" data-aos-delay="400">
                     <img src="/img/cuci-helm.png" alt="" id="cs">
                 </div>
                 <div class="col-8">
-                    <h2><b>Cuci Helm</b></h2>
-                    <hr style="width: 250px;opacity: 1;">
-                    <form>
-                        <br>
-                        <div class="row">
+                    <h2 data-aos="fade-up" data-aos-delay="500"><b>Cuci Helm</b></h2>
+                    <hr data-aos="fade-up" data-aos-delay="550" style="width: 250px;opacity: 1;">
+                    <form action="/pemesanan/insertPesanan">
+                        <div class="row" style="margin-top: 10px;">
                             <div class="col">
-                                <label for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input type="text" id="pemesan" class="form-input2" name="pemesan" required>
+                                <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" required>
                             </div>
                             <div class="col">
-                                <label for="Telepon" class="form-label">Telepon</label>
-                                <input type="phone" id="telepon" class="form-input2" name="telepon" required>
+                                <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" required>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
+                        <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button type="button" class="tombol"
-                                    style="width: 160px; border: 3px solid white; color:white;">Regular</button>
-                                <button type="button" class="tombol"
-                                    style="width: 160px; border: 3px solid white; color:white;">Express</button>
+                                <button id="fast" type="button" class="tombol" style="width: 189px; border: 3px solid white; color:white;">Regular</button>
+                                <button id="deep" type="button" class="tombol" style="width: 189px; border: 3px solid white; color:white;">Express</button>
                             </div>
                             <div class="col">
-                                <label for="Alamat" class="form-label">Alamat</label>
-                                <input type="text" id="alamat" class="form-input2" name="alamat" required>
+                                <label data-aos="fade-up" data-aos-delay="950" for="Alamat" class="form-label">Alamat</label>
+                                <input data-aos="fade-up" data-aos-delay="1000" type="text" id="alamat" class="form-input2" name="alamat" required>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
+                        <div class="row" style="margin-top: 10px;"  data-aos="fade-up" data-aos-delay="1100">
                             <div class="col">
-                                <label for="tanggal" class="form-label">Pilih Tanggal Pengiriman</label>
-                                <input type="date" id="alamat" class="form-input2" name="alamat" required>
+                                <label for="jenis" class="form-label" style="max-width: 50%;">Pilih Jenis Sepatu</label>
+                                <button id="full" type="button" class="tombol" style="width: 189px; border: 3px solid white; color:white;">Full Face</button>
+                                <button id="half" type="button" class="tombol" style="width: 189px; border: 3px solid white; color:white;">Half Face</button>
                             </div>
                         </div>
                 </div>
@@ -214,13 +205,13 @@
 
 <section class="section-2">
     <div class="container">
-        <div class="layanan-lain">
+        <div class="layanan-lain" data-aos="fade-up" data-aos-delay="400px">
             <h5>Layanan Lainnya</h5>
             <button type="button" class="tombol">Antar & Jemput</button>
         </div>
         <div class="row">
             <div class="col">
-                <div class="jenis-pembayaran">
+                <div class="jenis-pembayaran" data-aos="fade-up" data-aos-delay="600px">
                     <h5>Pilih jenis pembayaran:</h5>
                     <div class="tombol-pembayaran">
                         <div class="row">
@@ -247,13 +238,13 @@
                 </div>
             </div>
             <div class="col">
-                <div class="total">
+                <div class="total" data-aos="fade-up" data-aos-delay="800px">
                     <h5>Jumlah Yang Harus Dibayarkan</h5>
                     <span>
                         <h4>Rp. 35.000</h4>
                     </span>
                     <br><br><br><br><br><br>
-                    <button type="button" class="tombol" style="width: 300px;">Pesan</button>
+                    <button type="button" class="tombol" style="width: 300px; font-size:20px;">Pesan</button>
 
                 </div>
             </div>
