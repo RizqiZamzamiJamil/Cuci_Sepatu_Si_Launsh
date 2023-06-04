@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\CustomerModel;
 use App\Models\UserModel;
+// use App\Models\KategoriBarangModel;
+// use App\Models\LayananModel;
 
 
 class Pages extends BaseController
@@ -15,6 +17,8 @@ class Pages extends BaseController
     {
         $this->customerModel = new CustomerModel();
         $this->userModel = new UserModel();
+        // $this->kategoriBarangModel = new KategoriBarangModel();
+        // $this->layananModel = new LayananModel();
     }
     public function index()
     {
@@ -69,8 +73,20 @@ class Pages extends BaseController
     }
     public function cuciSepatu()
     {
+        //$username = $_SESSION['username']; // ambil username dari session
+        $id_pengguna = $_SESSION['id_pengguna'];
+
+        $customerModel = new CustomerModel(); // buat objek customer
+        $cust = $customerModel->getCustomerByIdPengguna($id_pengguna); // panggil fungsi untuk mencari customer
+        $nama = $cust['nama'];
+        $no_hp = $cust['no_hp'];
+        $alamat = $cust['alamat'];       
+
         $data = [
-            'title' => 'Cuci Sepatu'
+            'title' => 'Cuci Sepatu',
+            'nama' => $nama,
+            'no_hp' => $no_hp,
+            'alamat' => $alamat
         ];
         return view('pages/cuciSepatu', $data);
     }
