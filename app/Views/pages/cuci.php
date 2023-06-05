@@ -103,7 +103,7 @@
                 <div class="image-box" data-aos="fade-up" data-aos-delay="800">
                     <a href="<?= base_url('/pages/cuciYellowing') ?>">
                         <img src="/img/cuci-yellow.png" alt="Gambar 3">
-                        <div class="image-text">Yellowing</div>
+                        <div class="image-text">Un Yellowing</div>
                     </a>
                 </div>
             </div>
