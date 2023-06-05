@@ -3,19 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\PesananModel;
-//use App\Models\CustomerModel;
 use App\Models\LayananModel;
 use App\Models\KategoriBarangModel;
 use App\Models\PembayaranModel;
 
-
-//use CodeIgniter\Controller;
-
-//use CodeIginter\Session\Session;
-
 class Pemesanan extends BaseController
 {
-    //protected $customerModel;
     protected $layananModel;
     protected $kategoriBarangModel;
 
@@ -23,7 +16,6 @@ class Pemesanan extends BaseController
     protected $pembayaranModel;
     public function __construct()
     {
-        //$this->customerModel = new CustomerModel();
         $this->layananModel = new LayananModel();
         $this->kategoriBarangModel = new KategoriBarangModel();
         $this->pesananModel = new PesananModel();
@@ -36,17 +28,54 @@ class Pemesanan extends BaseController
 
     public function totalRealTime()
     {
-        $layanan = $this->request->getVar('layanan'); // ambil data dari button layanan
+        $metode = $this->request->getPost('metode'); // ambil data metode
+
+        $layanan = $this->request->getPost('layanan'); // ambil data layanan
         $layananModel = new LayananModel(); // buat objek layanan
         $layanan_fix = $layananModel->getLayananByNama($layanan); // cari layanan berdasarkan nama
 
-        $kategori = $this->request->getVar('kategori'); // ambil data dari button kategori
+        $kategori = $this->request->getPost('kategori'); // ambil data kategori
         $kategoriBarangModel = new KategoriBarangModel(); // buat objek kategori
         $kategori_fix = $kategoriBarangModel->getKategoriByNama($kategori); // cari kategori berdasarkan nama
 
         $total_harga = $layanan_fix['harga'] + $kategori_fix['harga'];
 
-        return $this->response->setJSON(['total_harga' => $total_harga]);
+        $data = [
+            'total_harga' => $total_harga,
+            'layanan' => $layanan,
+            'harga_layanan' => $layanan_fix['harga'],
+            'kategori' => $kategori,
+            'harga_kategori' => $kategori_fix['harga'],
+            'metode' => $metode
+        ];
+
+        return $this->response->setJSON($data); // kembalikan data ke halaman cuciSepatu
+    }
+
+    public function totalUnyellowing()
+    {
+        $metode = $this->request->getPost('metode'); // ambil data metode
+
+        $layanan = 'Unyellowing'; // definisikan + inisialisasi
+        $layananModel = new LayananModel(); // buat objek layanan
+        $layanan_fix = $layananModel->getLayananByNama($layanan); // cari layanan berdasarkan nama
+
+        $kategori = 'Unyellowing Shoes'; // definsikan + inisialisasi
+        $kategoriBarangModel = new KategoriBarangModel(); // buat objek kategori
+        $kategori_fix = $kategoriBarangModel->getKategoriByNama($kategori); // cari kategori berdasarkan nama
+
+        $total_harga = $layanan_fix['harga'] + $kategori_fix['harga'];
+
+        $data = [
+            'total_harga' => $total_harga,
+            'layanan' => $layanan,
+            'harga_layanan' => $layanan_fix['harga'],
+            'kategori' => $kategori,
+            'harga_kategori' => $kategori_fix['harga'],
+            'metode' => $metode
+        ];
+
+        return $this->response->setJSON($data); // kembalikan data ke halaman cuciSepatu
     }
 
     public function insertPesanan()
@@ -57,17 +86,16 @@ class Pemesanan extends BaseController
         $pesananModel = new PesananModel(); // buat objek pesanan
         $pesanan = $pesananModel->countAllResults() + 1;
         $id_pesanan = "M" . $tahun . $pesanan;
-        //dd($id_pesanan);
 
         date_default_timezone_set('Asia/Jakarta');
         $time = date('Y-m-d h:i:sa');
 
-        $layanan = $this->request->getVar('layanan'); // ambil data dari button layanan
+        $layanan = $this->request->getPost('layanan'); // ambil data dari button layanan
         $layananModel = new LayananModel(); // buat objek layanan
         $layanan_fix = $layananModel->getLayananByNama($layanan); // cari layanan berdasarkan nama
         $id_layanan = $layanan_fix['id_layanan']; // ambil id_layanan dari pencarian
 
-        $kategori = $this->request->getVar('kategori'); // ambil data dari button kategori
+        $kategori = $this->request->getPost('kategori'); // ambil data dari button kategori
         $kategoriBarangModel = new KategoriBarangModel(); // buat objek kategori
         $kategori_fix = $kategoriBarangModel->getKategoriByNama($kategori); // cari kategori berdasarkan nama
         $id_kategori = $kategori_fix['id_kategori']; // ambil id_kategori dari pecarian
@@ -80,8 +108,8 @@ class Pemesanan extends BaseController
         $id_pembayaran = "Y" . $tahun . $pembayaran;
         $status_bayar = 'sudah';
         $total_harga = $layanan_fix['harga'] + $kategori_fix['harga'];
+        $metode = $this->request->getPost('metode');
 
-        $insertDataPesanan = false;
         $insertDataPesanan = [
             'id_pesanan' => $id_pesanan,
             'id_customer' => $id_customer,
@@ -92,16 +120,16 @@ class Pemesanan extends BaseController
             'tgl' => $time
         ];
 
-        $insertDataPembayaran = false;
         $insertDataPembayaran = [
             'id_pembayaran' => $id_pembayaran,
             'id_pesanan' => $id_pesanan,
-            'status_bayar' => $status,
+            'status_bayar' => $status_bayar,
+            'metode' => $metode,
             'total_harga' => $total_harga
         ];
 
-        if ($insertDataPesanan == true && $insertDataPembayaran == true) {
-            return redirect()->to('pages/profil');
-        }
+        $pesananModel->insert($insertDataPesanan); // masukkan data ke tabel pesanan
+        $pembayaranModel->insert($insertDataPembayaran); // masukkan data ke tabel pembayaran
+        return redirect()->to('pages/profil');
     }
 }
