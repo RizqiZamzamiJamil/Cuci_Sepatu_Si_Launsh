@@ -147,47 +147,48 @@
                 <div class="col-8">
                     <h2 data-aos="fade-up" data-aos-delay="500"><b>Cuci Sepatu</b></h2>
                     <hr data-aos="fade-up" data-aos-delay="550" style="width: 250px;opacity: 1;">
-                    <form action="/pemesanan/insertPesanan" method="post">
+                    <form action="/pemesanan/insertPesanan">
                         <div class="row" style="margin-top: 10px;">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" required>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
-                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" required>
                             </div>
                         </div>
-                        <!-- <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
-                            <div class="col">
-                                <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button id="fast" name="layanan" value"Fast Clean" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Fast Clean</button>
-                                <button id="deep" name="layanan" value="Deep Clean" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Deep Clean</button>
-                                <button id="premium" name="layanan" value="Premium Clean" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Premium</button>
-                            </div>
-                            <div class="col">
-                                <label data-aos="fade-up" data-aos-delay="950" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="1000" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" required>
-                            </div>
-                        </div>
+
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
-                                <label for="Kategori Layanan" class="form-label">Kategori Layanan</label>
-                                <button id="fast" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Fast Clean</button>
-                                <button id="deep" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Deep Clean</button>
-                                <button id="premium" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Premium</button>
+                                <label data-aos="fade-up" data-aos-delay="800" for="Alamat" class="form-label">Alamat</label>
+                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" required>
                             </div>
                             <div class="col">
-                                <label data-aos="fade-up" data-aos-delay="950" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="1000" type="text" id="alamat" class="form-input2" name="alamat" required>
+                                <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Jenis Pembayaran</label>
+                                <select class="dropdown" id="jenisbayar" onchange="selectOption()">
+                                    <option value="">Pilih Jenis Pembayaran</option>
+                                    <option value="option1">Uang Tunai</option>
+                                    <option value="option2">OVO</option>
+                                    <option value="option3">Dana</option>
+                                    <option value="option4">QRIS</option>
+                                    <option value="option5">LinkAja</option>
+                                    <option value="option6">Transfer</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="row" style="margin-top: 10px;"  data-aos="fade-up" data-aos-delay="1100">
+                        <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="1100">
                             <div class="col">
-                                <label for="jenis" class="form-label">Pilih Jenis Sepatu</label>
-                                <button id="casual" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Casual</button>
-                                <button id="sport" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Sport</button>
-                                <button id="kulit" type="button" class="tombol" style="width: 120px; border: 3px solid white; color:white;">Kulit</button>
+                                <label data-aos="fade-up" data-aos-delay="1100" for="layanan" class="form-label">Kategori Layanan</label>
+                                <select class="dropdown" id="layanan" onchange="selectOption()">
+                                    <option value="">Pilih Kategori Layanan</option>
+                                    <option value="option1">Deep Clean</option>
+                                    <option value="option2">Fast Clean</option>
+                                    <option value="option3">Premium Clean</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button onclick="detail()" type="button" class="tombol">Lihat Detail</button>
                             </div>
                         </div>
                     </form>
@@ -198,57 +199,123 @@
     </div>
 </section>
 
-<section class="section-2">
-    <div class="container">
-        <div class="layanan-lain" data-aos="fade-up" data-aos-delay="400px">
-            <h5>Layanan Lainnya</h5>
-            <button type="button" class="tombol">Antar & Jemput</button>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="jenis-pembayaran" data-aos="fade-up" data-aos-delay="600px">
-                    <h5>Pilih jenis pembayaran:</h5>
-                    <div class="tombol-pembayaran">
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="tombol">Uang Tunai</button>
-                                <button type="button" class="tombol">OVO</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="tombol">Dana</button>
-                                <button type="button" class="tombol">QRIS</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <button type="button" class="tombol">LinkAja</button>
-                                <button type="button" class="tombol">Transfer</button>
-                            </div>
-                        </div>
+<div class="pop-up">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            animation: fade-in 0.6s forwards;
+        }
 
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+            width: 700px;
+            padding: 20px;
+            margin: 150px auto;
+            border-radius: 20px;
+        }
+
+        .modal-content h1 {
+            margin-left: 30px;
+        }
+
+        .modal-content h2 {
+            margin-left: 70px;
+            margin-right: 30px;
+        }
+
+        .modal-content h4 {
+            margin-left: 70px;
+            margin-right: 30px;
+        }
+
+        #tombol-bayar {
+            position: absolute;
+            width: 250px;
+            right: 20px;
+            bottom: 20px;
+            padding: 10px;
+            background-color: #b0b0b0;
+            color: black;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #tombol-bayar:hover {
+            background-color: #0FC598;
+            color: white;
+        }
+    </style>
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <h1><b>Detail Pemesanan</b></h1>
+            <div class="detail">
+                <h4>Rahmawan Saputra</h4>
+                <h4>Jl. A. Yani No 87 Surabaya</h4>
+                <h4>087123876546</h4>
+                <div class="row">
+                    <div class="col-7">
+                        <h4>Deep Clean</h4>
+                    </div>
+                    <div class="col-5">
+                        <h4 style="position:absolute; right:0px"><b>Rp. 40.000</b></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <h4>Premium</h4>
+                    </div>
+                    <div class="col-5">
+                        <h4 style="position:absolute; right:0px"><b>Rp. 50.000</b></h4>
                     </div>
                 </div>
                 <h4>Uang Tunai</h4>
                 <h4>Total Yang Harus Dibayarkan</h4>
                 <h2><b>Rp. 90.000</b></h2>
             </div>
-            <div class="col">
-                <div class="total" data-aos="fade-up" data-aos-delay="800px">
-                    <h5>Jumlah Yang Harus Dibayarkan</h5>
-                    <span>
-                        <h4>Rp. 35.000</h4>
-                    </span>
-                    <br><br><br><br><br><br>
-                    <button type="button" class="tombol" style="width: 300px; font-size:20px;">Pesan</button>
-
-                </div>
-            </div>
+            <button id="tombol-bayar">
+                Bayar Sekarang
+            </button>
         </div>
-
     </div>
-</section>
+</div>
+
+
+<Script>
+    function detail() {
+        var modal = document.getElementById("detail-modal");
+        modal.style.display = "block";
+
+        window.addEventListener("click", closePopupOutside);
+    }
+
+    function closePopupOutside(event) {
+        var modal = document.getElementById("detail-modal");
+        var modalContent = document.querySelector(".modal-content");
+
+        if (event.target === modal) {
+            modal.style.display = "none";
 
             window.removeEventListener("click", closePopupOutside);
         }
