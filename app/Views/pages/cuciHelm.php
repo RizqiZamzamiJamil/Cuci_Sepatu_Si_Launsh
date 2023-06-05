@@ -151,44 +151,51 @@
                         <div class="row" style="margin-top: 10px;">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" required>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" required>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
-                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" required>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" required>
                             </div>
                         </div>
-
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="800" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" required>
+                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" required>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Jenis Pembayaran</label>
-                                <select class="dropdown" id="jenisbayar" onchange="selectOption()">
+                                <select class="dropdown" id="metode" name="metode">
                                     <option value="">Pilih Jenis Pembayaran</option>
-                                    <option value="option1">Uang Tunai</option>
-                                    <option value="option2">OVO</option>
-                                    <option value="option3">Dana</option>
-                                    <option value="option4">QRIS</option>
-                                    <option value="option5">LinkAja</option>
-                                    <option value="option6">Transfer</option>
+                                    <option value="Uang Tunai">Uang Tunai</option>
+                                    <option value="OVO">OVO</option>
+                                    <option value="Dana">Dana</option>
+                                    <option value="QRIS">QRIS</option>
+                                    <option value="LinkAja">LinkAja</option>
+                                    <option value="Transfer">Transfer</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="1100">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="1100" for="layanan" class="form-label">Kategori Layanan</label>
-                                <select class="dropdown" id="layanan" onchange="selectOption()">
+                                <select class="dropdown" id="layanan" name="layanan">
                                     <option value="">Pilih Kategori Layanan</option>
-                                    <option value="option1">Full Face</option>
-                                    <option value="option2">Half Face</option>
-                                    <option value="option3">Premium Clean</option>
+                                    <option value="Reguler">Reguler</option>
+                                    <option value="Express">Express</option>
+                                    <option value="Premium">Premium</option>
                                 </select>
                             </div>
                             <div class="col">
-                                <button onclick="detail()" type="button" class="tombol">Lihat Detail</button>
+                                <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Kategori Helm</label>
+                                <select class="dropdown" id="kategori" name="kategori">
+                                    <option value="">Pilih Kategori Helm</option>
+                                    <option value="Half Face">Half Face</option>
+                                    <option value="Full Face">Full Face</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button onclick="hitung_total()" type="button" class="tombol">Lihat Detail</button>
                             </div>
                         </div>
                     </form>
@@ -267,34 +274,35 @@
             color: white;
         }
     </style>
+
     <div id="detail-modal" class="modal">
         <div class="modal-content">
             <h1><b>Detail Pemesanan</b></h1>
             <div class="detail">
-                <h4>Rahmawan Saputra</h4>
-                <h4>Jl. A. Yani No 87 Surabaya</h4>
-                <h4>087123876546</h4>
+                <h4 id="nama_pemesan"><?= $nama; ?></h4>
+                <h4 id="alamat_pemesan"><?= $alamat; ?></h4>
+                <h4 id="telepon_pemesan"><?= $no_hp; ?></h4>
                 <div class="row">
                     <div class="col-7">
-                        <h4>Deep Clean</h4>
+                        <h4 id="layanan-terpilih"></h4>
                     </div>
                     <div class="col-5">
-                        <h4 style="position:absolute; right:0px"><b>Rp. 40.000</b></h4>
+                        <h4 id="harga-layanan" style="position:absolute; right:0px"><b></b></h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-7">
-                        <h4>Premium</h4>
+                        <h4 id="kategori-terpilih"></h4>
                     </div>
                     <div class="col-5">
-                        <h4 style="position:absolute; right:0px"><b>Rp. 50.000</b></h4>
+                        <h4 id="harga-kategori" style="position:absolute; right:0px"><b></b></h4>
                     </div>
                 </div>
-                <h4>Uang Tunai</h4>
+                <h4 id="metode-terpilih"></h4>
                 <h4>Total Yang Harus Dibayarkan</h4>
-                <h2><b>Rp. 90.000</b></h2>
+                <h2 id="total_harga"><b></b></h2>
             </div>
-            <button id="tombol-bayar">
+            <button onclick="simpanHelm()" id="tombol-bayar" type="button">
                 Bayar Sekarang
             </button>
         </div>
@@ -319,6 +327,70 @@
 
             window.removeEventListener("click", closePopupOutside);
         }
+    }
+
+    function hitung_total() {
+        var selectElementMetode = document.getElementById('metode'); // ambil elemen dari id metode
+        var selectMetode = selectElementMetode.options[selectElementMetode.selectedIndex].value; // ambil nilai dari elemen terpilih
+        var selectElementLayanan = document.getElementById('layanan');
+        var selectLayanan = selectElementLayanan.options[selectElementLayanan.selectedIndex].value;
+        var selectElementKategori = document.getElementById('kategori');
+        var selectKategori = selectElementKategori.options[selectElementKategori.selectedIndex].value;
+
+        var data = {
+            metode: selectMetode,
+            layanan: selectLayanan,
+            kategori: selectKategori
+        }
+
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/totalRealTime'); ?>',
+            type: 'POST',
+            data: data,
+            success: function(response) {
+                $('#layanan-terpilih').text(response.layanan);
+                $('#harga-layanan').text(response.harga_layanan);
+                $('#kategori-terpilih').text(response.kategori);
+                $('#harga-kategori').text(response.harga_kategori);
+                $('#metode-terpilih').text(response.metode);
+                $('#total_harga').text(response.total_harga);
+            }
+        });
+
+        detail(); // panggil fungsi ini untuk menampilkan data realtime ke pop up
+    }
+
+    function simpanHelm() {
+        var getNama = document.getElementById('pemesan');
+        var nama = getNama.value;
+
+        var getAlamat = document.getElementById('alamat');
+        var alamat = getAlamat.value;
+
+        var getTelepon = document.getElementById('telepon');
+        var telepon = getTelepon.value;
+
+        var metode = $('#metode-terpilih').text(); // ambil nilai dari id metode-terpilih
+        var layanan = $('#layanan-terpilih').text();
+        var kategori = $('#kategori-terpilih').text();
+
+        var insertData = {
+            nama: nama,
+            telepon: telepon,
+            alamat: alamat,
+            layanan: layanan,
+            kategori: kategori,
+            metode: metode
+        }
+
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
+            type: 'POST',
+            data: insertData,
+            success: function(html) {
+                alert('Data Pesanan Cuci Helm berhasil ditambahkan');
+            }
+        });
     }
 </Script>
 <?= $this->endSection(); ?>
