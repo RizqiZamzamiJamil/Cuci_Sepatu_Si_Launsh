@@ -143,150 +143,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status completed">Selesai</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status pending">Menunggu</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status pending">Menunggu</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status completed">Selesai</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status process">Proses</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status process">Proses</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status completed">Selesai</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>
-                    <p>RAHMAWAN SAPUTRA</p>
-                </td>
-                <td>
-                    <p>JL. A. YANI NO 67, SURABAYA</p>
-                </td>
-                <td>
-                    089767839213
-                </td>
-                <td>01-10-2021</td>
-                <td><span class="status process">Proses</span></td>
-                <td>
-                    <a href="#"><i class='bx bx-detail'></i></a>
-                    <a href="#"><i class='bx bx-trash'></i></a>
-                </td>
-            </tr>
+            <?php foreach ($pesanan as $index => $pesanan) :  ?>
+                <tr>
+                    <td><?= $index + 1; ?></td>
+                    <td>
+                        <p><?= $pesanan['nama']; ?></p>
+                    </td>
+                    <td>
+                        <p><?= $pesanan['alamat']; ?></p>
+                    </td>
+                    <td>
+                        <?= $pesanan['no_hp']; ?>
+                    </td>
+                    <td><?= $pesanan['tgl']; ?></td>
+                    <td><span class="status completed"><?= $pesanan['status']; ?></span></td>
+                    <td>
+                        <a href="#"><i class='bx bx-detail'></i></a>
+                        <a href="#"><i class='bx bx-trash'></i></a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
