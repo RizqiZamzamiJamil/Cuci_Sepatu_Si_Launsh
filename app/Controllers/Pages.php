@@ -167,6 +167,35 @@ class Pages extends BaseController
         dd($validation);
     }
 
+    public function adminDashboard(){
+        $data = [
+            'title' => 'Dashboard | Admin'
+        ];
+        return view('pages/adminDashboard', $data);
+    }
+    public function dashboard(){
+        
+        $data = [
+            'title' => 'Dashboard | Admin'
+        ];
+        return view('pages/dashboard', $data);
+    }
+
+    public function pesananCuciSepatu(){
+        
+        $data = [
+            'title' => 'Cuci Sepatu | Pesanan'
+        ];
+        return view('pages/pesananCuciSepatu', $data);
+    }
+
+    public function adminCuciSepatu(){
+        $data = [
+            'title' => 'Cuci Sepatu | Pesanan'
+        ];
+        return view('pages/adminCuciSepatu', $data);
+    }
+
     public function saveDaftar()
     {
         $data = [

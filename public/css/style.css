@@ -4,21 +4,4 @@ body {
     background-size: cover;
 }
 
-footer {
-    background-color: #ffffff;
-    padding: 20px;
-    text-align: center;
-    position: sticky;
-  }
-  
-  .footer-content {
-    margin: auto;
-    max-width: 800px;
-  }
-  
-  .footer-links a {
-    margin-right: 10px;
-    color: #333333;
-    text-decoration: none;  
-  }
 

@@ -26,7 +26,24 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
+<style>
+    footer {
+        background-color: #ffffff;
+        padding: 20px;
+        text-align: center;
+        clear: both;
+    }
 
+    .footer-content {
+        margin: auto;
+        max-width: 800px;
+    }
+
+    .footer-links a {
+        margin-right: 10px;
+        color: #333333;
+    }
+</style>
 <footer>
   <div class="footer-content">
     <p>&copy; 2023 SiLaunsh</p>

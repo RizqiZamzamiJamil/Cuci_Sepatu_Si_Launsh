@@ -45,7 +45,7 @@ class Auth extends BaseController
             if ($user['level'] == '1') {
                 return redirect()->to('owner/dashboard');
             } else if ($user['level'] == '2') {
-                return redirect()->to('admin/dashboard');
+                return redirect()->to('pages/adminDashboard');
             } else {
                 return redirect()->to('/');
             }
@@ -59,7 +59,7 @@ class Auth extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('pages/index');
+        return redirect()->to('pages/masuk');
     }
 
 
@@ -70,7 +70,7 @@ class Auth extends BaseController
         if($user->delete()){
             $session = session();
             $session->destroy();
-            return redirect()->to('pages/index');
+            return redirect()->to('pages/masuk');
         } else{
             return redirect()->to('pages/profil');
         }
