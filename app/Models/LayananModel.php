@@ -14,4 +14,9 @@ class LayananModel extends Model
     {
         return $this->where('nama', $nama)->first();
     }
+
+    public function getLayananById($id)
+    {
+        return $this->where('id_layanan', $id)->first();
+    }
 }

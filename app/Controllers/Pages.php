@@ -4,16 +4,20 @@ namespace App\Controllers;
 
 use App\Models\CustomerModel;
 use App\Models\UserModel;
+use App\Models\PesananModel;
 
 class Pages extends BaseController
 {
     protected $customerModel;
     protected $userModel;
-
+    protected $pesananModel;
+    protected $layananModel;
+    protected $kategoriBarangModel;
     public function __construct()
     {
         $this->customerModel = new CustomerModel();
         $this->userModel = new UserModel();
+        $this->pesananModel = new PesananModel();
     }
     public function index()
     {
@@ -167,31 +171,41 @@ class Pages extends BaseController
         dd($validation);
     }
 
-    public function adminDashboard(){
+    public function adminDashboard()
+    {
         $data = [
             'title' => 'Dashboard | Admin'
         ];
         return view('pages/adminDashboard', $data);
     }
-    public function dashboard(){
-        
+    public function dashboard()
+    {
+
         $data = [
             'title' => 'Dashboard | Admin'
         ];
         return view('pages/dashboard', $data);
     }
 
-    public function pesananCuciSepatu(){
-        
+    public function pesananCuciSepatu()
+    {
+
         $data = [
             'title' => 'Cuci Sepatu | Pesanan'
         ];
         return view('pages/pesananCuciSepatu', $data);
     }
 
-    public function adminCuciSepatu(){
+    public function adminCuciSepatu()
+    {
+        $pesananModel = new PesananModel();
+        $pesanan = $pesananModel->getPesananSepatu(); // panggil fungsi untuk mencari pesanan sepatu
+        $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
+
         $data = [
-            'title' => 'Cuci Sepatu | Pesanan'
+            'title' => 'Cuci Sepatu | Pesanan',
+            'pesanan' => $pesanan,
+            'count' => $count
         ];
         return view('pages/adminCuciSepatu', $data);
     }
