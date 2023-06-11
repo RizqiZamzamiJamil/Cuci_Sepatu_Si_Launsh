@@ -15,6 +15,13 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="/css/stylee.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- Memuat jQuery dari CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Memuat jQuery Mobile dari CDN -->
+    <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+
     <title>AdminHub</title>
 </head>
 
@@ -104,6 +111,7 @@
             <form action="#">
 
             </form>
+
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
             <a href="#" class="notification">
@@ -216,21 +224,21 @@
 
 
     <script>
-            // konfimasi keluar
-    function keluar() {
-        document.getElementById("confirmation-modal").style.display = "block";
-    }
+        // konfimasi keluar
+        function keluar() {
+            document.getElementById("confirmation-modal").style.display = "block";
+        }
 
-    function enggak() {
-        document.getElementById("confirmation-modal").style.display = "none";
-    }
+        function enggak() {
+            document.getElementById("confirmation-modal").style.display = "none";
+        }
 
-    function iya() {
-        window.location.href = "<?= site_url('auth/logout') ?>";
-    }
+        function iya() {
+            window.location.href = "<?= site_url('auth/logout') ?>";
+        }
     </script>
     <script src="/js/scriptAdmin.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 
 </html>

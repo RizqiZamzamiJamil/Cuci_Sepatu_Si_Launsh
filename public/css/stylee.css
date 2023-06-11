@@ -49,6 +49,10 @@ body {
     background-size: cover;
 }
 
+body a{
+	text-decoration: none;
+}
+
 
 
 
@@ -97,10 +101,13 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
 #sidebar .side-menu {
 	width: 100%;
 	margin-top: 48px;
+	margin-left: -30px;
 }
+
 #sidebar .side-menu li {
 /* 	height: 48px; */
 	background: transparent;
@@ -140,21 +147,10 @@ body {
 	justify-content: center;
 }
 
-#sidebar .side-menu > li > ul > li:nth-child(1) > a {
-	margin-left: 40px;
-}
-#sidebar .side-menu > li > ul > li:nth-child(2) > a {
-	margin-left: 40px;
-}
-#sidebar .side-menu > li > ul > li:nth-child(3) > a {
-	margin-left: 40px;
-}
-#sidebar .side-menu > li > ul > li:nth-child(4) > a {
-	margin-left: 40px;
-}
-#sidebar .side-menu > li > ul > li:nth-child(5) > a {
-	margin-left: 40px;
-}
+/* #sidebar .side-menu > li > ul > li:nth-child(1) > a {
+
+} */
+
 
 #sidebar .sub-menu {
 	display: none;
