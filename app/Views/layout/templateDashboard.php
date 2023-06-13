@@ -46,8 +46,8 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="/pages/adminCuciSepatu">Cuci Sepatu</a></li>
-                    <li><a href="#">Cuci Helm</a></li>
-                    <li><a href="#">UnYellowing</a></li>
+                    <li><a href="/pages/adminCuciHelm">Cuci Helm</a></li>
+                    <li><a href="/pages/adminCuciUnyellowing">UnYellowing</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -158,7 +158,7 @@
                         }
                     }
 
-                    .modal-content {
+                    .keluar {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -190,11 +190,13 @@
 
                     .confirm {
                         background-color: red;
+                        border: none;
                         transition: background-color 0.3s ease;
                     }
 
                     .cancel {
                         background-color: blue;
+                        border: none;
                         transition: background-color 0.3s ease;
                     }
 
@@ -207,7 +209,7 @@
                     }
                 </style>
                 <div id="confirmation-modal" class="modal">
-                    <div class="modal-content">
+                    <div class="modal-content keluar">
                         <h2>Yakin mau keluar?</h2>
                         <div class="button-container">
                             <button class="cancel" onclick="enggak()">Enggak</button>

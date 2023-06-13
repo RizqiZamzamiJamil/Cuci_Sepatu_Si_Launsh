@@ -32,11 +32,13 @@
         padding: 20px;
         text-align: center;
         clear: both;
+        width: 100%;
+        position: sticky;
     }
 
     .footer-content {
         margin: auto;
-        max-width: 800px;
+        width: 100%;
     }
 
     .footer-links a {

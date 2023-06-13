@@ -210,6 +210,42 @@ class Pages extends BaseController
         return view('pages/adminCuciSepatu', $data);
     }
 
+    public function adminCuciHelm()
+    {
+        $pesananModel = new PesananModel();
+        $pesanan = $pesananModel->getPesananHelm(); // panggil fungsi untuk mencari pesanan sepatu
+        $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
+
+        $data = [
+            'title' => 'Cuci Helm | Pesanan',
+            'pesanan' => $pesanan,
+            'count' => $count
+        ];
+        return view('pages/adminCuciHelm', $data);
+    }
+
+    public function adminCuciUnYellowing()
+    {
+        $pesananModel = new PesananModel();
+        $pesanan = $pesananModel->getPesananUnyellowing(); // panggil fungsi untuk mencari pesanan sepatu
+        $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
+
+        $data = [
+            'title' => 'Cuci Un Yellowing | Pesanan',
+            'pesanan' => $pesanan,
+            'count' => $count
+        ];
+        return view('pages/adminCuciUnyellowing', $data);
+    }
+
+    public function adminPesanan()
+    {
+        $data = [
+            'title' => 'Detail | Pesanan'
+        ];
+        return view('pages/adminPesanan', $data);
+    }
+
     public function saveDaftar()
     {
         $data = [

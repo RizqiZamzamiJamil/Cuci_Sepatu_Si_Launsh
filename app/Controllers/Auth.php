@@ -75,4 +75,8 @@ class Auth extends BaseController
             return redirect()->to('pages/profil');
         }
     }
+
+    public function hapusOrder(){
+        
+    }
 }

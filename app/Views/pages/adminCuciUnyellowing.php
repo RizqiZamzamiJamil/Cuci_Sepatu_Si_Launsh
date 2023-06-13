@@ -4,14 +4,14 @@
 
 <div class="head-title">
     <div class="left">
-        <h1>Cuci Sepatu</h1>
+        <h1>Cuci Un Yellowing</h1>
         <ul class="breadcrumb">
             <li>
                 <a href="#">Pesanan</a>
             </li>
             <li><i class='bx bx-chevron-right'></i></li>
             <li>
-                <a class="active" href="#">Cuci Sepatu</a>
+                <a class="active" href="#">Cuci Un Yellowing</a>
             </li>
         </ul>
     </div>
@@ -55,7 +55,53 @@
     </table>
 </div>
 
+<div class="modal-overlay">
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fade-in 0.6s forwards;
+        }
 
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hapus {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <div class="hapus">
+        <h2>Konfirmasi Hapus Data</h2>
+        <p>Anda yakin ingin menghapus data ini?</p>
+        <div class="button-container">
+            <button class="cancel" onclick="tutupModal()">Enggak</button>
+            <button class="confirm" onclick="hapusData()">Iya</button>
+        </div>
+    </div>
+</div>
 
 <script>
     function konfirmasi() {
