@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/templateDashboard'); ?>
 
 <?= $this->section('content'); ?>
 <style>
@@ -343,19 +343,14 @@
             kategori: selectKategori
         }
 
-        $.ajax({
-            url: '<?php echo base_url('pemesanan/totalRealTime'); ?>',
-            type: 'POST',
-            data: data,
-            success: function(response) {
-                $('#layanan-terpilih').text(response.layanan);
-                $('#harga-layanan').text(response.harga_layanan);
-                $('#kategori-terpilih').text(response.kategori);
-                $('#harga-kategori').text(response.harga_kategori);
-                $('#metode-terpilih').text(response.metode);
-                $('#total_harga').text(response.total_harga);
-            }
-        });
+        axios.post('<?php echo base_url('pemesanan/totalRealTime'); ?>', data).then(response => {
+            document.querySelector('#layanan-terpilih').innerHTML = response.layanan,
+            document.querySelector('#harga-layanan').innerHTML = response.harga_layanan,
+            document.querySelector('#kategori-terpilih').innerHTML = response.kategori,
+            document.querySelector('#harga-kategori').innerHTML = response.harga_kategori,
+            document.querySelector('#metode-terpilih').innerHTML = response.metode,
+            document.querySelector('#total_harga').innerHTML = response.total_harga,
+        })
 
         detail(); // panggil fungsi ini untuk menampilkan data realtime ke pop up
     }
@@ -383,14 +378,10 @@
             metode: metode
         }
 
-        $.ajax({
-            url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
-            type: 'POST',
-            data: insertData,
-            success: function(html) {
-                alert('Data Pesanan Cuci Helm berhasil ditambahkan');
-            }
-        });
+        axios.post('<?php echo base_url('pemesanan/insertPesanan'); ?>', insertData).then(html => {
+            alert('Data Pesanan Cuci Helm berhasil ditambahkan');
+        })
+
     }
 </Script>
 <?= $this->endSection(); ?>

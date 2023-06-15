@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= $title; ?></title>
     <link href="/img/logo.png" rel="icon">
 
     <!-- Boxicons -->
@@ -17,10 +16,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+    <!-- Memuat Axios dari CDN -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Memuat jQuery dari CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
     <!-- Memuat jQuery Mobile dari CDN -->
-    <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script> -->
 
     <title>AdminHub</title>
 </head>
@@ -34,7 +35,7 @@
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="/pages/adminDashboard">
+                <a href="<?php echo base_url('/dashboard') ?>">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -45,9 +46,9 @@
                     <span class="text">Pesanan</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="/pages/adminCuciSepatu">Cuci Sepatu</a></li>
-                    <li><a href="/pages/adminCuciHelm">Cuci Helm</a></li>
-                    <li><a href="/pages/adminCuciUnyellowing">UnYellowing</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/CuciSepatu')?>">Cuci Sepatu</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/CuciHelm')?>">Cuci Helm</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/Unyellowing')?>">UnYellowing</a></li>
                 </ul>
             </li>
             <li class="dropdown">
