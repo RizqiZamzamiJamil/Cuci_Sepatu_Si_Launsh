@@ -38,6 +38,12 @@ $routes->get('pages/cuci/cuciYellowing', 'Pages::cuciYellowing', ['filter' => 'p
 $routes->get('pages/profil', 'Pages::profil', ['filter' => 'pages/masuk']);
 $routes->post('pemesanan/totalRealTime', 'Pemesanan::totalRealTime');
 
+
+// Tambah Route Cabang
+$routes->get('pages/cabangSurabaya', 'Pages::cabangSurabaya');
+
+
+
 $routes->get('dashboard', 'Admin::index');
 $routes->get('dashboard/adminCuciSepatu', 'CuciSepatuDashboard::index');
 // $routes->get('dashboard/CuciSepatu/adminCuciSepatu', 'CuciSepatuDashboard::index');
