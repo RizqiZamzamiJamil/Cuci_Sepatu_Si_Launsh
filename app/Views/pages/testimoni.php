@@ -21,10 +21,14 @@
         position: absolute;
     }
 
-    .hero{
+    .hero {
         position: relative;
-        left: 250px;
         top: 80px;
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero .judul{
+        margin-left: 250px;
     }
 
     #helm {
@@ -58,6 +62,9 @@
     }
 
 
+    .testimoni h1 {
+        margin-left: 0px;
+    }
 </style>
 
 <section class="section-1">
@@ -69,8 +76,28 @@
         </div>
         <div class="hero">
             <h3 data-aos="fade-up" data-aos-delay="200" style="margin-left: 400px;">>>>>>>></h3>
-            <h1 data-aos="fade-up" data-aos-delay="400"><b>TESTIMONI</b></h1>
-            <h5 data-aos="fade-up" data-aos-delay="600" style="margin-top: -5px;">Apa Kata Mereka Tentang Pelayanan Kami?</h5>
+            <div class="judul">
+                <h1 data-aos="fade-up" data-aos-delay="400"><b>TESTIMONI</b></h1>
+                <h5 data-aos="fade-up" data-aos-delay="600" style="margin-top: -5px;">Apa Kata Mereka Tentang Pelayanan Kami?</h5>
+            </div>
+
+            <div class="testimoni">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <img src="/img/testimoni-testi prof1-2.png" alt="">
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-sm-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <h1>Angela Syafitri</h1>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <!-- Konten baris 2, kolom 2 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

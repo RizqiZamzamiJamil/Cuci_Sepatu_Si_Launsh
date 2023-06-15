@@ -279,16 +279,17 @@
                             Nominal
                         </div>
                         <div class="col">
-                            Rp. 50.000
+                            <span id="nominal">50000</span>
                         </div>
                     </div>
                     <hr style="margin: -2px 0px 0px 1px;">
                     <div class="row">
                         <div class="col">
-                            Uang Tunai
+                            <span id="jenis-pembayaran">Uang Tunai</span>
                         </div>
                         <div class="col">
-                            Rp. 100.000
+                            <span id="nominal-text">100000</span>
+                            <input type="text" id="nominal-input" style="display: none;">
                         </div>
                     </div>
                     <div class="row">
@@ -296,7 +297,7 @@
                             Kembalian
                         </div>
                         <div class="col">
-                            Rp. 50.000
+                            <span id="kembalian">Rp. 50.000</span>
                         </div>
                     </div>
                     <br>
@@ -565,7 +566,43 @@
     modal.addEventListener("click", function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
-            window.location.href = "/pages/adminCuciSepatu"; // Ganti dengan URL halaman yang diinginkan
+            window.location.href = "/pages/adminCuciSepatu";
+        }
+    });
+
+    // Ambil elemen-elemen yang diperlukan
+    const jenisPembayaranElement = document.querySelector('#jenis-pembayaran');
+    const nominalTextElement = document.querySelector('#nominal-text');
+    const nominalInputElement = document.querySelector('#nominal-input');
+    const kembalianElement = document.querySelector('#kembalian');
+
+    // Tambahkan event listener pada jenis pembayaran
+    jenisPembayaranElement.addEventListener('click', function() {
+        if (jenisPembayaranElement.textContent === 'Uang Tunai') {
+            nominalTextElement.style.display = 'none';
+            nominalInputElement.style.display = 'inline';
+
+            // Tambahkan event listener pada input uang tunai
+            nominalInputElement.addEventListener('input', function() {
+                const inputUangTunai = parseFloat(nominalInputElement.value);
+                const nominal = parseFloat(nominalTextElement.textContent.replace('Rp. ', ''));
+
+                // Hitung kembalian
+                const kembalian = inputUangTunai - nominal;
+
+                // Tampilkan kembalian
+                kembalianElement.textContent = `Rp. ${kembalian}`;
+            });
+        } else {
+            nominalTextElement.style.display = 'inline';
+            nominalInputElement.style.display = 'none';
+
+            const nominal = parseFloat(nominalTextElement.textContent.replace('Rp. ', ''));
+            const nominalPembayaran = parseFloat(jenisPembayaranElement.textContent.replace('Rp. ', ''));
+            const kembalian = nominalPembayaran - nominal;
+
+            // Tampilkan kembalian dengan memastikan nilai minimum adalah 0
+            kembalianElement.textContent = `Rp. ${Math.max(kembalian, 0)}`;
         }
     });
 </script>

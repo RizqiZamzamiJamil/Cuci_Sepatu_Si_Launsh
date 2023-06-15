@@ -127,11 +127,30 @@
         background-color: white;
         color: black;
     }
+
+    .image-wrapper button {
+        position: absolute;
+        background-color: #fff;
+        color: black;
+        padding: 10px;
+        bottom: 20px;
+        left: 20px;
+        width: 150px;
+        border-radius: 15px;
+        border: none;
+    }
+
+    .image-wrapper button:hover {
+        background-color: #0FC598;
+        border: 2px solid white;
+        color: white;
+    }
 </style>
 <section class="section-1" data-aos="fade-up">
     <div class="container">
         <div class="image-wrapper">
             <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
+            <a href="/pages/cuci"><button>Kembali</button></a>
         </div>
 
         <div class="konten">
