@@ -125,53 +125,89 @@ class Pages extends BaseController
         return view('pages/cuciYellowing', $data);
     }
 
-    public function infoCuciSepatu(){
+    public function infoCuciSepatu()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciSepatu', $data);
     }
-    public function infoCuciHelm(){
+    public function infoCuciHelm()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciHelm', $data);
     }
-    public function infoCuciUnyellowing(){
+    public function infoCuciUnyellowing()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciUnyellowing', $data);
     }
-    public function infoSurabaya(){
+    public function infoSurabaya()
+    {
         $data = [
             'title' => 'Cabang Surabaya'
         ];
         return view('pages/infoSurabaya', $data);
     }
-    public function infoMalang(){
+    public function infoMalang()
+    {
         $data = [
             'title' => 'Cabang Malang'
         ];
         return view('pages/infoMalang', $data);
     }
-    public function infoPasuruan(){
+    public function infoPasuruan()
+    {
         $data = [
             'title' => 'Cabang Pasuruan'
         ];
         return view('pages/infoPasuruan', $data);
     }
-    public function infoMojokerto(){
+    public function infoMojokerto()
+    {
         $data = [
             'title' => 'Cabang Mojokerto'
         ];
         return view('pages/infoMojokerto', $data);
     }
-    public function infoSidoarjo(){
+    public function infoSidoarjo()
+    {
         $data = [
             'title' => 'Cabang Sidoarjo'
         ];
         return view('pages/infoSidoarjo', $data);
+    }
+    public function adminManageKasir()
+    {
+        $data = [
+            'title' => 'Kasir | Manage'
+        ];
+        return view('pages/adminManageKasir', $data);
+    }
+    public function adminManageBarang()
+    {
+        $data = [
+            'title' => 'Barang | Manage'
+        ];
+        return view('pages/adminManageBarang', $data);
+    }
+    public function adminManageTransaksi()
+    {
+        $data = [
+            'title' => 'Transaksi | Manage'
+        ];
+        return view('pages/adminManageTransaksi', $data);
+    }
+    public function adminManagePelanggan()
+    {
+        $data = [
+            'title' => 'Pelanggan | Manage'
+        ];
+        return view('pages/adminManagePelanggan', $data);
     }
 
     public function profil()
@@ -247,7 +283,8 @@ class Pages extends BaseController
 
 
     // Menuju View Cabang
-    public function cabangSurabaya(){
+    public function cabangSurabaya()
+    {
         $data = [
             'title' => 'Home | Cabang Surabaya'
         ];
