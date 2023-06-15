@@ -124,7 +124,8 @@
         background-color: white;
         color: black;
     }
-    .image-wrapper button{
+
+    .image-wrapper button {
         position: absolute;
         background-color: #fff;
         color: black;
@@ -136,7 +137,7 @@
         border: none;
     }
 
-    .image-wrapper button:hover{
+    .image-wrapper button:hover {
         background-color: #0FC598;
         border: 2px solid white;
         color: white;
@@ -147,7 +148,7 @@
         <div class="image-wrapper">
             <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
             <a href="/pages/cuci"><button>Kembali</button></a>
-            
+
         </div>
 
         <div class="konten">
