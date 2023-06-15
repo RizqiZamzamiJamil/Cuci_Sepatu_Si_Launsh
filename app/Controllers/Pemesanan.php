@@ -132,4 +132,10 @@ class Pemesanan extends BaseController
         $pembayaranModel->insert($insertDataPembayaran); // masukkan data ke tabel pembayaran
         return redirect()->to('pages/profil');
     }
+
+    public function hapusPesanSepatu()
+    {
+        $id_pesanan = $this->request->getPost('id_pesanan');
+        return redirect()->to('pages/adminCuciSepatu');
+    }
 }
