@@ -344,11 +344,11 @@
 
         axios.post('<?php echo base_url('pemesanan/totalUnyellowing'); ?>', data).then(response => {
             document.querySelector('#layanan-terpilih').innerHTML = response.layanan,
-            document.querySelector('#harga-layanan').innerHTML = response.harga_layanan,
-            document.querySelector('#kategori-terpilih').innerHTML = response.kategori,
-            document.querySelector('#harga-kategori').innerHTML = response.harga_kategori,
-            document.querySelector('#metode-terpilih').innerHTML = response.metode,
-            document.querySelector('#total_harga').innerHTML = response.total_harga,
+                document.querySelector('#harga-layanan').innerHTML = response.harga_layanan,
+                document.querySelector('#kategori-terpilih').innerHTML = response.kategori,
+                document.querySelector('#harga-kategori').innerHTML = response.harga_kategori,
+                document.querySelector('#metode-terpilih').innerHTML = response.metode,
+                document.querySelector('#total_harga').innerHTML = response.total_harga,
         })
 
         detail(); // panggil fungsi ini untuk menampilkan data realtime ke pop up

@@ -39,7 +39,8 @@ $routes->get('pages/profil', 'Pages::profil', ['filter' => 'pages/masuk']);
 $routes->post('pemesanan/totalRealTime', 'Pemesanan::totalRealTime');
 
 $routes->get('dashboard', 'Admin::index');
-$routes->get('dashboard/CuciSepatu', 'CuciSepatuDashboard::index');
+$routes->get('dashboard/adminCuciSepatu', 'CuciSepatuDashboard::index');
+// $routes->get('dashboard/CuciSepatu/adminCuciSepatu', 'CuciSepatuDashboard::index');
 $routes->get('dashboard/CuciHelm', 'CuciHelmDashboard::index');
 $routes->get('dashboard/Unyellowing', 'UnyellowingDashboard::index');
 

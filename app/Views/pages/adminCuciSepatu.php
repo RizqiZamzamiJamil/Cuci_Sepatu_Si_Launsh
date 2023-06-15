@@ -58,7 +58,13 @@
 </div>
 
 <script>
-
+    function konfirmasiHapus() {
+        var get_idPesanan = document.getElementById('id_pesanan');
+        var id_pesanan = get_idPesanan.value;
+        // var id_pesanan = $('#id_pesanan').text();
+        // var id_pesanan = $id_pesanan;
+        document.write(id_pesanan);
+    }
 </script>
 
 <!-- <div id="confirmationContainer" class="confirmation-container">
