@@ -196,6 +196,15 @@ class Pages extends BaseController
         return view('pages/pesananCuciSepatu', $data);
     }
 
+
+    // Menuju View Cabang
+    public function cabangSurabaya(){
+        $data = [
+            'title' => 'Home | Cabang Surabaya'
+        ];
+        return view('pages/masuk', $data);
+    }
+
     // public function adminCuciSepatu()
     // {
     //     $pesananModel = new PesananModel();

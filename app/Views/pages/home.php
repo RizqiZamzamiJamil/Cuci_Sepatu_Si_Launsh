@@ -506,7 +506,7 @@
         <div class="row">
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                    <a class="cabang-link" href="/pages/cabangSurabaya">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>SURABAYA</h3>
@@ -517,7 +517,7 @@
                         </div>
                         <img class="img-fluid" src="/img/cabang-surabaya.png" alt="">
                     </a>
-                </div>
+                    </div>
             </div>
 
             <div class="col">
