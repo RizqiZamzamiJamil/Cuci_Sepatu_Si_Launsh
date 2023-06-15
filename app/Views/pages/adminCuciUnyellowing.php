@@ -4,14 +4,14 @@
 
 <div class="head-title">
     <div class="left">
-        <h1>Cuci Un Yellowing</h1>
+        <h1>Cuci Unyellowing</h1>
         <ul class="breadcrumb">
             <li>
                 <a href="#">Pesanan</a>
             </li>
             <li><i class='bx bx-chevron-right'></i></li>
             <li>
-                <a class="active" href="#">Cuci Un Yellowing</a>
+                <a class="active" href="#">Cuci Unyellowing</a>
             </li>
         </ul>
     </div>
@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>ID Pemesanan</th>
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>No Telepon</th>
@@ -34,6 +35,7 @@
             <?php foreach ($pesanan as $index => $pesanan) :  ?>
                 <tr>
                     <td><?= $index + 1; ?></td>
+                    <td><?= $pesanan['id_pesanan']; ?></td>
                     <td>
                         <p><?= $pesanan['nama']; ?></p>
                     </td>
