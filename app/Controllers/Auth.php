@@ -41,7 +41,7 @@ class Auth extends BaseController
             if ($user['level'] == '1') {
                 return redirect()->to('owner/dashboard');
             } else if ($user['level'] == '2') {
-                return redirect()->to('pages/adminDashboard');
+                return redirect()->to('dashboard');
             } else {
                 return redirect()->to('/');
             }

@@ -37,11 +37,12 @@ $routes->get('pages/cuci/cuciHelm', 'Pages::cuciHelm,', ['filter' => 'pages/masu
 $routes->get('pages/cuci/cuciYellowing', 'Pages::cuciYellowing', ['filter' => 'pages/masuk']);
 $routes->get('pages/profil', 'Pages::profil', ['filter' => 'pages/masuk']);
 $routes->post('pemesanan/totalRealTime', 'Pemesanan::totalRealTime');
-$routes->get('pages/adminDashboard', 'Pages::adminDashboard', ['filter' => 'pages/masuk']);
-$routes->get('pages/adminCuciSepatu', 'Pages::adminCuciSepatu', ['filter' => 'pages/masuk']);
-$routes->get('pages/adminCuciHelm', 'Pages::adminCuciHelm', ['filter' => 'pages/masuk']);
-$routes->get('pages/adminCuciUnyellowing', 'Pages::adminCuciUnyellowing', ['filter' => 'pages/masuk']);
-$routes->get('pemesanan/hapusPesanSepatu/(:alphanumeric)', 'Pemesanan::hapusPesanSepatu/$1');
+
+$routes->get('dashboard', 'Admin::index');
+$routes->get('dashboard/CuciSepatu', 'CuciSepatuDashboard::index');
+$routes->get('dashboard/CuciHelm', 'CuciHelmDashboard::index');
+$routes->get('dashboard/Unyellowing', 'UnyellowingDashboard::index');
+
 //$routes->delete('auth/(:alphanumeric)', 'Auth::hapusAkun/$1');
 /* $routes->get('/pages/daftar', 'Pages::index');
 $routes->post('/register/save', 'Register::save');
