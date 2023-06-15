@@ -8,7 +8,6 @@
     <link href="/img/logo.png" rel="icon">
 
     <!-- Boxicons -->
-
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- My CSS -->
