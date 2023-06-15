@@ -4,10 +4,6 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 
-//use CodeIgniter\Controller;
-
-//use CodeIginter\Session\Session;
-
 class Auth extends BaseController
 {
     protected $userModel;
@@ -63,20 +59,21 @@ class Auth extends BaseController
     }
 
 
-    public function hapusAkun(){
+    public function hapusAkun()
+    {
         $userModel = new UserModel();
         $user = $userModel->where('id_pengguna', $_SESSION['id_pengguna']);
 
-        if($user->delete()){
+        if ($user->delete()) {
             $session = session();
             $session->destroy();
             return redirect()->to('pages/masuk');
-        } else{
+        } else {
             return redirect()->to('pages/profil');
         }
     }
 
-    public function hapusOrder(){
-        
+    public function hapusOrder()
+    {
     }
 }

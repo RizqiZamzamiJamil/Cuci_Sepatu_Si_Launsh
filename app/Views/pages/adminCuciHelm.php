@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>ID Pemesanan</th>
                 <th>Nama</th>
                 <th>Alamat</th>
                 <th>No Telepon</th>
@@ -34,6 +35,7 @@
             <?php foreach ($pesanan as $index => $pesanan) :  ?>
                 <tr>
                     <td><?= $index + 1; ?></td>
+                    <td><?= $pesanan['id_pesanan']; ?></td>
                     <td>
                         <p><?= $pesanan['nama']; ?></p>
                     </td>

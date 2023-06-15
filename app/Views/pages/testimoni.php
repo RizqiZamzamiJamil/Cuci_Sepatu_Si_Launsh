@@ -21,10 +21,72 @@
         position: absolute;
     }
 
-    .hero{
+    .hero {
         position: relative;
-        left: 250px;
         top: 80px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero .judul {
+        margin-left: 250px;
+    }
+
+    .testimoni {
+        position: relative;
+    }
+
+    .testimoni .col-lg-4 {
+        position: relative;
+        height: 316px;
+    }
+
+    .testimoni .col-lg-4 img {
+        position: absolute;
+        right: 30px;
+        top: 0;
+    }
+
+    #bor1 {
+        width: 180px;
+        left: 150px;
+        top: 180px;
+    }
+
+    #bor2 {
+        width: 180px;
+        right: 0px;
+        top: 180px;
+    }
+
+    #ulasan {
+        position: absolute;
+        bottom: 50px;
+        right: 200px;
+        padding: 20px;
+        background-color: white;
+        border: none;
+        color: black;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+
+    #ulasan:hover {
+        background-color: #0FC598;
+        color: white;
+    }
+
+    .testimoni p {
+        width: 600px;
+        font-size: 20px;
+    }
+
+    .testimoni .col-lg-6 {
+        margin-left: 50px;
+    }
+
+    .testimoni h1 {
+        margin-top: 30px;
     }
 
     #helm {
@@ -58,6 +120,9 @@
     }
 
 
+    .testimoni h1 {
+        margin-left: 0px;
+    }
 </style>
 
 <section class="section-1">
@@ -69,9 +134,102 @@
         </div>
         <div class="hero">
             <h3 data-aos="fade-up" data-aos-delay="200" style="margin-left: 400px;">>>>>>>></h3>
-            <h1 data-aos="fade-up" data-aos-delay="400"><b>TESTIMONI</b></h1>
-            <h5 data-aos="fade-up" data-aos-delay="600" style="margin-top: -5px;">Apa Kata Mereka Tentang Pelayanan Kami?</h5>
+            <div class="judul">
+                <h1 data-aos="fade-up" data-aos-delay="400"><b>TESTIMONI</b></h1>
+                <h5 data-aos="fade-up" data-aos-delay="600" style="margin-top: -5px;">Apa Kata Mereka Tentang Pelayanan Kami?</h5>
+            </div>
+
+            <div class="testimoni">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <img id="bor1" src="/img/testimoni-testi prof1-1.png" alt="">
+                                    <img src="/img/testimoni-testi prof1-2.png" alt="">
+                                    <img id="bor2" src="/img/testimoni-testi prof1-3.png" alt="">
+                                </div>
+                                <div class="col-lg-8 col-md-6 col-sm-12">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <h1><b>Angela Syafitri</b></h1>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <br>
+                                            <br>
+                                            <p>Cuci Disini mantap betulsss.. pengerjaannya rapih bersih dan teliti banget. Jadi pengen cuci lagi dechhhh. Btw mas nya ganteng awwwwww</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <img id="bor1" src="/img/testimoni-testi prof1-1.png" alt="">
+                                    <img src="/img/testimoni-testi prof1-2.png" alt="">
+                                    <img id="bor2" src="/img/testimoni-testi prof1-3.png" alt="">
+                                </div>
+                                <div class="col-lg-8 col-md-6 col-sm-12">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <h1><b>Angela Syafitri</b></h1>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <br>
+                                            <br>
+                                            <p>Cuci Disini mantap betulsss.. pengerjaannya rapih bersih dan teliti banget. Jadi pengen cuci lagi dechhhh. Btw mas nya ganteng awwwwww</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <img id="bor1" src="/img/testimoni-testi prof1-1.png" alt="">
+                                    <img src="/img/testimoni-testi prof1-2.png" alt="">
+                                    <img id="bor2" src="/img/testimoni-testi prof1-3.png" alt="">
+                                </div>
+                                <div class="col-lg-8 col-md-6 col-sm-12">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <h1><b>Angela Syafitri</b></h1>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            <br>
+                                            <br>
+                                            <p>Cuci Disini mantap betulsss.. pengerjaannya rapih bersih dan teliti banget. Jadi pengen cuci lagi dechhhh. Btw mas nya ganteng awwwwww</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
+        <a href=""><button id="ulasan">Berikan Ulasan Anda</button></a>
     </div>
 </section>
 

@@ -12,7 +12,7 @@ class PesananModel extends Model
 
     public function getPesananSepatu()
     {
-        return $this->select('pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
+        return $this->select('pesanan.id_pesanan, pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
             ->join('customer', 'customer.id_customer = pesanan.id_customer', 'inner') // id untuk join
             ->where('pesanan.id_layanan', 'L231') // kondisi, dimana parameter pertama untuk kolom yg ada di tabel dan paremeter kedua untuk value pembanding
             ->orWhere('pesanan.id_layanan', 'L232')
@@ -22,7 +22,7 @@ class PesananModel extends Model
 
     public function getPesananHelm()
     {
-        return $this->select('pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
+        return $this->select('pesanan.id_pesanan, pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
             ->join('customer', 'customer.id_customer = pesanan.id_customer', 'inner') // id untuk join
             ->where('pesanan.id_layanan', 'L234') // kondisi, dimana parameter pertama untuk kolom yg ada di tabel dan paremeter kedua untuk value pembanding
             ->orWhere('pesanan.id_layanan', 'L235')
@@ -32,7 +32,7 @@ class PesananModel extends Model
 
     public function getPesananUnyellowing()
     {
-        return $this->select('pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
+        return $this->select('pesanan.id_pesanan, pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
             ->join('customer', 'customer.id_customer = pesanan.id_customer', 'inner') // id untuk join
             ->where('pesanan.id_layanan', 'L237') // kondisi, dimana parameter pertama untuk kolom yg ada di tabel dan paremeter kedua untuk value pembanding
             ->findAll(); // untuk menemukan semua datanya

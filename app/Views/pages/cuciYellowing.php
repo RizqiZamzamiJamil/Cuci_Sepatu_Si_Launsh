@@ -127,11 +127,30 @@
         background-color: white;
         color: black;
     }
+
+    .image-wrapper button {
+        position: absolute;
+        background-color: #fff;
+        color: black;
+        padding: 10px;
+        bottom: 20px;
+        left: 20px;
+        width: 150px;
+        border-radius: 15px;
+        border: none;
+    }
+
+    .image-wrapper button:hover {
+        background-color: #0FC598;
+        border: 2px solid white;
+        color: white;
+    }
 </style>
 <section class="section-1" data-aos="fade-up">
     <div class="container">
         <div class="image-wrapper">
             <img data-aos="fade-up" data-aos-delay="300" src="/img/hero-bulat.png" alt="" id="bulatan">
+            <a href="/pages/cuci"><button>Kembali</button></a>
         </div>
 
         <div class="konten">
@@ -151,17 +170,17 @@
                         <div class="row" style="margin-top: 10px;">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" readonly>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
-                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" readonly>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="800" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" readonly>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Jenis Pembayaran</label>
