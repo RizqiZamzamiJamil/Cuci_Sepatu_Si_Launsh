@@ -170,17 +170,17 @@
                         <div class="row" style="margin-top: 10px;">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" readonly>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" required>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
-                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" readonly>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" required>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="800" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" readonly>
+                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" required>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Jenis Pembayaran</label>
@@ -350,6 +350,10 @@
         }
     }
 
+    function closeDetail() {
+        modal.classList.remove("detail-modal");
+    }
+
     function hitung_total() {
         var selectElementMetode = document.getElementById('metode'); // ambil elemen dari id metode
         var selectMetode = selectElementMetode.options[selectElementMetode.selectedIndex].value; // ambil nilai dari elemen terpilih
@@ -377,8 +381,22 @@
                 $('#total_harga').text(response.total_harga);
             }
         });
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/totalRealTime'); ?>',
+            type: 'POST',
+            data: data,
+            success: function(response) {
+                $('#layanan-terpilih').text(response.layanan);
+                $('#harga-layanan').text(response.harga_layanan);
+                $('#kategori-terpilih').text(response.kategori);
+                $('#harga-kategori').text(response.harga_kategori);
+                $('#metode-terpilih').text(response.metode);
+                $('#total_harga').text(response.total_harga);
+            }
+        });
 
         detail(); // panggil fungsi ini untuk menampilkan data realtime ke pop up
+
     }
 
     function simpanSepatu() {
@@ -412,6 +430,16 @@
                 alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
             }
         });
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
+            type: 'POST',
+            data: insertData,
+            success: function(html) {
+                alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
+                closeDetail();
+            }
+        });
+
     }
 </Script>
 <?= $this->endSection(); ?>
