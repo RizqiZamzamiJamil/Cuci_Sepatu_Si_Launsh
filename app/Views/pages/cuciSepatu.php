@@ -381,6 +381,19 @@
                 $('#total_harga').text(response.total_harga);
             }
         });
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/totalRealTime'); ?>',
+            type: 'POST',
+            data: data,
+            success: function(response) {
+                $('#layanan-terpilih').text(response.layanan);
+                $('#harga-layanan').text(response.harga_layanan);
+                $('#kategori-terpilih').text(response.kategori);
+                $('#harga-kategori').text(response.harga_kategori);
+                $('#metode-terpilih').text(response.metode);
+                $('#total_harga').text(response.total_harga);
+            }
+        });
 
         detail(); // panggil fungsi ini untuk menampilkan data realtime ke pop up
 
@@ -409,6 +422,14 @@
             metode: metode
         }
 
+        $.ajax({
+            url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
+            type: 'POST',
+            data: insertData,
+            success: function(html) {
+                alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
+            }
+        });
         $.ajax({
             url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
             type: 'POST',

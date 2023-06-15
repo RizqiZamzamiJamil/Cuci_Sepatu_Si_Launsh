@@ -1,4 +1,5 @@
 <?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
 <style>
@@ -408,7 +409,6 @@
                 alert('Data Pesanan Cuci Helm berhasil ditambahkan');
             }
         });
-
     }
 </Script>
 <?= $this->endSection(); ?>

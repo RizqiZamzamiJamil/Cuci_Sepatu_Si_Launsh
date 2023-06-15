@@ -125,6 +125,55 @@ class Pages extends BaseController
         return view('pages/cuciYellowing', $data);
     }
 
+    public function infoCuciSepatu(){
+        $data = [
+            'title' => 'Info Cuci Sepatu'
+        ];
+        return view('pages/infoCuciSepatu', $data);
+    }
+    public function infoCuciHelm(){
+        $data = [
+            'title' => 'Info Cuci Sepatu'
+        ];
+        return view('pages/infoCuciHelm', $data);
+    }
+    public function infoCuciUnyellowing(){
+        $data = [
+            'title' => 'Info Cuci Sepatu'
+        ];
+        return view('pages/infoCuciUnyellowing', $data);
+    }
+    public function infoSurabaya(){
+        $data = [
+            'title' => 'Cabang Surabaya'
+        ];
+        return view('pages/infoSurabaya', $data);
+    }
+    public function infoMalang(){
+        $data = [
+            'title' => 'Cabang Malang'
+        ];
+        return view('pages/infoMalang', $data);
+    }
+    public function infoPasuruan(){
+        $data = [
+            'title' => 'Cabang Pasuruan'
+        ];
+        return view('pages/infoPasuruan', $data);
+    }
+    public function infoMojokerto(){
+        $data = [
+            'title' => 'Cabang Mojokerto'
+        ];
+        return view('pages/infoMojokerto', $data);
+    }
+    public function infoSidoarjo(){
+        $data = [
+            'title' => 'Cabang Sidoarjo'
+        ];
+        return view('pages/infoSidoarjo', $data);
+    }
+
     public function profil()
     {
         $username = $_SESSION['username']; // ambil username dari session

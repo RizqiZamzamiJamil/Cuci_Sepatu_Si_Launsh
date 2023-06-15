@@ -353,12 +353,7 @@
         border-radius: 380px 0px 0px 0px;
     }
 
-    .section-5 .row {
-        padding: 0px 100px;
-    }
-
     .section-5 .container .col {
-
         height: 600px;
     }
 
@@ -387,12 +382,13 @@
         height: 500px;
         border-radius: 0px 200px 0 200px;
         box-shadow: -18px 24px 38px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
     }
 
     .section-5 h3 {
         color: black;
         font-size: 35px;
-        margin-left: 10px;
+        margin-left: 30px;
     }
 </style>
 
@@ -400,13 +396,13 @@
     <div class="container">
         <div class="image-container">
             <img data-aos="fade-left" src="/img/hero-helm.png" alt="" id="hero-helm">
-            <img data-aos="fade-right" data-aos-delay="100"  src="/img/hero-sepatu.png" alt="" id="hero-sepatu">
+            <img data-aos="fade-right" data-aos-delay="100" src="/img/hero-sepatu.png" alt="" id="hero-sepatu">
             <img data-aos="fade-up" data-aos-delay="200" src="/img/hero-bulat.png" alt="" id="hero-bulat">
         </div>
         <div class="row">
             <div class="col">
                 <?php if (isset($_SESSION['isLoggedIn'])) { ?>
-                    <div class="cuci-sekarang" >
+                    <div class="cuci-sekarang">
                         <a href="<?= base_url('/pages/cuci/') ?>">
                             <h4>
                                 Cuci Sekarang
@@ -414,7 +410,7 @@
                         </a>
                     </div>
                 <?php } ?>
-                <h3 data-aos="fade-up" data-aos-delay="100" >>>>>>></h3>
+                <h3 data-aos="fade-up" data-aos-delay="100">>>>>>></h3>
                 <h2 data-aos="fade-up" data-aos-delay="150"><b>Membantu Anda Untuk Merawat Sepatu Dan Helm Anda </b></h2>
                 <p data-aos="fade-up" data-aos-delay="200">Si Launsh merupakan usaha yang bergerak dibidang jasa laundry cuci sepatu dan Helm berkualitas yang berasal dari Kota Malang dan memiliki cabang di beberapa Kota Besar di Jawa Timur.</p>
             </div>
@@ -435,25 +431,31 @@
         <div class="row">
             <div class="layanan-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <div class="item">
-                    <img src="/img/layanan1.png" id="lay1">
-                    <div class="box">
-                        <h2>Baca</h2>
-                        <h2>Selengkapnya</h2>
-                    </div>
+                    <a href="/pages/infoCuciSepatu">
+                        <img src="/img/layanan1.png" id="lay1">
+                        <div class="box">
+                            <h2>Baca</h2>
+                            <h2>Selengkapnya</h2>
+                        </div>
+                    </a>
                 </div>
                 <div class="item">
-                    <img src="/img/layanan2.png" id="lay2">
-                    <div class="box">
-                        <h2>Baca</h2>
-                        <h2>Selengkapnya</h2>
-                    </div>
+                    <a href="/pages/infoCuciHelm">
+                        <img src="/img/layanan2.png" id="lay2">
+                        <div class="box">
+                            <h2>Baca</h2>
+                            <h2>Selengkapnya</h2>
+                        </div>
+                    </a>
                 </div>
                 <div class="item">
-                    <img src="/img/layanan3.png" id="lay3">
-                    <div class="box">
-                        <h2>Baca</h2>
-                        <h2>Selengkapnya</h2>
-                    </div>
+                    <a href="/pages/infoCuciUnyellowing">
+                        <img src="/img/layanan3.png" id="lay3">
+                        <div class="box">
+                            <h2>Baca</h2>
+                            <h2>Selengkapnya</h2>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -471,23 +473,23 @@
 
         <div class="row text-center">
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                <h3 class="my-3">
-                    <img src="/img/pelayanan-jam.png" alt="">
-                    Pengerjaan Cepat
+                <h3 class="my-3 d-flex flex-row">
+                    <div><img src="/img/pelayanan-jam.png" alt=""></div>
+                    <div>Pengerjaan Cepat</div>
                 </h3>
                 <p class="text-muted">Dalam Pengerjaan layanan kepada pelanggan, kami selalu berusaha untuk mengerjakan sesuai dengan apa yang telah di tentukan</p>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                <h3 class="my-3">
-                    <img src="/img/pelayanan-like.png" alt="">
-                    Pengerjaan Rapi & Bersih
+                <h3 class="my-3 d-flex flex-row">
+                    <div><img src="/img/pelayanan-like.png" alt=""></div>
+                    <div>Pengerjaan Rapi & Bersih</div>
                 </h3>
                 <p class="text-muted">Selain Cepat tentu kami juga akan selalu mengawasi Tingkat Kebersihan dan Kerapian Sebelum Pelanggan Menerima barang tersebut</p>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                <h3 class="my-3">
-                    <img src="/img/pelayanan-smile.png" alt="">
-                    Menerima Kritik & Saran
+                <h3 class="my-3 d-flex flex-row ">
+                    <div><img src="/img/pelayanan-smile.png" alt=""></div>
+                    <div>Menerima Kritik & Saran</div>
                 </h3>
                 <p class="text-muted">Kami Selalu menerima Kritik & Saran dari Pelanggan demi kemajuan pelayanan kami kedepannya</p>
             </div>
@@ -506,6 +508,7 @@
         <div class="row">
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <a class="cabang-link" href="/pages/infoSurabaya">
                     <a class="cabang-link" href="/pages/cabangSurabaya">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
@@ -522,7 +525,7 @@
 
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                    <a class="cabang-link" href="/pages/infoMalang">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>MALANG</h3>
@@ -538,7 +541,7 @@
 
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                    <a class="cabang-link" href="/pages/infoPasuruan">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>PASURUAN</h3>
@@ -554,7 +557,7 @@
 
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                    <a class="cabang-link" href="/pages/infoMojokerto">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>MOJOKERTO</h3>
@@ -570,7 +573,7 @@
 
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
-                    <a class="cabang-link" data-bs-toggle="modal" href="/">
+                    <a class="cabang-link" href="/pages/infoSidoarjo">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>SIDOARJO</h3>
@@ -591,21 +594,126 @@
 <section class="section-5" data-aos="fade-up">
     <div class="container">
         <div class="row">
-            <div class="col" style="margin: 80px 0px 0px 80px;">
+            <div class="col" style="margin: 80px 0px 0px 80px; margin-left:200px;">
                 <img data-aos="fade-up" data-aos-delay="200" src="/img/ulasan-logo.png" alt="">
                 <h5 data-aos="fade-up" data-aos-delay="250"><b>SI LAUNSH</b></h5>
                 <h1 data-aos="fade-up" data-aos-delay="300">Tunggu Apa Lagi?</h1>
                 <p data-aos="fade-up" data-aos-delay="350">Kami Siap Mencuci Sepatu & Helm Kamu</p>
             </div>
             <div class="col" style="margin: 80px 50px 0px 0px;" data-aos="zoom-in" data-aos-delay="500">
+                <h3>Apa Kata Mereka?</h3>
                 <div class="ulasan">
                     <br>
                     <br>
-                    <h3>Apa Kata Mereka?</h3>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container-fluid review">
+                                    <div class="d-flex flex-row justify-content-start align-items-center mt-3">
+                                        <div class="ms-0"><img src="/img/home-review1.png" alt=""></div>
+                                        <div class="d-flex flex-column">
+                                            <div>bagusn666@gmail.com</div>
+                                            <div>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="komen mx-auto">
+                                        Awalnya saya coba coba buat cuci helm disini, lah kok setelah selesai jadi wangi dan bersih... akhirnya saya ketagihan buat terus cuci helm disini.. next time juga perlu cuci sepatu kali yaaaa.. hehe
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container-fluid review">
+                                    <div class="d-flex flex-row justify-content-start align-items-center mt-3">
+                                        <div class="ms-0"><img src="/img/home-review2.png" alt=""></div>
+                                        <div class="d-flex flex-column">
+                                            <div>novitaangrni20@gmail.com</div>
+                                            <div>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="komen mx-auto">
+                                        Pengerjaan yang sangat memuaskan, dan tentunya dengan harga yang terjangkau bisa jadi rekomendasi buat kalian yang ingin mencuci sepatu dan helm.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container-fluid review">
+                                    <div class="d-flex flex-row justify-content-start align-items-center mt-3">
+                                        <div class="ms-0"><img src="/img/home-review3.png" alt=""></div>
+                                        <div class="d-flex flex-column">
+                                            <div>gslebew@gmail.com</div>
+                                            <div>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                                <i style="color: yellow;" class='bx bxs-star'></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="komen mx-auto">
+                                        hrga yang di berikan sangat diluar nalar cuyyy..... mana pengerjaannya cepet lagiii.... :D
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 </section>
+<style>
+    .section-5 h3 {
+        position: absolute;
+        top: 50px;
+    }
+
+    .section-5 .ulasan {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-5 .review {
+        background-color: silver;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+    }
+
+    .section-5 .review p {
+        font-size: 10px;
+
+
+    }
+
+    .section-5 .komen {
+        background-color: #fff;
+        width: 250px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+</style>
 
 <?= $this->endSection(); ?>
