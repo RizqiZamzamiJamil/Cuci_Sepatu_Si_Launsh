@@ -196,47 +196,56 @@ class Pages extends BaseController
         return view('pages/pesananCuciSepatu', $data);
     }
 
-    public function adminCuciSepatu()
-    {
-        $pesananModel = new PesananModel();
-        $pesanan = $pesananModel->getPesananSepatu(); // panggil fungsi untuk mencari pesanan sepatu
-        $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
 
+    // Menuju View Cabang
+    public function cabangSurabaya(){
         $data = [
-            'title' => 'Cuci Sepatu | Pesanan',
-            'pesanan' => $pesanan,
-            'count' => $count
+            'title' => 'Home | Cabang Surabaya'
         ];
-        return view('pages/adminCuciSepatu', $data);
+        return view('pages/masuk', $data);
     }
 
-    public function adminCuciHelm()
-    {
-        $pesananModel = new PesananModel();
-        $pesanan = $pesananModel->getPesananHelm(); // panggil fungsi untuk mencari pesanan helm
-        $count = count($pesanan); // fungsi untuk menghitung array di pesanan helm
+    // public function adminCuciSepatu()
+    // {
+    //     $pesananModel = new PesananModel();
+    //     $pesanan = $pesananModel->getPesananSepatu(); // panggil fungsi untuk mencari pesanan sepatu
+    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
 
-        $data = [
-            'title' => 'Cuci Helm | Pesanan',
-            'pesanan' => $pesanan,
-            'count' => $count
-        ];
-        return view('pages/adminCuciHelm', $data);
-    }
+    //     $data = [
+    //         'title' => 'Cuci Sepatu | Pesanan',
+    //         'pesanan' => $pesanan,
+    //         'count' => $count
+    //     ];
+    //     return view('dashboard/CuciSepatu', $data);
+    // }
 
-    public function adminCuciUnYellowing()
-    {
-        $pesananModel = new PesananModel();
-        $pesanan = $pesananModel->getPesananUnyellowing(); // panggil fungsi untuk mencari pesanan unyellowing
-        $count = count($pesanan); // fungsi untuk menghitung array di pesanan unyellowing
+    // public function adminCuciHelm()
+    // {
+    //     $pesananModel = new PesananModel();
+    //     $pesanan = $pesananModel->getPesananHelm(); // panggil fungsi untuk mencari pesanan helm
+    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan helm
 
-        $data = [
-            'title' => 'Cuci Unyellowing | Pesanan',
-            'pesanan' => $pesanan,
-            'count' => $count
-        ];
-        return view('pages/adminCuciUnyellowing', $data);
-    }
+    //     $data = [
+    //         'title' => 'Cuci Helm | Pesanan',
+    //         'pesanan' => $pesanan,
+    //         'count' => $count
+    //     ];
+    //     return view('pages/adminCuciHelm', $data);
+    // }
+
+    // public function adminCuciUnYellowing()
+    // {
+    //     $pesananModel = new PesananModel();
+    //     $pesanan = $pesananModel->getPesananUnyellowing(); // panggil fungsi untuk mencari pesanan unyellowing
+    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan unyellowing
+
+    //     $data = [
+    //         'title' => 'Cuci Unyellowing | Pesanan',
+    //         'pesanan' => $pesanan,
+    //         'count' => $count
+    //     ];
+    //     return view('pages/adminCuciUnyellowing', $data);
+    // }
 
     public function adminPesanan()
     {
