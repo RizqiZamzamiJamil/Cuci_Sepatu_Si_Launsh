@@ -156,6 +156,18 @@ $level = $_SESSION["level"];
         background-size: cover;
         background-position: center;
     }
+
+    .notif-badge {
+        position: relative;
+        background-color: red;
+        color: white;
+        font-size: 8px;
+        font-weight: bold;
+        padding: 1px 4px;
+        border-radius: 50%;
+        top: -5px;
+        left: 5px;
+    }
 </style>
 
 <section class="section-1" data-aos="fade-up">
@@ -213,28 +225,23 @@ $level = $_SESSION["level"];
 
                 <div class="row" style="padding: 26px; height:415px;">
                     <!-- Menu Kiri -->
-                    <div class="col-3"
-                        style="background: #F3F3F3; margin-right:20px; border-radius: 0px 40px 40px 40px;" data-aos="zoom-out" data-aos-delay="600">
+                    <div class="col-3" style="background: #F3F3F3; margin-right:20px; border-radius: 0px 40px 40px 40px;" data-aos="zoom-out" data-aos-delay="600">
                         <div class="row" style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="700">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;"
-                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-proses.png" alt="">
                                     Proses
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Menunggu</a></li>
-                                    <li><a class="dropdown-item" href="#">Proses Cuci</a></li>
-                                    <li><a class="dropdown-item" href="#">Siap Di Ambil</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="menunggu(event)">Menunggu<span id="notif" class="notif-badge">2</span></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="proses(event)">Proses Cuci<span id="notif" class="notif-badge">1</span></a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="ambil(event)">Siap Di Ambil<span id="notif" class="notif-badge">5</span></a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 100px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="btn-group">
-                                <button style="background: none; border:none; color:black;"
-                                    class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <button style="background: none; border:none; color:black;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img style="width: 20px; margin-right:5px;" src="/img/profil-akun.png" alt=""> Akun
                                 </button>
                                 <ul style="background: none; border:none;" class="dropdown-menu">
@@ -275,8 +282,7 @@ $level = $_SESSION["level"];
                                     <label for="password">Kata Sandi</label>
                                 </div>
                                 <div class="form-column" data-aos="zoom-out" data-aos-delay="1400">
-                                    <input type="password" id="password" name="password"
-                                        value="<?php echo $password; ?>" disabled>
+                                    <input type="password" id="password" name="password" value="<?php echo $password; ?>" disabled>
                                 </div>
                             </div>
 
@@ -285,8 +291,7 @@ $level = $_SESSION["level"];
                                     <label for="alamat">Alamat</label>
                                 </div>
                                 <div class="form-column" data-aos="zoom-out" data-aos-delay="1600">
-                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>"
-                                        disabled>
+                                    <input type="text" id="alamat" name="alamat" value="<?php echo $alamat; ?>" disabled>
                                 </div>
                             </div>
 
@@ -410,15 +415,223 @@ $level = $_SESSION["level"];
     </div>
 </div>
 
+<div class="pop-up">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            color: #248973;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            animation: fade-in 0.6s forwards;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .proses-profil {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            width: 700px;
+            height: auto;
+            padding: 20px;
+            margin: 150px auto;
+            border-radius: 20px;
+        }
+
+        .proses-profil h3 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .proses-profilh5 {
+            margin-bottom: -2px;
+            margin-top: 10px;
+        }
+
+        .struk {
+            position: relative;
+            margin-top: -10px;
+        }
+
+        .struk .tanggal {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .pembayaran .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .pembayaran .row .col:last-child {
+            text-align: right;
+        }
+
+        #cetak {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            padding: 5px;
+            background-color: #b0b0b0;
+            color: black;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        #cetak:hover {
+            background-color: #0FC598;
+            color: white;
+        }
+    </style>
+
+    <div id="menunggu-modal" class="modal">
+        <div class="proses-profil">
+            <header>
+                <h3>Menunggu</h3>
+                <hr>
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nomor</th>
+                        <th>Jenis</th>
+                        <th>Layanan</th>
+                        <th>Kategori</th>
+                        <th>Pembayaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Cuci Helm</td>
+                        <td>Premium</td>
+                        <td>Full Face</td>
+                        <td>DANA</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="proses-modal" class="modal">
+        <div class="proses-profil">
+            <header>
+                <h3>Proses</h3>
+                <hr>
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nomor</th>
+                        <th>Jenis</th>
+                        <th>Layanan</th>
+                        <th>Kategori</th>
+                        <th>Pembayaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="ambil-modal" class="modal">
+        <div class="proses-profil">
+            <header>
+                <h3>Ambil</h3>
+                <hr>
+            </header>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nomor</th>
+                        <th>Jenis</th>
+                        <th>Layanan</th>
+                        <th>Kategori</th>
+                        <th>Pembayaran</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Cuci Sepatu</td>
+                        <td>Deep Clean</td>
+                        <td>Sneaker</td>
+                        <td>Uang Tunai</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <script>
     // mengubah input disabled menjadi enabled
     const inputFields = document.querySelectorAll('input[disabled]');
-    document.getElementById("ubah").addEventListener("click", function () {
-        inputFields.forEach(function (field) {
+    document.getElementById("ubah").addEventListener("click", function() {
+        inputFields.forEach(function(field) {
             field.removeAttribute("disabled");
         });
     });
-
 
     // konfimasi keluar
     function keluar() {
@@ -433,38 +646,6 @@ $level = $_SESSION["level"];
         window.location.href = "<?= site_url('auth/logout') ?>";
     }
 
-    // Jquery dropdown
-/*     $(document).ready(function() {
-        $('.dropdown-toggle').click(function() {
-            $('.dropdown-menu').slideDown(300); // Menggunakan slideDown() untuk membuat dropdown muncul perlahan dengan durasi 300ms
-        });
-
-        $(document).click(function(event) {
-            var target = $(event.target);
-            if (!target.closest('.btn-group').length) {
-                $('.dropdown-menu').slideUp(300); // Menggunakan slideUp() untuk menyembunyikan dropdown perlahan ketika klik di luar dropdown
-            }
-        });
-    }); */
-    
-    /* Edit Foto */
-    /*     function previewImage(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var preview = document.getElementById("image-preview");
-                preview.style.backgroundImage = "url(" + reader.result + ")";
-                preview.style.display = "block";
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        } */
-
-    // document.getElementById('delete-form').addEventListener('submit', function(e){
-    //     e.preventDefault();
-
-    //     var xhr = new XMLHttpRequest();
-    //     xhr.open('POST', this.get)
-    // })
-
     function hapus() {
         document.getElementById("confirmation-delete").style.display = "block";
     }
@@ -475,6 +656,45 @@ $level = $_SESSION["level"];
 
     function yes() {
         window.location.href = "<?= site_url('auth/hapusAkun') ?>";
+    }
+
+    function menunggu(event) {
+        var modal = document.getElementById("menunggu-modal");
+        var modalContent = document.querySelector(".proses-profil");
+
+        if (event.target === modal) {
+            modal.style.display = "none";
+            window.removeEventListener("click", menunggu);
+        } else {
+            modal.style.display = "block";
+            window.addEventListener("click", menunggu);
+        }
+    }
+
+    function proses(event) {
+        var modal = document.getElementById("proses-modal");
+        var modalContent = document.querySelector(".proses-profil");
+
+        if (event.target === modal) {
+            modal.style.display = "none";
+            window.removeEventListener("click", proses);
+        } else {
+            modal.style.display = "block";
+            window.addEventListener("click", proses);
+        }
+    }
+
+    function ambil(event) {
+        var modal = document.getElementById("ambil-modal");
+        var modalContent = document.querySelector(".proses-profil");
+
+        if (event.target === modal) {
+            modal.style.display = "none";
+            window.removeEventListener("click", ambil);
+        } else {
+            modal.style.display = "block";
+            window.addEventListener("click", ambil);
+        }
     }
 </script>
 <?= $this->endSection(); ?>
