@@ -28,76 +28,76 @@
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
-  <a href="#" class="brand">
-    <img id="logo" src="/img/logo.png" alt="">
-    <span class="text">SiLaunsh</span>
-  </a>
-  <ul class="side-menu top">
-    <li class="menu-item active">
-      <a href="<?php echo base_url('/dashboard') ?>">
-        <i class='bx bxs-dashboard'></i>
-        <span class="text">Dashboard</span>
-      </a>
-    </li>
-    <li class="menu-item dropdown">
-      <a href="#">
-        <i class='bx bxs-package'></i>
-        <span class="text">Pesanan</span>
-      </a>
-      <ul class="sub-menu">
-        <li><a href="<?php echo base_url('/dashboard/adminCuciSepatu') ?>">Cuci Sepatu</a></li>
-        <li><a href="<?php echo base_url('/dashboard/CuciHelm') ?>">Cuci Helm</a></li>
-        <li><a href="<?php echo base_url('/dashboard/Unyellowing') ?>">UnYellowing</a></li>
-      </ul>
-    </li>
-    <li class="menu-item dropdown">
-      <a href="#">
-        <i class='bx bxs-user-detail'></i>
-        <span class="text">Manajer Data</span>
-      </a>
-      <ul class="sub-menu">
-        <li><a href="/pages/adminManageKasir">Kasir</a></li>
-        <li><a href="/pages/adminManagePelanggan">Pelanggan</a></li>
-        <li><a href="/pages/adminManageBarang">Barang</a></li>
-        <li><a href="/pages/adminManageTransaksi">Transaksi</a></li>
-      </ul>
-    </li>
-    <li class="menu-item dropdown">
-      <a href="#">
-        <i class='bx bx-message-square-error'></i>
-        <span class="text">Laporan Pelanggan</span>
-      </a>
-      <ul class="sub-menu">
-        <li><a href="#">Testimoni</a></li>
-        <li><a href="#">Pengaduan</a></li>
-      </ul>
-    </li>
-    <li class="menu-item dropdown">
-      <a href="#">
-        <i class='bx bxs-cog'></i>
-        <span class="text">Pengaturan</span>
-      </a>
-      <ul class="sub-menu">
-        <li><a href="#">Akun</a></li>
-      </ul>
-    </li>
-  </ul>
+        <a href="#" class="brand">
+            <img id="logo" src="/img/logo.png" alt="">
+            <span class="text">SiLaunsh</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="<?php echo base_url('/dashboard') ?>">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#">
+                    <i class='bx bxs-package'></i>
+                    <span class="text">Pesanan</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="<?php echo base_url('/dashboard/adminCuciSepatu') ?>">Cuci Sepatu</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/adminCuciHelm') ?>">Cuci Helm</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/adminCuciUnyellowing') ?>">Unyellowing</a></li>
+                </ul>
+            </li>
+            <li class="menu-item dropdown">
+                <a href="#">
+                    <i class='bx bxs-user-detail'></i>
+                    <span class="text">Manajer Data</span>
+                </a>
+                <ul class="sub-menu">
+                  <li><a href="/pages/adminManageKasir">Kasir</a></li>
+                  <li><a href="/pages/adminManagePelanggan">Pelanggan</a></li>
+                  <li><a href="/pages/adminManageBarang">Barang</a></li>
+                  <li><a href="/pages/adminManageTransaksi">Transaksi</a></li>
+                </ul>
+            </li>
+            <li class="menu-item dropdown">
+              <a href="#">
+                <i class='bx bx-message-square-error'></i>
+                <span class="text">Laporan Pelanggan</span>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#">Testimoni</a></li>
+                <li><a href="#">Pengaduan</a></li>
+              </ul>
+            </li>
+            <li class="menu-item dropdown">
+              <a href="#">
+                <i class='bx bxs-cog'></i>
+                <span class="text">Pengaturan</span>
+              </a>
+              <ul class="sub-menu">
+                <li><a href="#">Akun</a></li>
+              </ul>
+            </li>
+        </ul>
 
-  <ul class="side-menu">
-    <li>
-      <a href="#">
-        <i class='bx bxs-cog'></i>
-        <span class="text">Settings</span>
-      </a>
-    </li>
-    <li>
-      <a onclick="keluar()" href="#" class="logout">
-        <i class='bx bxs-log-out-circle'></i>
-        <span class="text">Logout</span>
-      </a>
-    </li>
-  </ul>
-</section>
+        <ul class="side-menu">
+          <li>
+            <a href="#">
+              <i class='bx bxs-cog'></i>
+              <span class="text">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a onclick="keluar()" href="#" class="logout">
+              <i class='bx bxs-log-out-circle'></i>
+              <span class="text">Logout</span>
+            </a>
+          </li>
+        </ul>
+    </section>
     <!-- SIDEBAR -->
 
 

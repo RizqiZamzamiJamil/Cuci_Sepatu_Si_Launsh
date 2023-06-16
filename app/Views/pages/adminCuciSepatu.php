@@ -33,9 +33,9 @@
         </thead>
         <tbody>
             <?php foreach ($pesanan as $index => $pesanan) :  ?>
-                <tr>
+                <tr class="pesanan">
                     <td><?= $index + 1; ?></td>
-                    <td id="id_pesanan"><?= $pesanan['id_pesanan']; ?></td>
+                    <td><?= $pesanan['id_pesanan']; ?></td>
                     <td>
                         <p><?= $pesanan['nama']; ?></p>
                     </td>
@@ -49,134 +49,13 @@
                     <td><span class="status completed"><?= $pesanan['status']; ?></span></td>
                     <td>
                         <a href="/pages/adminPesanan"><i class='bx bx-detail'></i></a>
-                        <a onclick="konfirmasiHapus()" href="#"><i class='bx bx-trash'></i></a>
+                        <a onclick="return confirm('Hapus Data?')" href="/pemesanan/hapusPesanSepatu/<?php echo $pesanan['id_pesanan']; ?>"><i class='bx bx-trash'></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </div>
-
-<script>
-    function konfirmasiHapus() {
-        var get_idPesanan = document.getElementById('id_pesanan');
-        var id_pesanan = get_idPesanan.value;
-        // var id_pesanan = $('#id_pesanan').text();
-        // var id_pesanan = $id_pesanan;
-        document.write(id_pesanan);
-    }
-</script>
-
-<!-- <div id="confirmationContainer" class="confirmation-container">
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-            animation: fade-in 0.6s forwards;
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #fff;
-            width: 400px;
-            padding: 20px;
-            margin: 270px auto;
-            border-radius: 20px;
-        }
-
-        .button-container {
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .cancel,
-        .confirm {
-            padding: 10px 20px;
-            margin-left: 10px;
-        }
-
-        button {
-            cursor: pointer;
-            color: white;
-            border-radius: 10px;
-            width: 100px;
-        }
-
-        .confirm {
-            background-color: red;
-            transition: background-color 0.3s ease;
-        }
-
-        .cancel {
-            background-color: blue;
-            transition: background-color 0.3s ease;
-        }
-
-        .confirm:hover {
-            background-color: rgba(255, 0, 0, 0.5);
-        }
-
-        .cancel:hover {
-            background-color: rgba(0, 0, 255, 0.5);
-        }
-    </style>
-
-    <div id="confirmation-modal" class="modal">
-        <div class="modal-content">
-            <h2>Hapus data?</h2>
-            <div class="button-container">
-                <button class="cancel" onclick="tidak()">Enggak</button>
-                <button class="confirm" onclick="ok()">Iya</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // konfimasi hapus
-        function konfirmasiHapus() {
-            document.getElementById("confirmation-modal").style.display = "block";
-        }
-
-        function tidak() {
-            document.getElementById("confirmation-modal").style.display = "none";
-        }
-
-        function oke() {
-            var get_idPesanan = document.getElementById('id_pesanan');
-            var id_pesanan = get_idPesanan.value;
-            //dd(document.write(id_pesanan));
-
-            $.ajax({
-                url: '<?php echo base_url('pemesanan/hapusPesanSepatu'); ?>',
-                type: 'POST',
-                data: id_pesanan,
-                success: function(html) {
-                    alert('Request Penghapusan data berhasil');
-                }
-            });
-            // window.location.href = "<?= site_url('pemesanan/hapusPesanSepatu/{id_pesanan}') ?>";
-        }
-    </script> -->
-
 
 <!-- <script>
     function konfirmasi() {

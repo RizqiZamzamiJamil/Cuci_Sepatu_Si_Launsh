@@ -20,4 +20,15 @@ class CuciSepatuDashboard extends BaseController
         ];
         return view('pages/adminCuciSepatu', $data);
     }
+
+    public function edit($id)
+    {
+        $pesananModel = new PesananModel();
+        $pesanan = $pesananModel->getPesananById($id);
+        if ($pesanan) {
+            return view('pages/adminPesanan', ['pesanan' => $pesanan]);
+        } else {
+            return view('pages/adminCuciSepatu');
+        }
+    }
 }
