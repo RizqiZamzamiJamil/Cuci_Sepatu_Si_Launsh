@@ -390,6 +390,38 @@
         font-size: 35px;
         margin-left: 30px;
     }
+
+    .section-5 h3 {
+        position: absolute;
+        top: 50px;
+    }
+
+    .section-5 .ulasan {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-5 .review {
+        background-color: silver;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+    }
+
+    .section-5 .review p {
+        font-size: 10px;
+
+
+    }
+
+    .section-5 .komen {
+        background-color: #fff;
+        width: 250px;
+        height: 210px;
+        padding: 10px;
+        border-radius: 20px;
+    }
 </style>
 
 <section class="section-1" data-aos="fade-down">
@@ -509,7 +541,6 @@
             <div class="col">
                 <div class="cabang-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <a class="cabang-link" href="/pages/infoSurabaya">
-                    <a class="cabang-link" href="/pages/cabangSurabaya">
                         <div class="cabang-hover">
                             <div class="cabang-hover-content">
                                 <h3>SURABAYA</h3>
@@ -520,7 +551,7 @@
                         </div>
                         <img class="img-fluid" src="/img/cabang-surabaya.png" alt="">
                     </a>
-                    </div>
+                </div>
             </div>
 
             <div class="col">
@@ -683,37 +714,5 @@
         </div>
     </div>
 </section>
-<style>
-    .section-5 h3 {
-        position: absolute;
-        top: 50px;
-    }
-
-    .section-5 .ulasan {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .section-5 .review {
-        background-color: silver;
-        width: 300px;
-        height: 300px;
-        border-radius: 20px;
-    }
-
-    .section-5 .review p {
-        font-size: 10px;
-
-
-    }
-
-    .section-5 .komen {
-        background-color: #fff;
-        width: 250px;
-        padding: 10px;
-        border-radius: 20px;
-    }
-</style>
 
 <?= $this->endSection(); ?>

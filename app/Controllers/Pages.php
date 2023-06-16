@@ -181,6 +181,34 @@ class Pages extends BaseController
         ];
         return view('pages/infoSidoarjo', $data);
     }
+    public function adminManageKasir()
+    {
+        $data = [
+            'title' => 'Kasir | Manage'
+        ];
+        return view('pages/adminManageKasir', $data);
+    }
+    public function adminManageBarang()
+    {
+        $data = [
+            'title' => 'Barang | Manage'
+        ];
+        return view('pages/adminManageBarang', $data);
+    }
+    public function adminManageTransaksi()
+    {
+        $data = [
+            'title' => 'Transaksi | Manage'
+        ];
+        return view('pages/adminManageTransaksi', $data);
+    }
+    public function adminManagePelanggan()
+    {
+        $data = [
+            'title' => 'Pelanggan | Manage'
+        ];
+        return view('pages/adminManagePelanggan', $data);
+    }
 
     public function profil()
     {
