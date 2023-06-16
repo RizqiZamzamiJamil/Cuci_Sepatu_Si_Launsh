@@ -38,10 +38,16 @@ class PesananModel extends Model
             ->findAll(); // untuk menemukan semua datanya
     }
 
-    public function getStatusMenunggu(){
+    public function getStatusMenunggu()
+    {
         return $this->select('pesanan.id_pesanan, pesanan.status, pesanan.tgl, customer.nama as nama, customer.alamat as alamat, customer.no_hp') // kolom yang ingin ditampilkan
             ->join('customer', 'customer.id_customer = pesanan.id_customer', 'inner') // id untuk join
             ->where('status', 'Menunggu') // kondisi, dimana parameter pertama untuk kolom yg ada di tabel dan paremeter kedua untuk value pembanding
             ->findAll(); // untuk menemukan semua datanya
+    }
+
+    public function getPesananById($id)
+    {
+        return $this->find($id);
     }
 }

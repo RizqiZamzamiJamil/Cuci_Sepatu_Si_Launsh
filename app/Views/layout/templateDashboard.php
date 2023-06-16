@@ -46,8 +46,8 @@
                 </a>
                 <ul class="sub-menu">
                     <li><a href="<?php echo base_url('/dashboard/adminCuciSepatu') ?>">Cuci Sepatu</a></li>
-                    <li><a href="<?php echo base_url('/dashboard/CuciHelm') ?>">Cuci Helm</a></li>
-                    <li><a href="<?php echo base_url('/dashboard/Unyellowing') ?>">UnYellowing</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/adminCuciHelm') ?>">Cuci Helm</a></li>
+                    <li><a href="<?php echo base_url('/dashboard/adminCuciUnyellowing') ?>">Unyellowing</a></li>
                 </ul>
             </li>
             <li class="dropdown">

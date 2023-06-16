@@ -170,17 +170,17 @@
                         <div class="row" style="margin-top: 10px;">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="600" for="Nama Pemesan" class="form-label">Nama Pemesan</label>
-                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="650" type="text" id="pemesan" class="form-input2" name="pemesan" value="<?php echo $nama; ?>" readonly>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="700" for="Telepon" class="form-label">Telepon</label>
-                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="750" type="phone" id="telepon" class="form-input2" name="telepon" value="<?php echo $no_hp; ?>" readonly>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 10px;" data-aos="fade-up" data-aos-delay="800">
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="800" for="Alamat" class="form-label">Alamat</label>
-                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" required>
+                                <input data-aos="fade-up" data-aos-delay="850" type="text" id="alamat" class="form-input2" name="alamat" value="<?php echo $alamat; ?>" readonly>
                             </div>
                             <div class="col">
                                 <label data-aos="fade-up" data-aos-delay="950" for="jenisbayar" class="form-label">Jenis Pembayaran</label>
@@ -430,15 +430,15 @@
                 alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
             }
         });
-        $.ajax({
-            url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
-            type: 'POST',
-            data: insertData,
-            success: function(html) {
-                alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
-                closeDetail();
-            }
-        });
+        // $.ajax({
+        //     url: '<?php echo base_url('pemesanan/insertPesanan'); ?>',
+        //     type: 'POST',
+        //     data: insertData,
+        //     success: function(html) {
+        //         alert('Data Pesanan Cuci Sepatu berhasil ditambahkan');
+        //         closeDetail();
+        //     }
+        // });
 
     }
 </Script>

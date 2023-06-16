@@ -6,6 +6,7 @@ use App\Models\PesananModel;
 use App\Models\LayananModel;
 use App\Models\KategoriBarangModel;
 use App\Models\PembayaranModel;
+use App\Models\LogPerubahanModel;
 
 class Pemesanan extends BaseController
 {
@@ -14,12 +15,14 @@ class Pemesanan extends BaseController
 
     protected $pesananModel;
     protected $pembayaranModel;
+    protected $logPerubahanModel;
     public function __construct()
     {
         $this->layananModel = new LayananModel();
         $this->kategoriBarangModel = new KategoriBarangModel();
         $this->pesananModel = new PesananModel();
         $this->pembayaranModel = new PembayaranModel();
+        $this->logPerubahanModel = new LogPerubahanModel();
     }
     public function index()
     {
@@ -133,9 +136,87 @@ class Pemesanan extends BaseController
         return redirect()->to('pages/profil');
     }
 
-    public function hapusPesanSepatu()
+    public function hapusPesanSepatu($id)
     {
-        $id_pesanan = $this->request->getPost('id_pesanan');
-        return redirect()->to('pages/adminCuciSepatu');
+        $tahun = date('y');
+        $logPerubahanModel = new LogPerubahanModel(); // buat objek pesanan
+        $logPerubahan = $logPerubahanModel->countAllResults() + 1;
+        $id_logPerubahan = "N" . $tahun . $logPerubahan; // bikin id_logperubahan
+
+        $id_pesanan = $id; // ambil id dari parameter method
+        $id_admin = 'A231'; // default id_admin
+
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date('Y-m-d h:i:sa'); // ambil tanggal saat ini
+
+        $query = 'delete'; // default query
+        $keterangan = 'id' . ' ' . $id_pesanan; // bikin keterangan
+
+        $insertDataLogHapus = [ // array data atau objek
+            'id_logperubahan' => $id_logPerubahan,
+            'id_admin' => $id_admin,
+            'tanggal' => $time,
+            'query' => $query,
+            'keterangan' => $keterangan
+        ];
+
+        $logPerubahanModel->insert($insertDataLogHapus); // masukkan data ke db
+        return redirect()->to('dashboard/adminCuciSepatu');
+    }
+
+    public function hapusPesanHelm($id)
+    {
+        $tahun = date('y');
+        $logPerubahanModel = new LogPerubahanModel(); // buat objek pesanan
+        $logPerubahan = $logPerubahanModel->countAllResults() + 1;
+        $id_logPerubahan = "N" . $tahun . $logPerubahan; // bikin id_logperubahan
+
+        $id_pesanan = $id; // ambil id dari parameter method
+        $id_admin = 'A231'; // default id_admin
+
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date('Y-m-d h:i:sa'); // ambil tanggal saat ini
+
+        $query = 'delete'; // default query
+        $keterangan = 'id' . ' ' . $id_pesanan; // bikin keterangan
+
+        $insertDataLogHapus = [ // array data atau objek
+            'id_logperubahan' => $id_logPerubahan,
+            'id_admin' => $id_admin,
+            'tanggal' => $time,
+            'query' => $query,
+            'keterangan' => $keterangan
+        ];
+
+        $logPerubahanModel->insert($insertDataLogHapus); // masukkan data ke db
+        return redirect()->to('dashboard/adminCuciHelm');
+    }
+
+    public function hapusPesanUnyellowing($id)
+    {
+        $tahun = date('y');
+        $logPerubahanModel = new LogPerubahanModel(); // buat objek pesanan
+        $logPerubahan = $logPerubahanModel->countAllResults() + 1;
+        $id_logPerubahan = "N" . $tahun . $logPerubahan; // bikin id_logperubahan
+
+        $id_pesanan = $id; // ambil id dari parameter method
+        $id_admin = 'A231'; // default id_admin
+
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date('Y-m-d h:i:sa'); // ambil tanggal saat ini
+
+        $query = 'delete'; // default query
+        $keterangan = 'id' . ' ' . $id_pesanan; // bikin keterangan
+
+        $insertDataLogHapus = [ // array data atau objek
+            'id_logperubahan' => $id_logPerubahan,
+            'id_admin' => $id_admin,
+            'tanggal' => $time,
+            'query' => $query,
+            'keterangan' => $keterangan
+        ];
+
+        $logPerubahanModel->insert($insertDataLogHapus); // masukkan data ke db
+        return redirect()->to('dashboard/adminCuciUnyellowing');
     }
 }

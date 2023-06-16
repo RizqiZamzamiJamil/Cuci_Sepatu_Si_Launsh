@@ -125,49 +125,57 @@ class Pages extends BaseController
         return view('pages/cuciYellowing', $data);
     }
 
-    public function infoCuciSepatu(){
+    public function infoCuciSepatu()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciSepatu', $data);
     }
-    public function infoCuciHelm(){
+    public function infoCuciHelm()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciHelm', $data);
     }
-    public function infoCuciUnyellowing(){
+    public function infoCuciUnyellowing()
+    {
         $data = [
             'title' => 'Info Cuci Sepatu'
         ];
         return view('pages/infoCuciUnyellowing', $data);
     }
-    public function infoSurabaya(){
+    public function infoSurabaya()
+    {
         $data = [
             'title' => 'Cabang Surabaya'
         ];
         return view('pages/infoSurabaya', $data);
     }
-    public function infoMalang(){
+    public function infoMalang()
+    {
         $data = [
             'title' => 'Cabang Malang'
         ];
         return view('pages/infoMalang', $data);
     }
-    public function infoPasuruan(){
+    public function infoPasuruan()
+    {
         $data = [
             'title' => 'Cabang Pasuruan'
         ];
         return view('pages/infoPasuruan', $data);
     }
-    public function infoMojokerto(){
+    public function infoMojokerto()
+    {
         $data = [
             'title' => 'Cabang Mojokerto'
         ];
         return view('pages/infoMojokerto', $data);
     }
-    public function infoSidoarjo(){
+    public function infoSidoarjo()
+    {
         $data = [
             'title' => 'Cabang Sidoarjo'
         ];
@@ -247,54 +255,13 @@ class Pages extends BaseController
 
 
     // Menuju View Cabang
-    public function cabangSurabaya(){
+    public function cabangSurabaya()
+    {
         $data = [
             'title' => 'Home | Cabang Surabaya'
         ];
         return view('pages/masuk', $data);
     }
-
-    // public function adminCuciSepatu()
-    // {
-    //     $pesananModel = new PesananModel();
-    //     $pesanan = $pesananModel->getPesananSepatu(); // panggil fungsi untuk mencari pesanan sepatu
-    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan sepatu
-
-    //     $data = [
-    //         'title' => 'Cuci Sepatu | Pesanan',
-    //         'pesanan' => $pesanan,
-    //         'count' => $count
-    //     ];
-    //     return view('dashboard/CuciSepatu', $data);
-    // }
-
-    // public function adminCuciHelm()
-    // {
-    //     $pesananModel = new PesananModel();
-    //     $pesanan = $pesananModel->getPesananHelm(); // panggil fungsi untuk mencari pesanan helm
-    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan helm
-
-    //     $data = [
-    //         'title' => 'Cuci Helm | Pesanan',
-    //         'pesanan' => $pesanan,
-    //         'count' => $count
-    //     ];
-    //     return view('pages/adminCuciHelm', $data);
-    // }
-
-    // public function adminCuciUnYellowing()
-    // {
-    //     $pesananModel = new PesananModel();
-    //     $pesanan = $pesananModel->getPesananUnyellowing(); // panggil fungsi untuk mencari pesanan unyellowing
-    //     $count = count($pesanan); // fungsi untuk menghitung array di pesanan unyellowing
-
-    //     $data = [
-    //         'title' => 'Cuci Unyellowing | Pesanan',
-    //         'pesanan' => $pesanan,
-    //         'count' => $count
-    //     ];
-    //     return view('pages/adminCuciUnyellowing', $data);
-    // }
 
     public function adminPesanan()
     {

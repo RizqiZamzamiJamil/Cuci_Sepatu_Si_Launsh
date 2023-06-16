@@ -49,7 +49,7 @@
                     <td><span class="status completed"><?= $pesanan['status']; ?></span></td>
                     <td>
                         <a href="/pages/adminPesanan"><i class='bx bx-detail'></i></a>
-                        <a onclick="konfirmasi()" href="#"><i class='bx bx-trash'></i></a>
+                        <a onclick="return confirm('Hapus Data?')" href="/pemesanan/hapusPesanHelm/<?php echo $pesanan['id_pesanan']; ?>"><i class='bx bx-trash'></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
