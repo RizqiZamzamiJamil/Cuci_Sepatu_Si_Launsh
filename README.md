@@ -1,9 +1,8 @@
-# CodeIgniter 4 Application Starter
+# PROJECT MANAJEMEN PROYEK SISTEM INFORMASI
 
-## What is CodeIgniter?
+## SISTEM INFORMASI LAUNDRY SEPATU DAN HELM [SI LAUNSH]
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+ [official site](https://codeigniter.com).
 
 This repository holds a composer-installable app starter.
 It has been built from the
