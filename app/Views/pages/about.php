@@ -29,7 +29,7 @@
     }
 
     .tentang h1 {
-        font-size: 40px;
+        font-size: 38px;
         margin-top: 100px;
     }
 
