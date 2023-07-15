@@ -154,8 +154,9 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 300px;
+        width: 270px;
         height: 150px;
+        margin: -20px 16px;
         padding: 10px;
         background: linear-gradient(113.48deg, #0FC598 0%, #BFDB38 114.8%);
         color: #fff;
@@ -171,7 +172,7 @@
 
     .slider {
         position: relative;
-        width: 100%;
+        width: 300px;
         height: 500px;
         overflow: hidden;
     }
@@ -258,7 +259,7 @@
     }
 
     .section-3 .col-md-4 p {
-        font-size: 24px;
+        font-size: 27px;
     }
 
     .section-3 h3 {
@@ -324,10 +325,14 @@
 
     .section-4 h3 {
         transform: rotate(270deg);
+        position: absolute;
+        text-align: right;
+        bottom: -50px;
+        left: 0;
+        transform-origin: top left;
+        transform: rotate(270deg);
         font-size: 50px;
         font-weight: bold;
-        margin-top: 120px;
-        margin-left: -105px;
     }
 
     .section-4 .row .col {
@@ -503,25 +508,37 @@
             </div>
         </div>
 
-        <div class="row text-center">
+        <div class="row justify-content-center">
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <h3 class="my-3 d-flex flex-row">
-                    <div><img src="/img/pelayanan-jam.png" alt=""></div>
-                    <div>Pengerjaan Cepat</div>
+                    <div class="col-3" style="margin-right: 25px;">
+                        <div><img src="/img/pelayanan-jam.png" alt="" style="width: 80px;"></div>
+                    </div>
+                    <div class="col-9">
+                        <div>Pengerjaan Cepat</div>
+                    </div>
                 </h3>
                 <p class="text-muted">Dalam Pengerjaan layanan kepada pelanggan, kami selalu berusaha untuk mengerjakan sesuai dengan apa yang telah di tentukan</p>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 <h3 class="my-3 d-flex flex-row">
-                    <div><img src="/img/pelayanan-like.png" alt=""></div>
-                    <div>Pengerjaan Rapi & Bersih</div>
+                    <div class="col-3" style="margin-right: 15px;">
+                        <div><img src="/img/pelayanan-like.png" alt="" style="width: 80px;"></div>
+                    </div>
+                    <div class="col-9">
+                        <div>Pengerjaan Rapi & Bersih</div>
+                    </div>
                 </h3>
                 <p class="text-muted">Selain Cepat tentu kami juga akan selalu mengawasi Tingkat Kebersihan dan Kerapian Sebelum Pelanggan Menerima barang tersebut</p>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <h3 class="my-3 d-flex flex-row ">
-                    <div><img src="/img/pelayanan-smile.png" alt=""></div>
-                    <div>Menerima Kritik & Saran</div>
+                    <div class="col-3" style="margin-right: 15px;">
+                        <div><img src="/img/pelayanan-smile.png" alt="" style="width: 80px;"></div>
+                    </div>
+                    <div class="col-9">
+                        <div>Menerima Kritik & Saran</div>
+                    </div>
                 </h3>
                 <p class="text-muted">Kami Selalu menerima Kritik & Saran dari Pelanggan demi kemajuan pelayanan kami kedepannya</p>
             </div>
